@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        {% block title %}<title>Zamacucueca Barbershop</title> {% endblock %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">    
+        {%  load staticfiles %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css"> 
+        <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{% static 'index/style.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">       
+    </head>
+    <body>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-toggle="collapse" data-target="#TopNavBar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="{% url 'index:zamacueca'  %}" class="navbar-brand">Zamacueca</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="TopNavBar">
+                        
+                        <ul class="nav navbar-nav">
+                            
+                            <li class="">
+                                <a href="/citas/" class=""> 
+                                     <span class="glyphicon glyphicon-calendar"></span>
+                                     Haz una cita
+                                </a>
+                            </li>
+                            <li class="{% block aboutactive %}{% endblock  %}">
+                                <a href="{% url 'index:about' %}" class=""> 
+                                    <span class="glyphicon glyphicon-heart"></span>
+                                    Sobre Nosotros
+                                </a>
+                            </li>
+                            <li class="{% block galleryactive %}{% endblock  %}">
+                                <a href="{% url 'index:gallery' %}" class="">
+                                    <span class="glyphicon glyphicon-picture"></span>
+                                    Galería
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="/productos/" class=""> 
+                                     <span class="glyphicon glyphicon-th-list"></span>
+                                    Productos
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+            {% block body %}
+            {% endblock %}
+    <footer  class="foo">
+        <div class="container-fluid">
+            <h4>Zamacueca Software - 2016 - Made with <span class="glyphicon glyphicon-heart"></span> by Stark Industries</h4>
+        </div>
+    </footer>
+    </body>
+</html>

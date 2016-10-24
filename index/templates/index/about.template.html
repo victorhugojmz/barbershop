@@ -1,0 +1,21 @@
+{% extends 'index/index.template.html' %}
+{% block title %}<title>Zamacueca - Sobre Nosotros</title>{% endblock %}
+{% block aboutactive %}active{% endblock  %}
+{% block body %}
+  <div class="container-fluid">
+        <h1>Sobre Nosotros</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget dignissim leo, a maximus sem. In laoreet quis erat sed mattis. Donec semper, metus nec egestas fringilla, libero arcu faucibus eros, a viverra odio urna ac sem. Ut commodo feugiat sodales. Suspendisse egestas ut odio mattis placerat. Curabitur dignissim interdum facilisis. Quisque et sagittis lectus, </p>
+        <h2>Nuestro equipo</h2>
+        <div class="row">
+          {% for barbero in barberos  %}
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <h1>{{ barbero.nombre_barbero }}</h1>
+              <h2>{{ barbero.cuenta_twitter_barbero }} / {{ barbero.cuenta_facebook_barbero }}</h2>
+              <p>
+                {{ barbero.descripcion_barbero }}
+              </p> 
+          {% endfor %}
+        </div>
+  </div>
+  </div>
+{% endblock %}

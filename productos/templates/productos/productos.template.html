@@ -1,0 +1,21 @@
+{% extends 'index/index.template.html' %}
+{% block title %} <title>Zamacueca - Productos</title>{% endblock  %}
+{% block body %}
+    <header>
+         <h1>Productos</h1> 
+         <div class="page-break1"></div>
+         <h2>Aqui encontrarás productos para el uso personal de tu peinado, barba, o lo que sea que tengas.</h2> 
+    </header>
+    <div class="container-fluid">
+            <div class="row">
+                {% for producto in object_list %}
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <a href="{% url 'productos:details' producto.id %}"><img src="{{ producto.imagen_producto }}" alt="" class="img-responsive"></a>
+                        <h3> {{ producto.nombre_producto }} </h3>
+                        <h4>{{ producto.marca_producto }}</h4>
+                        <p>MXN ${{ producto.precio_unitario_producto }}.00</p>
+                    </div>
+                {% endfor %}
+            </div>
+    </div>
+{% endblock  %}

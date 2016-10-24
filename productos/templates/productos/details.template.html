@@ -1,0 +1,19 @@
+{% extends 'index/index.template.html' %}
+{% block title %} <title>Zamacueca - Detalles</title>{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7 col-sm-6 col-xs-12">
+              <img draggable="false" src="{{ producto.imagen_producto }}" alt="" class="img-responsive">  
+            </div>
+            <div class="col-md-5 col-sm-6 col-xs-12">
+                <h1>{{ producto.nombre_producto }}</h1>
+                <h2>{{ producto.marca_producto }}</h2>
+                <h3> MXN $ {{ producto.precio_unitario_producto }}.00</h3>
+                <h4>Descripción: </h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel nulla scelerisque, consectetur mauris vitae, placerat enim. Integer ac posuere risus, at fermentum ex. Pellentesque non tincidunt metus, in interdum neque. Nulla dictum luctus metus eu viverra. Morbi volutpat purus justo, eu venenatis mauris maximus a. Quisque iaculis sem id ante pharetra, quis aliquet felis vehicula. Aenean odio turpis, posuere quis ex sed, tincidunt hendrerit ante.
+                Integer at lorem est. Etiam fringilla semper urna, ut eleifend felis interdum a. </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
