@@ -13,6 +13,14 @@ header{
 header p{
   margin: 0 auto;
 }
+a{ 
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    color: white;
+    text-decoration: none;
+ }
 .foo {
     width: 100%;
     height: auto; 

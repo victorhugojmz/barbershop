@@ -14,10 +14,23 @@
                         <h3> {{ producto.nombre_producto }} </h3>
                         <h4>{{ producto.marca_producto }}</h4>
                         <p>MXN ${{ producto.precio_unitario_producto }}.00</p>
-                    <form action="">
-                        {% csrf_token %}
-                        <input type="text">                       
-                    </form>
+                        
+                        <p class="btn btn-default btn-sm">
+                            <a  href="{% url 'productos:update' producto.id %}"><span>Actualizar</span></a>
+                        </p>
+
+                        <p class="btn btn-default btn-sm">
+                            <a  href="{% url 'productos:detail' producto.id %}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                        </p>
+
+                        <form action="{% url 'productos:delete' producto.id %}" method="POST" style="display: inline;" >
+                            {% csrf_token %}
+                            <input type="hidden" name="producto_id" value="{{ producto.id }}">
+                            <button class="btn btn-default btn-sm">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>                         
+                        </form>
+                   
                     </div>
                 {% endfor %}
             </div>
