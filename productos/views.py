@@ -25,7 +25,7 @@ class DeleteProduct(generic.DeleteView):
       success_url = reverse_lazy('productos:index')
 class UserFormView(View):
       form_class = UserForm
-      template_name = 'producto/registration_form.html'
+      template_name = 'productos/registration_form.html'
       #displays blank form
       def get(self,request):
             form = self.form_class(None)
