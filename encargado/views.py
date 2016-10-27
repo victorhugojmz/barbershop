@@ -4,9 +4,15 @@ from django.http import HttpResponse
 from .forms import UserForm
 from django.contrib.auth import authenticate , login 
 from django.views.generic import View
+from django.views import generic
+from productos.models import Producto
 # Create your views here.
 def encargado(request):
      return render(request , 'encargado/encargado.html')
+class ProductsListView(generic.ListView):
+      template_name = 'encargado/encargado.productos.template.html'
+      def get_queryset(sellf):
+         return Producto.objects.all()
 class UserFormView(View):
       form_class = UserForm
       template_name = 'encargado/registration_form.html'
