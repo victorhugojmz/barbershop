@@ -2,7 +2,11 @@
 {% block title %} <title>Haz una cita</title>{% endblock  %}
 {% block  body %}
     <div class="container-fluid">
-        <h1>Rifate</h1>
+        {% if user.is_authenticated %}
+            <h1>Rifate</h1>
+        {% else %}
+            <h1> Auth first </h1>
+        {% endif %}
     </div>
 {% endblock  %}
 
