@@ -16,21 +16,14 @@
                     <div class="collapse navbar-collapse" id="TopNavBar">
                         
                         <ul class="nav navbar-nav">
-                            
-                            <li class="">
-                                <a href="/citas/" class=""> 
-                                     <span class="glyphicon glyphicon-calendar"></span>
-                                     Haz una cita
-                                </a>
-                            </li>
                             <li class="{% block galleryactive %}{% endblock  %}">
-                                <a href="{% url 'index:gallery' %}" class="">
+                                <a href="encargado/citas" class="">
                                     <span class="glyphicon glyphicon-picture"></span>
                                     Administrar citas
                                 </a>
                             </li>
                             <li class="">
-                                <a href="/productos/" class=""> 
+                                <a href="encargado/producto/" class=""> 
                                      <span class="glyphicon glyphicon-th-list"></span>
                                     Administrar productos
                                 </a>
