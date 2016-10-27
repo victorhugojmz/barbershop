@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">       
     </head>
     <body>
+        {% block  customized %}
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     
@@ -56,6 +57,7 @@
 
                 </div>
             </nav>
+        {% endblock  %}
             {% block body %}
             {% endblock %}
     <footer  class="foo">
