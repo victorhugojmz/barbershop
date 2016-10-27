@@ -1,1 +1,15 @@
+{% extends 'index/index.template.html' %}
+{% block title %}
+    <title>Zamacueca - Productos </title>
+{% endblock  %}
 <h1>Productos</h1>
+{% block body %}
+        <div class="container-fluid">
+            <h1>Administración de productos </h1>
+        </div>
+        <ul>
+    {% for producto in object_list  %}
+        <li>{{ producto.id }}</li>
+    {% endfor %}
+</ul>
+{% endblock  %}

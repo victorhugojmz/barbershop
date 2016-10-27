@@ -4,8 +4,10 @@ from django.http import HttpResponse
 from .forms import UserForm
 from django.contrib.auth import authenticate , login 
 from django.views.generic import View
+from django.core.urlresolvers import reverse_lazy
 from django.views import generic
 from productos.models import Producto
+from django.views.generic.edit import CreateView ,  DeleteView , UpdateView
 # Create your views here.
 def encargado(request):
      return render(request , 'encargado/encargado.html')
@@ -13,6 +15,15 @@ class ProductsListView(generic.ListView):
       template_name = 'encargado/encargado.productos.template.html'
       def get_queryset(sellf):
          return Producto.objects.all()
+class CreateProduct(generic.CreateView):
+      model = Producto
+      fields = ['nombre_producto', 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto'] 
+class UpdateProduct(generic.UpdateView):
+      model = Producto
+      fields = ['nombre_producto' , 'precio_unitario_producto', 'stock_producto' ]
+class DeleteProduct(generic.DeleteView):
+      model = Producto
+      success_url = reverse_lazy('encargado:productos')
 class UserFormView(View):
       form_class = UserForm
       template_name = 'encargado/registration_form.html'
