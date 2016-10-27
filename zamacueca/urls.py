@@ -8,7 +8,7 @@ urlpatterns = [
      url(r'^admin/', admin.site.urls), 
      url(r'^citas/', include('cita.urls')),
      url(r'^productos/', include('productos.urls')),
-     url(r'^encargado/',include('encargado.urls'))
+     url(r'^encargado/',include('encargado.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
