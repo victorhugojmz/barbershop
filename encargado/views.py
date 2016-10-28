@@ -15,6 +15,9 @@ class ProductsListView(generic.ListView):
       template_name = 'encargado/encargado.productos.template.html'
       def get_queryset(sellf):
          return Producto.objects.all()
+class ProductDetailview(generic.DetailView):
+      model = Producto
+      template_name = 'encargado/encargado.producto.details.template.html' 
 class CreateProduct(generic.CreateView):
       model = Producto
       fields = ['nombre_producto', 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto'] 
