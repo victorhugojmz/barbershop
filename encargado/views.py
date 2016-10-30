@@ -1,4 +1,4 @@
-from django.shortcuts import render , get_object_or_404
+from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
 from .forms import UserForm
@@ -11,7 +11,9 @@ from productos.models import Producto
 from django.views.generic.edit import CreateView ,  DeleteView , UpdateView 
 # Create your views here.
 def encargado(request):
-     return render(request , 'encargado/encargado.html')
+      if request.user.is_authenticated():
+            return 
+      return render(request , 'encargado/encargado.html')
 class ProductsListView(generic.ListView):
       template_name = 'encargado/encargado.productos.template.html'
       def get_queryset(sellf):
@@ -60,7 +62,7 @@ def login_user(request):
          user = authenticate(username=username, password=password)
          if user is not None:
              if user.is_active:
-                return render(request, 'encargado/encargado.html')
+                return render(request, 'encargado/encargado.html', {'username' : request.user.username})
              else:
                 return render(request, 'encargado/login.html', {'error_message': 'Your account has been disabled'})
          else:
