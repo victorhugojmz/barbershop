@@ -1,4 +1,4 @@
-from django.shortcuts import render,  get_object_or_404 
+from django.shortcuts import render,  get_object_or_404,redirect 
 from django.http import HttpResponse
 from django.template import loader
 from .models import Barbero ,  Imagen
@@ -63,8 +63,4 @@ def login_user(request):
     return render(request, 'index/login.html')
 def logout_user(request):
     logout(request)
-    form = UserForm(request.POST or None)
-    context = {
-        "form": form,
-    }
-    return render(request, 'index/login.html', context)
+    return redirect('zamacueca')
