@@ -8,33 +8,13 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import View
 from django.core.urlresolvers import reverse_lazy
 from django.views import generic
-from productos.models import Producto
-from django.views.generic.edit import CreateView ,  DeleteView , UpdateView 
+from productos.models import Producto 
 # Create your views here.
-@login_required
-def home(request):
-    return render(request, "encargado/encargado.html", {'username':request.user.username})
 def encargado(request):
       if request.user.is_authenticated():
-             return redirect(reverse_lazy('home'))
+             return render(request, "encargado/encargado.html")
       else:
             return render(request, "encargado/login.html")
-class ProductsListView(generic.ListView):
-      template_name = 'encargado/encargado.productos.template.html'
-      def get_queryset(sellf):
-         return Producto.objects.all()
-class ProductDetailView(generic.DetailView):
-      model = Producto
-      template_name = 'encargado/encargado.producto.details.template.html' 
-class CreateProduct(generic.CreateView):
-      model = Producto
-      fields = ['nombre_producto', 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto'] 
-class UpdateProduct(generic.UpdateView):
-      model = Producto
-      fields = ['nombre_producto' , 'precio_unitario_producto', 'stock_producto' ]
-class DeleteProduct(generic.DeleteView):
-      model = Producto
-      success_url = reverse_lazy('encargado:productos')
 class UserFormView(View):
       form_class = UserForm
       template_name = 'encargado/registration_form.html'
