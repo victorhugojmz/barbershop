@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404
 from django.template import loader
 from django.http import HttpResponse
 from .forms import UserForm
-from django.contrib.auth import authenticate , login 
+from django.contrib.auth import authenticate , login
+from django.contrib.auth import logout
 from django.views.generic import View
 from django.core.urlresolvers import reverse_lazy
 from django.views import generic
@@ -52,3 +53,23 @@ class UserFormView(View):
                               login(request, user)
                               return redirect('productos:index')
             return  render(request, self.template_name, { 'form' : form })
+def login_user(request):
+    if request.method == "POST":
+         username = request.POST['username']
+         password = request.POST['password']
+         user = authenticate(username=username, password=password)
+         if user is not None:
+             if user.is_active:
+                return render(request, 'encargado/encargado.html')
+             else:
+                return render(request, 'encargado/login.html', {'error_message': 'Your account has been disabled'})
+         else:
+             return render(request, 'encargado/login.html', {'error_message': 'Invalid login'})
+    return render(request, 'encargado/login.html')
+def logout_user(request):
+    logout(request)
+    form = UserForm(request.POST or None)
+    context = {
+        "form": form,
+    }
+    return render(request, 'encargado/login.html', context)
