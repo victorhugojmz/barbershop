@@ -2,18 +2,23 @@ from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
 from .forms import UserForm
-from django.contrib.auth import authenticate , login
-from django.contrib.auth import logout
+from django.contrib.auth import authenticate , login, logout
+from django.contrib.auth.decorators import login_required
+
 from django.views.generic import View
 from django.core.urlresolvers import reverse_lazy
 from django.views import generic
 from productos.models import Producto
 from django.views.generic.edit import CreateView ,  DeleteView , UpdateView 
 # Create your views here.
+@login_required
+def home(request):
+    return render(request, "encargado/encargado.html", {'username':request.user.username})
 def encargado(request):
       if request.user.is_authenticated():
-            return 
-      return render(request , 'encargado/encargado.html')
+             return redirect(reverse_lazy('home'))
+      else:
+            return render(request, "encargado/login.html")
 class ProductsListView(generic.ListView):
       template_name = 'encargado/encargado.productos.template.html'
       def get_queryset(sellf):
