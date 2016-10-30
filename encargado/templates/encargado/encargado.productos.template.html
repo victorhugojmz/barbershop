@@ -50,26 +50,21 @@
 {% block body %}
         <div class="container-fluid">
             <h1 style="text-align: center;">Administración de productos</h1>
-        
-        <table class="table table-hover">
-            <thead class="thead-inverse">
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Tipo</th>
-                <th>Marca</th>
-                <th>Precio</th>
-                <th>Stock</th>
-            </thead>
-            <tbody>
                 {% for producto in object_list %}
-                        <tr>
-                            <th scope="row">{{ producto.id }}</th>
-                            <td>{{ producto.nombre_producto }}</td>
-                            <td>{{ producto.tipo_producto }}</td>
-                            <td>{{ producto.marca_producto }}</td>
-                            <td>MXN ${{ producto.precio_unitario_producto }}.00</td>
-                            <td>{{ producto.stock_producto }}</td>
-                        </tr>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4 col-xs-12">
+                                <div class="thumbnail">
+                                <img src="{{ producto.imagen_producto.url }}" alt="...">
+                                <div class="caption">
+                                    <h3>{{ producto.nombre_producto }}</h3>
+                                    <h4>{{ producto.marca_producto }} > {{ producto.tipo_producto }}</h4>
+                                    <h5>MXN ${{ producto.precio_unitario_producto }}.00</h5>
+                                    Stock: {{ producto.stock_producto }}
+                                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
                  {% endfor %}
             </tbody>
         </table>
