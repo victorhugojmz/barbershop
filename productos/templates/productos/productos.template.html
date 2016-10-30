@@ -10,14 +10,14 @@
             <div class="row">
                 {% for producto in object_list %}
                     <div class="col-md-3 col-sm-3 col-xs-12">
-                        <a href="{% url 'productos:detail' producto.id %}"><img src="{{ producto.imagen_producto }}" alt="" class="img-responsive"></a>
+                        <img src="{{ producto.imagen_producto }}" alt="" class="img-responsive">
                         <h3> {{ producto.nombre_producto }} </h3>
                         <h4>{{ producto.marca_producto }}</h4>
                         <p>MXN ${{ producto.precio_unitario_producto }}.00</p>
                         
                         {% if  user.is_authenticated %}
                                 <p class="btn btn-default btn-sm">
-                                    <a  href="{% url 'productos:update' producto.id %}"><span>Actualizar</span></a>
+                                    <span>Actualizar</span>
                                  </p>
                                  <form action="{% url 'productos:delete' producto.id %}" method="POST" style="display: inline;" >
                                         {% csrf_token %}

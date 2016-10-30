@@ -7,7 +7,7 @@ from django.views.generic import View
 from django.core.urlresolvers import reverse_lazy
 from django.views import generic
 from productos.models import Producto
-from django.views.generic.edit import CreateView ,  DeleteView , UpdateView
+from django.views.generic.edit import CreateView ,  DeleteView , UpdateView 
 # Create your views here.
 def encargado(request):
      return render(request , 'encargado/encargado.html')
@@ -15,7 +15,7 @@ class ProductsListView(generic.ListView):
       template_name = 'encargado/encargado.productos.template.html'
       def get_queryset(sellf):
          return Producto.objects.all()
-class ProductDetailview(generic.DetailView):
+class ProductDetailView(generic.DetailView):
       model = Producto
       template_name = 'encargado/encargado.producto.details.template.html' 
 class CreateProduct(generic.CreateView):
