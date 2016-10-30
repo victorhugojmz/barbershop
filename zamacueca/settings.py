@@ -27,11 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
-    'encargado.apps.EncargadoConfig',
     'index.apps.IndexConfig',
     'productos.apps.ProductosConfig',
     'cita.apps.CitaConfig',

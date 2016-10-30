@@ -61,7 +61,7 @@
             {% block body %}
     
                 <h1>Bienvenido {{user.username}}</h1>
-               
+                <a href="{% url 'index:logout_user' %}">Logout</a>
             {% endblock %}
     <footer  class="foo">
         <div class="container-fluid">

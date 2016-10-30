@@ -12,3 +12,12 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
       model = Producto
       template_name = 'productos/details.template.html'
+class ProductCreate(CreateView):
+      model = Producto 
+      fields = ['nombre_producto' , 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto']
+class ProductUpdate(UpdateView):
+      model = Producto 
+      fields = ['nombre_producto' , 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto']      
+class ProductDelete(DeleteView): 
+      model = Producto 
+      success_url  =  reverse_lazy('productos:index') 

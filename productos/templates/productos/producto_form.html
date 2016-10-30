@@ -1,0 +1,27 @@
+{% extends "index/index.template.html" %}
+
+{% block title %}
+    <title> Add A new Album </title>
+{% endblock  %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-7">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                            <form  class="form form-horizontal" action="" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {% include "productos/form.template.html" %}
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button class="btn btn-success">Create a New Album</button>
+                                    </div>
+                                </div>
+                            </form>        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
