@@ -6,6 +6,7 @@ urlpatterns = [
         url(r'register/$', views.UserFormView.as_view() , name='register'), 
         url(r'producto/', views.ProductsListView.as_view() ,name='productos'),   
         url(r'producto/new/$', views.CreateProduct.as_view(), name='new'),  
-        url(r'producto/(?P<pk>[0-9]+)/$', views.UpdateProduct.as_view( ) , name='update'),  
+        url(r'producto/(?P<pk>[0-9]+)/$', views.UpdateProduct.as_view( ) , name='update'),
+        url(r'producto/update/(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),  
         url(r'producto/(?P<pk>[0-9]+)/delete', views.DeleteProduct.as_view( ) , name='delete'),
 ]
