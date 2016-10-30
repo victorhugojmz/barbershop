@@ -63,7 +63,7 @@
             <tbody>
                 {% for producto in object_list %}
                         <tr>
-                            <th scope="row"><a href="{% url 'encargado:details' producto.id %}">{{ producto.id }}</a></th>
+                            <th scope="row">{{ producto.id }}</th>
                             <td>{{ producto.nombre_producto }}</td>
                             <td>{{ producto.tipo_producto }}</td>
                             <td>{{ producto.marca_producto }}</td>
