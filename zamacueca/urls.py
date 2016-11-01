@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from index import views
 from . import views 
-app_name= 'main'
+app_name = 'main'
 urlpatterns = [
      url(r'^', include('index.urls'), name='index'), 
      url(r'^admin/', admin.site.urls), 

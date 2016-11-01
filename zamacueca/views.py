@@ -26,7 +26,7 @@ class UserFormView(View):
                         
                         if user.is_active:
                               login(request, user)
-                              return redirect('main: index')
+                              return redirect('main:index')
             return  render(request, self.template_name, { 'form' : form })
 def login_user(request):
     if request.method == "POST":
