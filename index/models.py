@@ -25,5 +25,3 @@ class Cita(models.Model):
 class Imagen(models.Model):
     descripcion = models.CharField(max_length = 250)
     imagen  = models.FileField()
-    
-    
