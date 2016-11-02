@@ -43,7 +43,6 @@
                             <li class="{% block galleryactive %}{% endblock  %}">
                                 <a href="{% url 'index:gallery' %}" class="">
                                     <span class="glyphicon glyphicon-picture"></span>
-                                    Galería
                                 </a>
                             </li>
                             <li class="">
@@ -59,6 +58,9 @@
                                             Logout
                                         </a>
                                     </li>
+                            
+                            {% else %}
+                                        NOOOOOOOOOOOOOOOOOO
                             {% endif %}
                         </ul>
 
