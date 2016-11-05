@@ -1,9 +1,27 @@
-from django.shortcuts import render,  get_object_or_404,redirect 
+from django.shortcuts import render,  get_object_or_404,redirect ,  
 from django.http import HttpResponse
 from django.template import loader
-from .models import Barbero , Galeria
-from django.contrib.auth.decorators import login_required
+from django.views import generic 
 from django.views.generic import View
+from django.views.generic.edit import CreateView ,  DeleteView , UpdateView
+from .models import Barbero , Galeria , Producto
+from django.contrib.auth.decorators import login_required
+class IndexView(generic.ListView):
+    template_name = 'productos/productos.template.html'
+    def get_queryset(self):
+        return Producto.objects.all()
+class DetailView(generic.DetailView):
+      model = Producto
+      template_name = 'productos/details.template.html'
+class ProductCreate(CreateView):
+      model = Producto 
+      fields = ['nombre_producto' , 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto']
+class ProductUpdate(UpdateView):
+      model = Producto 
+      fields = ['nombre_producto' , 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto']      
+class ProductDelete(DeleteView): 
+      model = Producto 
+      success_url  =  reverse_lazy('productos:index')
 # Create your views here.
 def index(request):
     return render(request , 'index/index.template.html')
@@ -21,28 +39,4 @@ def gallery(request):
         'imagenes' : imagenes
     }  
     return HttpResponse(template.render(context,request))
-"""
-from django.views import generic 
-from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import render, redirect 
-from django.views.generic import View
-from .models import Producto
-from django.views.generic.edit import CreateView ,  DeleteView , UpdateView 
-
-class IndexView(generic.ListView):
-    template_name = 'productos/productos.template.html'
-    def get_queryset(self):
-        return Producto.objects.all()
-class DetailView(generic.DetailView):
-      model = Producto
-      template_name = 'productos/details.template.html'
-class ProductCreate(CreateView):
-      model = Producto 
-      fields = ['nombre_producto' , 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto']
-class ProductUpdate(UpdateView):
-      model = Producto 
-      fields = ['nombre_producto' , 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto']      
-class ProductDelete(DeleteView): 
-      model = Producto 
-      success_url  =  reverse_lazy('productos:index') 
-"""
+ 
