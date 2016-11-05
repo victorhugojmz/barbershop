@@ -1,6 +1,14 @@
 from __future__ import unicode_literals
 from django.db import models
-
+class Producto(models.Model):
+    nombre_producto = models.CharField(max_length = 150)
+    tipo_producto = models.CharField(max_length = 50)
+    marca_producto =  models.CharField(max_length = 50)
+    precio_unitario_producto = models.IntegerField(default= 0)
+    stock_producto = models.IntegerField(default=0)
+    imagen_producto = models.FileField()
+    def get_absolute_url(self):
+        return reverse('productos:detail', kwargs={'pk': self.pk })
 class Barbero(models.Model):
     nombre_barbero  = models.CharField(max_length = 60)
     cuenta_twitter_barbero = models.CharField(max_length = 30)
