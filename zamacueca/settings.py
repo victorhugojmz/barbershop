@@ -30,7 +30,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'zamacueca.apps.ZamacuecaConfig',
     'index.apps.IndexConfig',
     'cita.apps.CitaConfig',
     'django.contrib.admin',
