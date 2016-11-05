@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^productos/add/$' , views.ProductCreate.as_view( ), name="product-add"), 
     url(r'^productos/(?P<pk>[0-9]+)/$' , views.ProductUpdate.as_view( ), name="product-update"), 
     url(r'^productos/(?P<pk>[0-9]+)/delete/$' , views.ProductDelete.as_view( ), name="product-delete"),
+    url(r'^account/login/$', views.user_login , name="login" ),
 ] 

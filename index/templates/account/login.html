@@ -1,0 +1,11 @@
+{% extends 'index/index.template.html' %}
+{% block title %}<title>Zamacueca - Login</title>{% endblock %}
+{% block body %}
+        <h1>Log-in</h1>
+        <p>Please Login to the system to manage all stuff</p>
+        <form action="" method="POST">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <p><input type="sumbit" value="Log-in"></p>
+        </form>
+{% endblock %}
