@@ -13,8 +13,7 @@ class Barbero(models.Model):
     nombre_barbero  = models.CharField(max_length = 60)
     cuenta_twitter_barbero = models.CharField(max_length = 30)
     cuenta_facebook_barbero = models.CharField(max_length = 30)
-    descripcion_barbero =  models.CharField(max_length = 350)
-    
+    descripcion_barbero =  models.TextField(max_length = 350)
     def __unicode__(self):
             return  self.nombre_barbero  + '\n' + self.cuenta_twitter_barbero + '\n' + self.cuenta_facebook_barbero + '\n' + self.descripcion_barbero     
 class Servicio(models.Model): 

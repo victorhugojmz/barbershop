@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'zamacueca.apps.ZamacuecaConfig',
     'index.apps.IndexConfig',
-    'productos.apps.ProductosConfig',
     'cita.apps.CitaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
