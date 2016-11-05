@@ -14,6 +14,7 @@ class Barbero(models.Model):
     cuenta_twitter_barbero = models.CharField(max_length = 30)
     cuenta_facebook_barbero = models.CharField(max_length = 30)
     descripcion_barbero =  models.TextField(max_length = 350)
+    fotografia_barbero = models.FileField()
     def __unicode__(self):
             return  self.nombre_barbero  + '\n' + self.cuenta_twitter_barbero + '\n' + self.cuenta_facebook_barbero + '\n' + self.descripcion_barbero     
 class Servicio(models.Model): 
@@ -29,6 +30,6 @@ class Cita(models.Model):
     direccion_cliente  = models.CharField(max_length = 150, default= 'Dr. Barragan No. 594')
     confirmacion = models.BooleanField(default= False)
     nombre_servicio = models.CharField(max_length = 60 , default="Corte de pelo")
-class Imagen(models.Model):
+class Galeria(models.Model):
     descripcion = models.CharField(max_length = 250)
     imagen  = models.FileField()
