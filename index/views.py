@@ -7,7 +7,7 @@ from django.views.generic import View
 from django.views.generic.edit import CreateView ,  DeleteView , UpdateView
 from .models import Barbero , Galeria , Producto
 from django.contrib.auth import authenticate , login
-from .forms import LoginForm
+from .forms import UserForm
 class IndexView(generic.ListView):
     template_name = 'productos/productos.template.html'
     def get_queryset(self):
@@ -41,22 +41,9 @@ def gallery(request):
         'imagenes' : imagenes
     }  
     return HttpResponse(template.render(context,request))
-def user_login(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            cd = form.cleaned_data
-            user = authenticate(username=cd['username'],
-                                password=cd['password'])
-            if user is not None:
-                if user.is_active:
-                    login(request, user)
-                    return HttpResponse('Authenticated '\
-                                        'successfully')
-                else:
-                    return HttpResponse('Disabled account')
-            else:
-                return HttpResponse('Invalid login')
-        else:
-           form = LoginForm()
-    return render(request, 'account/login.html', {'form': form })
+def login_user(request):
+    return 0
+def logout_user(request):
+    return 0
+def register_user(request):
+    return 0
