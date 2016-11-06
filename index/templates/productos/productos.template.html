@@ -10,12 +10,12 @@
             <div class="row">
                 {% for producto in object_list %}
                     <div class="col-md-3 col-sm-3 col-xs-12">
-                        <img src="{{ producto.imagen_producto }}" alt="" class="img-responsive">
+                        <img src="{{ producto.imagen_producto.url }}" alt="" class="img-responsive">
                         <h3>{{ producto.nombre_producto }}</h3>
                         <h4>{{ producto.marca_producto }}</h4>
                         <p>MXN ${{ producto.precio_unitario_producto }}.00</p>
                         <p class="btn btn-default btn-sm">
-                            <a  href="{% url 'productos:detail' producto.id %}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                            <a  href="{% url 'index:detail' producto.id %}"><span class="glyphicon glyphicon-eye-open"></span></a>
                         </p>
                    
                     </div>

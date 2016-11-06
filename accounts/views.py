@@ -13,6 +13,6 @@ def login_user(request):
     return render(request,"account/login.html",{"form": form, "title": title })
 def logout_user(request): 
     logout(request)
-    return render(request,"account/login.html", {})
+    return render(request,"account/logout.html", {})
 def register_user(request):
     return 0
