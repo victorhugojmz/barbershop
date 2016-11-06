@@ -6,7 +6,7 @@ from django.views import generic
 from django.views.generic import View
 from django.views.generic.edit import CreateView ,  DeleteView , UpdateView
 from .models import Barbero , Galeria , Producto
-from django.contrib.auth import authenticate , login
+from django.contrib.auth import authenticate , login , logout , update_session_auth_hash
 from .forms import UserForm
 class IndexView(generic.ListView):
     template_name = 'productos/productos.template.html'
@@ -42,8 +42,19 @@ def gallery(request):
     }  
     return HttpResponse(template.render(context,request))
 def login_user(request):
-    return 0
+    username = request.POST['username']
+    password  = request.POST['password']
+    user = authenticate(username = username, password=password)
+    if user is not None:
+        login(request, user)
+    else:
 def logout_user(request):
-    return 0
+    logout(request)
+    return redirect('/')
 def register_user(request):
+    return 0
+def change_password(request):
+    if request.method = 'POST':
+        if form.is_valid():
+            return 0
     return 0
