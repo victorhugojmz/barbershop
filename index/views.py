@@ -41,20 +41,3 @@ def gallery(request):
         'imagenes' : imagenes
     }  
     return HttpResponse(template.render(context,request))
-def login_user(request):
-    username = request.POST['username']
-    password  = request.POST['password']
-    user = authenticate(username = username, password=password)
-    if user is not None:
-        login(request, user)
-    else:
-def logout_user(request):
-    logout(request)
-    return redirect('/')
-def register_user(request):
-    return 0
-def change_password(request):
-    if request.method = 'POST':
-        if form.is_valid():
-            return 0
-    return 0

@@ -8,9 +8,7 @@ urlpatterns = [
      url(r'^', include('index.urls'), name='index'), 
      url(r'^admin/', admin.site.urls), 
      url(r'^citas/', include('cita.urls')),
-     #url(r'^register/$', views.UserFormView.as_view() , name='register'), 
-     #url(r'^login_user/$', views.login_user , name='login_user'),
-     #url(r'^logout_user/$', views.login_user , name='logout_user'),
+     url(r'^account/', include('accounts.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
