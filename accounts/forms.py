@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import User 
 from django.contrib.auth import (authenticate, login , get_user_model,logout)
 User = get_user_model()
 class UserLoginForm(forms.Form):
@@ -16,3 +17,9 @@ class UserLoginForm(forms.Form):
             if not user.is_active:
                raise forms.ValidationError("El usuario ya no esta activo")
         return super(UserLoginForm, self).clean(*args, **kwargs)
+class UserRegistrationForm(forms.ModelForm):
+      password = forms.CharField(widget = forms.PasswordInput)
+      class Meta:
+              model  = User 
+              fields = ['username' ,'email', 'password']
+          
