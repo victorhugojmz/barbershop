@@ -7,7 +7,7 @@ from django.views.generic import View
 from django.views.generic.edit import CreateView ,  DeleteView , UpdateView
 from .models import Barbero , Galeria , Producto
 from django.contrib.auth import authenticate , login , logout , update_session_auth_hash
-from .forms import UserForm
+
 class IndexView(generic.ListView):
     template_name = 'productos/productos.template.html'
     def get_queryset(self):
