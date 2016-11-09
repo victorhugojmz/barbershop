@@ -1,7 +1,7 @@
 {% extends "index/index.template.html" %}
 
 {% block title %}
-    <title> Add A new Album </title>
+    <title>Zamacueca - Submit </title>
 {% endblock  %}
 
 {% block body %}
@@ -12,10 +12,10 @@
                     <div class="panel-body">
                             <form  class="form form-horizontal" action="" method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
-                                {% include "productos/form.template.html" %}
+                                {% include "index/form.template.html" %}
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
-                                        <button class="btn btn-success">Create a New Album</button>
+                                        <button class="btn btn-success">Submit</button>
                                     </div>
                                 </div>
                             </form>        

@@ -1,11 +1,14 @@
 {% extends 'index/index.template.html' %}
 {% block title %} <title>Haz una cita</title>{% endblock  %}
 {% block  body %}
-    <div class="container-fluid">
-        {% if user.is_authenticated %}
-            <h1>Rifate</h1>
-        {% else %}
-            <h1> Auth first </h1>
+    <header>
+            <h1>Agenda una cita con nosotros</h1>
+            <div class="page-break1"></div>
+            <h2>Y disfruta del mejor servicio en la ciudad</h2>
+    </header>
+    <div class="container">
+        {% if request.user.is_authenticated %}
+            <h3>Administraciòn de citas</h3>
         {% endif %}
     </div>
 {% endblock  %}

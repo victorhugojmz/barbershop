@@ -7,23 +7,23 @@ from django.views.generic import View
 from django.views.generic.edit import CreateView ,  DeleteView , UpdateView
 from .models import Barbero , Galeria , Producto
 from django.contrib.auth import authenticate , login , logout , update_session_auth_hash
-
 class IndexView(generic.ListView):
-    template_name = 'productos/productos.template.html'
+    template_name = 'index/productos.template.html'
     def get_queryset(self):
         return Producto.objects.all()
 class DetailView(generic.DetailView):
       model = Producto
-      template_name = 'productos/details.template.html'
+      template_name = 'index/details.template.html'
 class ProductCreate(CreateView):
       model = Producto 
       fields = ['nombre_producto' , 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto']
 class ProductUpdate(UpdateView):
       model = Producto 
       fields = ['nombre_producto' , 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto']      
+      success_url  =  reverse_lazy('index:index')
 class ProductDelete(DeleteView): 
       model = Producto 
-      success_url  =  reverse_lazy('index:product-delete')
+      success_url  =  reverse_lazy('index:index')
 # Create your views here.
 def index(request):
     return render(request , 'index/index.template.html')

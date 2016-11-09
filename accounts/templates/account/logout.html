@@ -2,6 +2,11 @@
 {% block title %}<title>Login</title>{% endblock %}
 {% block body %}
         <div class="container">
-            <h1>Log-Out</h1>
+            <h1>Has salido del sistema de la barberia</h1>
+            <h2>Y el sistema no es lo mismo sin ti</h2>
+            <ul style="display: inline; list-style-type: none;">
+                <li><a href="{% url 'account:login_user' %}">Iniciar sesi&oacute;n de nuevo</a></li>
+                <li><a href="/">Ir al sitio</a></li>
+            </ul>
         </div>
 {% endblock %}

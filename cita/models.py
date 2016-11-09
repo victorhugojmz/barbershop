@@ -7,8 +7,9 @@ class Producto(models.Model):
     precio  =  models.IntegerField()
     stock = models.IntegerField()
     descripcion  = models.CharField(max_length = 250)
-
-    
-
-
-    
+class Cita(models.Model):
+    nombre = models.CharField(max_length = 150)
+    direccion  = models.CharField(max_length = 150) 
+    fecha = models.DateField()
+class Hora(models.Model):
+    hora = models.TimeField()

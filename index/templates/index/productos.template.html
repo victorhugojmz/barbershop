@@ -1,0 +1,65 @@
+{% extends 'index/index.template.html' %}
+{% block title %} <title>Zamacueca - Productos</title>{% endblock  %}
+{% block body %}
+    <header>
+        {% if request.user.is_authenticated %}
+            <h1>Bienvenido Usuario: <strong>{{ user.username }}</strong></h1>
+            <h2>Administraciòn de productos</h2>
+        {% else %}
+             <h1>Productos</h1> 
+             <div class="page-break1"></div>
+             <h2>Aqui encontrarás productos para el uso personal de tu peinado, barba, o lo que sea que tengas.</h2> 
+        {% endif %}
+    </header>
+    <div class="container">
+            <div class="row">
+                        {% if request.user.is_authenticated %}
+                            {% for producto in object_list %}
+                                    <table class="table table-striped">
+                                        <thead class="table table-heading">
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>Tipo</th>
+                                            <th>Marca</th>
+                                            <th>Precio</th>
+                                            <th>Editar</th>
+                                            <th>Eliminar</th>                       
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ producto.id }}</td>
+                                                <td>{{ producto.nombre_producto }}</td>
+                                                <td>{{ producto.tipo_producto }}</td>
+                                                <td>{{ producto.marca_producto}}</td>
+                                                <td>{{ producto.precio_unitario_producto}}</td>
+                                                <td>
+                                                    <form action="{% url 'index:product-update' producto.id %}">{% csrf_token %}
+                                                        <button>
+                                                        <span class="glyphicon glyphicon-edit"></span>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <form action="{% url 'index:product-delete' producto.id %}">{% csrf_token %}
+                                                        <button>
+                                                            <span class="glyphicon glyphicon-trash"></span>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                             {% endfor %}
+                        {% else %}
+                                {% for producto in object_list %}
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <a href="{% url 'index:detail' producto.id %}"><img src="{{ producto.imagen_producto.url }}" alt="" class="img-responsive"></a>
+                                            <h3>{{ producto.nombre_producto }}</h3>
+                                            <h4>{{ producto.marca_producto }}</h4>
+                                            <p>MXN ${{ producto.precio_unitario_producto }}.00</p>
+                                    </div>
+                                {% endfor %}
+                        {% endif %}
+                    </div>
+            </div>            
+{% endblock  %}

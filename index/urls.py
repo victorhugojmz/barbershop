@@ -8,6 +8,6 @@ urlpatterns = [
     url(r'^productos/$', views.IndexView.as_view(), name='index'),
     url(r'^productos/(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
     url(r'^productos/add/$' , views.ProductCreate.as_view( ), name="product-add"), 
-    url(r'^productos/(?P<pk>[0-9]+)/$' , views.ProductUpdate.as_view( ), name="product-update"), 
+    url(r'^productos/update/(?P<pk>[0-9]+)/$' , views.ProductUpdate.as_view( ), name="product-update"), 
     url(r'^productos/(?P<pk>[0-9]+)/delete/$' , views.ProductDelete.as_view( ), name="product-delete"),
 ] 
