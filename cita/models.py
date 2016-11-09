@@ -10,5 +10,4 @@ class Producto(models.Model):
 class Cita(models.Model):
     nombre = models.CharField(max_length = 150)
     direccion  = models.CharField(max_length = 150) 
-    fecha = models.DateField()
-    hora = models.TimeField(default = False)
+    fecha = models.DateTimeField()
