@@ -40,7 +40,7 @@
                                                     </form>
                                                 </td>
                                                 <td>
-                                                    <form action="{% url 'index:product-delete' producto.id %}">{% csrf_token %}
+                                                    <form action="{% url 'index:product-delete' producto.id %}" method="POST">{% csrf_token %}
                                                         <button>
                                                             <span class="glyphicon glyphicon-trash"></span>
                                                         </button>
