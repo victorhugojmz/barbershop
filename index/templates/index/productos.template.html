@@ -15,15 +15,17 @@
             <div class="row">
                         {% if request.user.is_authenticated %}
                             {% for producto in object_list %}
-                                    <table class="table table-striped">
+                                    <table class="table table-striped table-hover">
                                         <thead class="table table-heading">
                                             <th>#</th>
                                             <th>Nombre</th>
                                             <th>Tipo</th>
                                             <th>Marca</th>
                                             <th>Precio</th>
+                                            <th>Stock</th>
+                                            <th>Detalles</th>
                                             <th>Editar</th>
-                                            <th>Eliminar</th>                       
+                                            <th>Eliminar</th>      
                                         </thead>
                                         <tbody>
                                             <tr>
@@ -32,6 +34,14 @@
                                                 <td>{{ producto.tipo_producto }}</td>
                                                 <td>{{ producto.marca_producto}}</td>
                                                 <td>{{ producto.precio_unitario_producto}}</td>
+                                                <td>{{ producto.stock_producto }}</td>
+                                                <td>
+                                                    <form action="{% url 'index:detail' producto.id %}">
+                                                        <button>
+                                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                                        </button>
+                                                    </form>
+                                                </td>
                                                 <td>
                                                     <form action="{% url 'index:product-update' producto.id %}">{% csrf_token %}
                                                         <button>

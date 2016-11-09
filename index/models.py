@@ -7,8 +7,9 @@ class Producto(models.Model):
     precio_unitario_producto = models.IntegerField(default= 0)
     stock_producto = models.IntegerField(default=0)
     imagen_producto = models.FileField()
+    descripcion_producto = models.CharField(max_length = 400)
     def get_absolute_url(self):
-        return reverse('productos:detail', kwargs={'pk': self.pk })
+        return reverse('index:detail', kwargs={'pk': self.pk })
 class Barbero(models.Model):
     nombre_barbero  = models.CharField(max_length = 60)
     cuenta_twitter_barbero = models.CharField(max_length = 30)
@@ -31,5 +32,6 @@ class Cita(models.Model):
     confirmacion = models.BooleanField(default= False)
     nombre_servicio = models.CharField(max_length = 60 , default="Corte de pelo")
 class Galeria(models.Model):
-    descripcion = models.CharField(max_length = 250)
+    descripcion = models.CharField(max_length = 200)
+    titulo_imagen = models.CharField(max_length = 100) 
     imagen  = models.FileField()
