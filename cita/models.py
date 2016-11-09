@@ -11,5 +11,4 @@ class Cita(models.Model):
     nombre = models.CharField(max_length = 150)
     direccion  = models.CharField(max_length = 150) 
     fecha = models.DateField()
-class Hora(models.Model):
     hora = models.TimeField()
