@@ -8,5 +8,6 @@ class Producto(models.Model):
     stock = models.IntegerField()
     descripcion  = models.CharField(max_length = 250)
 class Cita(models.Model):
+    cita_id = models.AutoField(primary_key= True)
     nombre = models.CharField(max_length = 150)
     fecha = models.DateField()
