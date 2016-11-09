@@ -1,4 +1,8 @@
 from django.contrib import admin
-from models import Cita
+from .models import Cita
 # Register your models here.
-admin.site.register(Cita)
+class CitasModelAdmin(admin.ModelAdmin):
+    list_display = ['id','fecha','hora']
+    class Meta:
+        model = Cita
+admin.site.register(Cita ,CitasModelAdmin)
