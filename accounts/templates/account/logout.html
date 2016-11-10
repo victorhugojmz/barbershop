@@ -1,6 +1,15 @@
-{% extends 'index/index.template.html' %}
-{% block title %}<title>Login</title>{% endblock %}
-{% block body %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Sesiòn finalizada</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        {% load staticfiles %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css">
+         <link rel="stylesheet" href="{% static 'index/style.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">       
+    </head>
+    <body>
         <div class="container">
             <h1>Has salido del sistema de la barberia</h1>
             <h2>Y el sistema no es lo mismo sin ti</h2>
@@ -9,4 +18,5 @@
                 <li><a href="/">Ir al sitio</a></li>
             </ul>
         </div>
-{% endblock %}
+    </body>
+</html>
