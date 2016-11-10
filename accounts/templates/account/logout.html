@@ -4,19 +4,21 @@
 {% endblock  %}
 {% block body %}
     <div class="container">
-            <h1>Has salido del sistema de la barberia</h1>
-            <h2>Y el sistema no es lo mismo sin ti</h2>
-            <ul style="display: inline; list-style-type: none;">
-                <li>
-                    <button class="btn btn-success">
-                        <a href="{% url 'account:login_user' %}">Iniciar sesi&oacute;n de nuevo</a>
-                    </button>
-                </li>
-                <li>
-                    <button class="btn btn-info">
-                        <a href="/">Ir al sitio</a>
-                    </button>
-                </li>
-            </ul>
-        </div>
+        <div class="row">
+                <h1>Has salido del sistema de la barberia</h1>
+                <h2>Y el sistema no es lo mismo sin ti</h2>
+                <ul style="display: inline; list-style-type: none;">
+                    <li>
+                        <button class="btn btn-success">
+                            <a href="{% url 'account:login_user' %}">Iniciar sesi&oacute;n de nuevo</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-info">
+                            <a href="/">Ir al sitio</a>
+                        </button>
+                    </li>
+                </ul>
+         </div>
+     </div>
 {% endblock  %}
