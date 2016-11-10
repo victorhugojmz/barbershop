@@ -25,12 +25,6 @@ class Servicio(models.Model):
     precio_servicio =  models.IntegerField()
     def __unicode__ (self):
         return self.nombre_corte + '-' + self.descripcion_corte  + '-' + self.imagen_corte
-class Cita(models.Model): 
-    nombre_cliente = models.CharField(max_length = 60)
-    telefono_cliente = models.CharField(max_length = 20, default='044(55)29229929')
-    direccion_cliente  = models.CharField(max_length = 150, default= 'Dr. Barragan No. 594')
-    confirmacion = models.BooleanField(default= False)
-    nombre_servicio = models.CharField(max_length = 60 , default="Corte de pelo")
 class Galeria(models.Model):
     descripcion = models.CharField(max_length = 200)
     titulo_imagen = models.CharField(max_length = 100) 

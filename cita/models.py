@@ -5,3 +5,7 @@ class Cita(models.Model):
     cita_id = models.AutoField(primary_key= True)
     nombre = models.CharField(max_length = 150)
     fecha = models.DateField()
+    nombre_cliente = models.CharField(max_length = 150)
+    telefono_cliente =  models.CharField(max_length = 12 )
+    direccion = models.CharField(max_length = 120)
+    
