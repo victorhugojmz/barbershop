@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import (authenticate, login , get_user_model,logout)
 User = get_user_model()
 class UserLoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget = forms.PasswordInput)
+    username = forms.CharField(label ='Username',widget=forms.TextInput(attrs={'class':'form-control'}))
+    password = forms.CharField(widget = forms.PasswordInput(attrs={'placeholder':'Password' ,'class':'form-control'}))
     def clean(self, *args, **kwargs): 
         username = self.cleaned_data.get("username")
         password = self.cleaned_data.get("password")
@@ -18,14 +18,19 @@ class UserLoginForm(forms.Form):
                raise forms.ValidationError("El usuario ya no esta activo")
         return super(UserLoginForm, self).clean(*args, **kwargs)
 class UserRegistrationForm(forms.ModelForm):
-      email = forms.EmailField(label = 'Escribe tu direccion de correo' , placeholder = 'ejemplo: me@abc.com')
-      email2 = forms.EmailField(label ='Confirma tu correo electronico')
-      password = forms.CharField(widget = forms.PasswordInput)
+      username = forms.CharField(label ='Nombre de usuario',widget=forms.TextInput(attrs={'placeholder': 'Ejemplo: zamacueca2000','class':'form-control'}))
+      first_name = forms.CharField(label ='Nombre(s)',widget=forms.TextInput(attrs={'class':'form-control'}))
+      last_name = forms.CharField(label ='Apellido(s)',widget=forms.TextInput(attrs={'class':'form-control'}))
+      email = forms.EmailField(label = 'Email', widget=forms.TextInput(attrs={'placeholder': 'Email','class':'form-control'}))
+      email2 = forms.EmailField(label ='Confirma tu email', widget=forms.TextInput(attrs={'placeholder': 'Confirma email','class':'form-control'}))
+      password = forms.CharField(widget = forms.PasswordInput(attrs={'placeholder':'Password' ,'class':'form-control'}))
       class Meta:
               model  = User 
               fields = [
+                  'first_name',
+                  'last_name',
                   'username',
                   'email',
                   'email2',
-                  'password'
+                  'password',
               ]

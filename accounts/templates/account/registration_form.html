@@ -1,5 +1,5 @@
 {% extends "account/login.html" %}
-{% block title %}<title>Nuevo Usuario</title>{% endblock %}
+{% block title %}<title>Registro en el sistema</title>{% endblock %}
 {% block body %}
         <div class="container">
             <div class="row">
@@ -11,7 +11,9 @@
                         </div>
                         <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
                             {% include "account/form.template.html" %}
-                            <input type="submit" class="btn btn-default" value="Registrarme">
+                            <button class="btn btn-default" type="submit" value="Registrarme">
+                                Registrarme
+                            </button>
                         </form>
                  </div>
             </div>

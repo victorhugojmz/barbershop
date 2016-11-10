@@ -9,7 +9,7 @@ def login_user(request):
         password = form.cleaned_data.get("password")
         user = authenticate(username = username , password  = password)
         login(request, user)
-        return redirect("https://www.google.com.mx/")   
+        return render(request,"index/index.template.html",{})  
     return render(request,"account/login.html",{"form": form, "title": title })
 def logout_user(request): 
     logout(request)
