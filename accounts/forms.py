@@ -18,9 +18,9 @@ class UserLoginForm(forms.Form):
                raise forms.ValidationError("El usuario ya no esta activo")
         return super(UserLoginForm, self).clean(*args, **kwargs)
 class UserRegistrationForm(forms.ModelForm):
+      first_name = forms.CharField(label ='Nombre(s)',widget=forms.TextInput(attrs={'placeholder': 'Nombre(s)','class':'form-control'}))
+      last_name = forms.CharField(label ='Apellido(s)',widget=forms.TextInput(attrs={'placeholder': 'Apellido(s)','class':'form-control'}))
       username = forms.CharField(label ='Nombre de usuario',widget=forms.TextInput(attrs={'placeholder': 'Ejemplo: zamacueca2000','class':'form-control'}))
-      first_name = forms.CharField(label ='Nombre(s)',widget=forms.TextInput(attrs={'class':'form-control'}))
-      last_name = forms.CharField(label ='Apellido(s)',widget=forms.TextInput(attrs={'class':'form-control'}))
       email = forms.EmailField(label = 'Email', widget=forms.TextInput(attrs={'placeholder': 'Email','class':'form-control'}))
       email2 = forms.EmailField(label ='Confirma tu email', widget=forms.TextInput(attrs={'placeholder': 'Confirma email','class':'form-control'}))
       password = forms.CharField(widget = forms.PasswordInput(attrs={'placeholder':'Password' ,'class':'form-control'}))
