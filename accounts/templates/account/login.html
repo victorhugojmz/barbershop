@@ -1,18 +1,28 @@
-{% extends 'index/index.template.html' %}
-{% block title %}<title>Login</title>{% endblock %}
-{% block body %}
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-md-8 col-xs-12">
-                    <h1>Log-in</h1>
-                    <p>Please Login to the system to manage all stuff</p>
-                    <div class="form-group">
-                        <form action="" method="POST" enctype="multipart/form-data"> {% csrf_token %}
-                            {% include "account/form.template.html" %}
-                             <input type="submit" class="btn btn-default" value="Login">
-                        </form>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        {% load staticfiles %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css">
+         <link rel="stylesheet" href="{% static 'index/style.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">       
+    </head>
+    <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-8 col-xs-12">
+                        <h1>Log-in</h1>
+                        <p>Please Login to the system to manage all stuff</p>
+                        <div class="form-group">
+                            <form action="" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                                {% include "account/form.template.html" %}
+                                <input type="submit" class="btn btn-default" value="Login">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-{% endblock %}
+    </body>
+</html>

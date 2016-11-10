@@ -14,11 +14,11 @@ header p{
   margin: 0 auto;
 }
 a{ 
-    color: blue;
+    color: white;
     text-decoration: none;
 }
 a:hover{
-    color:blue;
+    color:white;
     text-decoration: none;
  }
 .foo {
