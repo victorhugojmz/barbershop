@@ -18,11 +18,14 @@ class UserLoginForm(forms.Form):
                raise forms.ValidationError("El usuario ya no esta activo")
         return super(UserLoginForm, self).clean(*args, **kwargs)
 class UserRegistrationForm(forms.ModelForm):
+      email = forms.EmailField(label = 'Escribe tu direccion de correo' , placeholder = 'ejemplo: me@abc.com')
+      email2 = forms.EmailField(label ='Confirma tu correo electronico')
       password = forms.CharField(widget = forms.PasswordInput)
       class Meta:
               model  = User 
               fields = [
                   'username',
                   'email',
+                  'email2',
                   'password'
               ]
