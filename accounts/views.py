@@ -13,9 +13,12 @@ def login_user(request):
             return render(request,"account/login.html",{"form": form })
         else: 
             return render(request,"index/index.template.html",{}) 
-def logout_user(request): 
-    logout(request)
-    return render(request,"account/logout.html", {})
+def logout_user(request):
+    if not request.user.is_authenticated():
+        return render(request,"index/index.template.html", {})
+    else:
+        logout(request)
+        return render(request,"account/logout.html", {})
 def register_user(request):
     form = UserRegistrationForm(request.POST or None)
     context = {

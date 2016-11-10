@@ -5,20 +5,16 @@
 {% block body %}
     <div class="container">
         <div class="row">
-                <h1>Has salido del sistema de la barberia</h1>
-                <h2>Y el sistema no es lo mismo sin ti</h2>
-                <ul style="display: inline; list-style-type: none;">
-                    <li>
-                        <button class="btn btn-success">
-                            <a href="{% url 'account:login_user' %}">Iniciar sesi&oacute;n de nuevo</a>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="btn btn-info">
-                            <a href="/">Ir al sitio</a>
-                        </button>
-                    </li>
-                </ul>
+            <div class="col-sm-4 col-md-offset-4 col-md-4 col-md-offset-4 col-xs-12">
+                    <h1>Has salido del sistema de  administración de la barberia.</h1>
+                    <h2>Y el sistema no es lo mismo sin ti</h2>
+                    <button class="btn btn-success">
+                       <a href="{% url 'account:login_user' %}">Iniciar sesi&oacute;n de nuevo</a>
+                    </button>
+                    <button class="btn btn-success">
+                       <a href="/">Ir al sitio</a>
+                    </button>
+            </div>
          </div>
      </div>
 {% endblock  %}
