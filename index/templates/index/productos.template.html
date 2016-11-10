@@ -3,8 +3,7 @@
 {% block body %}
     <header>
         {% if request.user.is_authenticated %}
-            <h1>Bienvenido Usuario: <strong>{{ user.username }}</strong></h1>
-            <h2>Administraciòn de productos</h2>
+            <h1>Administraciòn de productos</h1>
         {% else %}
              <h1>Productos</h1> 
              <div class="page-break1"></div>
