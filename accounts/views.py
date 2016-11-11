@@ -30,3 +30,5 @@ def register_user(request):
         "form": form
     }
     return render(request,"account/registration_form.html",context)
+def user_reports(request): 
+    return render(request,"account/reports.html",{ })
