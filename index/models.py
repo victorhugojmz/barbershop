@@ -7,7 +7,7 @@ class Producto(models.Model):
     precio_unitario_producto = models.IntegerField(default= 0)
     stock_producto = models.IntegerField(default=0)
     imagen_producto = models.FileField()
-    descripcion_producto = models.CharField(max_length = 400)
+    descripcion_producto = models.TextField()
     def get_absolute_url(self):
         return reverse('index:detail', kwargs={'pk': self.pk })
 class Barbero(models.Model):

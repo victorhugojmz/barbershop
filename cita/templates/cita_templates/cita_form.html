@@ -16,25 +16,19 @@
                         </form>
                  </div>
             </div>
+            <button type="submit" class="btn btn-default">
+                Buscar disponibilidad para esta fecha.
+            </button>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
         <br>
         <br>
         <br>
         <script>
   $(function() {
     $( ".datepicker" ).datepicker({
+      dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
+      dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+      dateFormat: "mm-dd-yy", 
       changeMonth: true,
       changeYear: true,
       yearRange: "2016:2017",

@@ -1,0 +1,10 @@
+{% extends "index/index.template.html" %}
+{% block title %}
+    <title>Informacion general</title>
+{% endblock %}
+{% block body %}
+        <div class="container">
+            <h1>Detalles del usuario</h1>
+            <h3><strong>username:</strong> {{ request.user.username }}</h3>
+        </div>
+{% endblock %}
