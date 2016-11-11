@@ -14,7 +14,10 @@ def login_user(request):
         else: 
             return render(request,"index/index.template.html",{}) 
 def user_account(request):
-    return render(request,"account/user.details.html",{})
+    if not request.user.is_authenticated():
+       return render(request,"index/index.template.html",{})
+    else:  
+        return render(request,"account/user.details.html",{})
 def logout_user(request):
     if not request.user.is_authenticated():
         return render(request,"index/index.template.html", {})

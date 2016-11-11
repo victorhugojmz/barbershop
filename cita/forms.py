@@ -10,7 +10,7 @@ class CitaForm(forms.Form):
                                 }))
     fecha = forms.DateField(widget=forms.TextInput(attrs=
                                 {
-                                    'placeholder' : 'Escoge una fecha para tu cita',
+                                    'placeholder' : 'Escoge una fecha',
                                     'class':'datepicker'
                                 }))
     def post(nombre,direccion,fecha):
