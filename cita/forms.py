@@ -3,8 +3,16 @@ from models  import Cita
 class CitaForm(forms.Form):
     nombre_cliente = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Nombre'}))
     telefono_cliente = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Telefono'}))
-    direccion = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Direccion'}))
-    fecha = forms.DateField()
+    direccion = forms.CharField(widget=forms.TextInput(attrs=
+                                {
+                                    'class':'form-control',
+                                    'placeholder':'Direccion'
+                                }))
+    fecha = forms.DateField(widget=forms.TextInput(attrs=
+                                {
+                                    'placeholder' : 'Escoge una fecha para tu cita',
+                                    'class':'datepicker'
+                                }))
     def post(nombre,direccion,fecha):
         model = Cita
         save(nombre,direccion,fecha)

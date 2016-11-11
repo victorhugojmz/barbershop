@@ -1,7 +1,7 @@
 {% extends "index/index.template.html" %}
 
 {% block title %}
-    <title>Zamacueca - Submit </title>
+    <title>Administración del Producto</title>
 {% endblock  %}
 
 {% block body %}
@@ -10,9 +10,11 @@
             <div class="col-sm-12 col-md-7">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                            <form  class="form form-horizontal" action="" method="POST" enctype="multipart/form-data">
+                            <form  class="form form-horizontal"  method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
-                                {% include "index/form.template.html" %}
+                                <div class="form-group"> 
+                                    {% include "index/form.template.html" %}
+                                </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <button class="btn btn-success">Submit</button>

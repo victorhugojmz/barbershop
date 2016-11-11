@@ -16,10 +16,11 @@ class DetailView(generic.DetailView):
       template_name = 'index/details.template.html'
 class ProductCreate(CreateView):
       model = Producto 
-      fields = ['nombre_producto' , 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto']
+      fields = ['nombre_producto' , 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto','descripcion_producto']
+      success_url  =  reverse_lazy('index:index')      
 class ProductUpdate(UpdateView):
       model = Producto 
-      fields = ['nombre_producto' , 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto']      
+      fields = ['nombre_producto' , 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto', 'descripcion_producto']      
       success_url  =  reverse_lazy('index:index')
 class ProductDelete(DeleteView): 
       model = Producto 

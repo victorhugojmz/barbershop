@@ -1,12 +1,12 @@
 {% extends "index/index.template.html" %}
 {% block title %}
-    <title>Book a date</title>
+    <title>Nueva cita</title>
 {% endblock %}
 {% block body %}
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-12">
-                        <h1>Book a date with us</h1>
+                        <h1>Genera una nueva cita</h1>
                         <p>Por favor, llena el siguiente formulario poder generar una cita.</p>
                         <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
                             {% include "account/form.template.html" %}
@@ -17,4 +17,30 @@
                  </div>
             </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <script>
+  $(function() {
+    $( ".datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "2016:2017",
+      // You can put more options here.
+    });
+  });
+  </script>
+
 {% endblock  %}
