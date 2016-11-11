@@ -24,4 +24,3 @@ class CitaForm(forms.Form):
             'direccion',
             'fecha',
         ]
-    

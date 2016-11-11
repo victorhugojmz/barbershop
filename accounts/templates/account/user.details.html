@@ -12,6 +12,14 @@
                 <h4><strong>Email:  </strong> {{ request.user.email }} </h4>
                 <h4><strong>Último acceso al sistema: </strong>{{ request.user.last_login }}</h4>
                 <h4><strong>Fecha de creación de la cuenta:  </strong>{{ request.user.date_joined }}</h4>
+                <h4>
+                    <strong>Permisos: </strong>
+                    {% if request.user.is_superuser %}
+                        Administrador (Developer)
+                    {% else %}
+                        Encargado
+                    {% endif %}
+               </h4>
             </div>
         </div>
 {% endblock %}
