@@ -26,9 +26,23 @@ def logout_user(request):
         return render(request,"account/logout.html", {})
 def register_user(request):
     form = UserRegistrationForm(request.POST or None)
+    if form.is_valid():
+        user = form.save(commit=False)
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        first_name = form.cleaned_data['first_name']
+        last_name = form.cleaned_data['last_name']
+        email = form.cleaned_data['email']
+        user.set_password(password)
+        user.save()
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return render(request, 'account/user.details.html', {})
     context = {
-        "form": form
+        "form": form,
     }
-    return render(request,"account/registration_form.html",context)
+    return render(request, 'account/registration_form.html', context)
 def user_reports(request): 
     return render(request,"account/reports.html",{ })
