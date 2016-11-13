@@ -1,5 +1,9 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import CitaSerializer
 from forms import CitaForm
 from models import Cita
 # Create your views here.
@@ -25,3 +29,8 @@ def book(request):
             "form": form 
         }
         return render(request, 'cita_templates/cita_form.html',context)
+class ListaDeCitas(APIView):
+    def get(self , request):
+        citas  =  Cita.objects.all()
+        serializer = CitaSerializer(citas, many=True)
+        return Response(serializer.data)
