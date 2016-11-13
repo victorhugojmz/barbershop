@@ -58,6 +58,15 @@ header p{
      margin:10px 0px 10px 0px; 
   }
   .ui-datepicker { 
-      background: yellow; 
-      font-size: 9pt !important; }
+      background:lightgrey; 
+      font-size: 15pt;
+      padding: 20px; 
+      margin:  0px;
+      width: 300px;
+      height: 300px;
+      }
+.ui-datepicker:hover 
+{
+    background: grey;
+}
       

@@ -1,6 +1,6 @@
 from django import forms
 from models  import Cita
-class CitaForm(forms.Form):
+class CitaForm(forms.ModelForm):
     nombre_cliente = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Nombre'}))
     telefono_cliente = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Telefono'}))
     direccion = forms.CharField(widget=forms.TextInput(attrs=
@@ -13,14 +13,11 @@ class CitaForm(forms.Form):
                                     'placeholder' : 'Escoge una fecha',
                                     'class':'datepicker'
                                 }))
-    def post(nombre,direccion,fecha):
-        model = Cita
-        save(nombre,direccion,fecha)
     class Meta: 
         model = Cita
-        fields = [ 
+        fields = (
             'nombre_cliente',
             'telefono_cliente',
             'direccion',
             'fecha',
-        ]
+        )
