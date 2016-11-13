@@ -7,7 +7,7 @@ from django.views.generic import View
 from django.views.generic.edit import CreateView ,  DeleteView , UpdateView
 from .models import Barbero , Galeria , Producto
 from django.contrib.auth import authenticate , login , logout , update_session_auth_hash
-from .forms import UpdateProductForm
+from .forms import UpdateProductForm ,CreateProductForm
 class IndexView(generic.ListView):
     template_name = 'index/productos.template.html'
     def get_queryset(self):
@@ -17,7 +17,7 @@ class DetailView(generic.DetailView):
       template_name = 'index/details.template.html'
 class ProductCreate(CreateView):
       model = Producto 
-      fields = ['nombre_producto' , 'tipo_producto' , 'marca_producto' , 'precio_unitario_producto', 'stock_producto' , 'imagen_producto','descripcion_producto']
+      form_class  = CreateProductForm
       success_url  =  reverse_lazy('index:index')      
 class ProductUpdate(UpdateView):
       model = Producto 

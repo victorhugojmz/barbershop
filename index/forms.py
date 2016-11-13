@@ -70,7 +70,7 @@ class CreateProductForm(forms.ModelForm):
                             attrs={
                                 'class':'form-control',
                                 'placeholder': 'Descripcion del producto'
-                                })
+                                }),
             'imagen_producto': forms.ImageField(
                             attrs={
                                 'class':'form-control',
