@@ -71,9 +71,9 @@ class CreateProductForm(forms.ModelForm):
                                 'class':'form-control',
                                 'placeholder': 'Descripcion del producto'
                                 }),
-            'imagen_producto': forms.ImageField(
+            'imagen_producto': forms.FileInput(
                             attrs={
-                                'class':'form-control',
-                                'value': 'Subir una imagen'
+                                'class':'btn btn-info',
+                                'name':'Upload Image'
                                 })
         }
