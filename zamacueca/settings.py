@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'productos.apps.ProductosConfig',
     'accounts.apps.AccountsConfig',
     'index.apps.IndexConfig',
     'cita.apps.CitaConfig',
