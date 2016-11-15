@@ -12,7 +12,7 @@ class Producto(models.Model):
     def get_absolute_url(self):
         return reverse('index:detail', kwargs={'pk': self.pk })
 class Imagen(models.Model):
-    imagen = models.ForeignKey(Producto , on_delete=models.CASCADE) 
-    titulo_imagen = models.CharField(max_length = 20)
+    titulo_imagen = models.ForeignKey(Producto , on_delete=models.CASCADE) 
+    imagen = models.FileField()
     descripcion_imagen  = models.CharField(max_length = 80)
     
