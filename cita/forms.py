@@ -11,7 +11,7 @@ class CitaForm(forms.ModelForm):
     fecha = forms.DateField(widget=forms.TextInput(attrs=
                                 {
                                     'placeholder' : 'Escoge una fecha',
-                                    'class':'datepicker'
+                                    'class':'form-control datepicker'
                                 }))
     class Meta: 
         model = Cita
