@@ -2,13 +2,6 @@ from django.shortcuts import (
                                 render,
                                 redirect
                              )
-from django.views import generic 
-from django.views.generic import View
-from django.views.generic.edit import (
-                                        CreateView , 
-                                        DeleteView , 
-                                        UpdateView
-                                      )
 from .models import (
                         Barbero ,
                         Galeria
@@ -16,11 +9,7 @@ from .models import (
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.template import loader
-
-#from .models import,Producto
-from django.contrib.auth import authenticate , login , logout , update_session_auth_hash
-#
-class IndexView(generic.ListView):
+"""class IndexView(generic.ListView):
     template_name = 'index/productos.template.html'
     def get_queryset(self):
         return Producto.objects.all()
@@ -38,7 +27,8 @@ class ProductUpdate(UpdateView):
 class ProductDelete(DeleteView): 
       model = Producto 
       success_url  =  reverse_lazy('index:index')
-# Create your views here.
+# Create your views here
+"""
 def index(request):
     return render(request , 'index/index.template.html')
 def about(request): 
