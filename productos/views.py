@@ -27,11 +27,11 @@ class DetailView(generic.DetailView):
 class ProductCreate(CreateView):
       model = Producto 
       form_class  = CreateProductForm
-      success_url  =  reverse_lazy('index:index')      
+      success_url  =  reverse_lazy('productos:index')      
 class ProductUpdate(UpdateView):
       model = Producto 
       form_class = UpdateProductForm
-      success_url  =  reverse_lazy('index:index')
+      success_url  =  reverse_lazy('productos:index')
 class ProductDelete(DeleteView): 
       model = Producto 
-      success_url  =  reverse_lazy('index:index')
+      success_url  =  reverse_lazy('productos:index')

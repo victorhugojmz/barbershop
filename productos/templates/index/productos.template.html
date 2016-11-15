@@ -41,21 +41,21 @@
                                                 <td>{{ producto.precio_unitario_producto}}</td>
                                                 <td>{{ producto.stock_producto }}</td>
                                                 <td>
-                                                    <form action="{% url 'productos:detail' producto.id %}">
+                                                    <form action="{% url 'productos:detail' producto.id_producto %}">
                                                         <button>
                                                             <span class="glyphicon glyphicon-eye-open"></span>
                                                         </button>
                                                     </form>
                                                 </td>
                                                 <td>
-                                                    <form action="{% url 'productos:product-update' producto.id %}">{% csrf_token %}
+                                                    <form action="{% url 'productos:product-update' producto.id_producto %}">{% csrf_token %}
                                                         <button>
                                                         <span class="glyphicon glyphicon-edit"></span>
                                                         </button>
                                                     </form>
                                                 </td>
                                                 <td>
-                                                    <form action="{% url 'productos:product-delete' producto.id %}" method="POST">{% csrf_token %}
+                                                    <form action="{% url 'productos:product-delete' producto.id_producto %}" method="POST">{% csrf_token %}
                                                         <button>
                                                             <span class="glyphicon glyphicon-trash"></span>
                                                         </button>
