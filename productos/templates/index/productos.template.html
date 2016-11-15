@@ -13,7 +13,7 @@
     <div class="container">
             <div class="row">
                         {% if request.user.is_authenticated %}
-                            <form action="{% url 'index:product-add' %}">
+                            <form action="{% url 'productos:product-add' %}">
                                 <button>                        
                                     <span class="glyphicon glyphicon-plus"></span>
                                     Nuevo Producto                                     
@@ -41,21 +41,21 @@
                                                 <td>{{ producto.precio_unitario_producto}}</td>
                                                 <td>{{ producto.stock_producto }}</td>
                                                 <td>
-                                                    <form action="{% url 'index:detail' producto.id %}">
+                                                    <form action="{% url 'productos:detail' producto.id %}">
                                                         <button>
                                                             <span class="glyphicon glyphicon-eye-open"></span>
                                                         </button>
                                                     </form>
                                                 </td>
                                                 <td>
-                                                    <form action="{% url 'index:product-update' producto.id %}">{% csrf_token %}
+                                                    <form action="{% url 'productos:product-update' producto.id %}">{% csrf_token %}
                                                         <button>
                                                         <span class="glyphicon glyphicon-edit"></span>
                                                         </button>
                                                     </form>
                                                 </td>
                                                 <td>
-                                                    <form action="{% url 'index:product-delete' producto.id %}" method="POST">{% csrf_token %}
+                                                    <form action="{% url 'productos:product-delete' producto.id %}" method="POST">{% csrf_token %}
                                                         <button>
                                                             <span class="glyphicon glyphicon-trash"></span>
                                                         </button>
@@ -68,7 +68,7 @@
                         {% else %}
                                 {% for producto in object_list %}
                                     <div class="col-md-4 col-sm-4 col-xs-12">
-                                            <a href="{% url 'index:detail' producto.id %}"><img src="{{ producto.imagen_producto.url }}" alt="" class="img-responsive"></a>
+                                            <a href="{% url 'productos:detail' producto.id %}"><img src="" alt="" class="img-responsive"></a>
                                             <h3>{{ producto.nombre_producto }}</h3>
                                             <h4>{{ producto.marca_producto }}</h4>
                                             <p>MXN ${{ producto.precio_unitario_producto }}.00</p>
