@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from django.db import models
 # Create your models here.
 class Producto(models.Model):
+    id_producto = models.AutoField(primary_key= True)
     nombre_producto = models.CharField(max_length = 150)
     tipo_producto = models.CharField(max_length = 50)
     marca_producto =  models.CharField(max_length = 50)
@@ -13,5 +14,5 @@ class Producto(models.Model):
 class Imagen(models.Model):
     imagen = models.ForeignKey(Producto , on_delete=models.CASCADE) 
     titulo_imagen = models.CharField(max_length = 20)
-    descripcion_imagen  = models.CharField(max_length = 100)
+    descripcion_imagen  = models.CharField(max_length = 80)
     
