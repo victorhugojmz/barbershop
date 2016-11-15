@@ -10,11 +10,12 @@ from models import Cita
 def index(request):
     return render(request , 'cita_templates/cita.template.html')
 def book(request):
-    # if this is a POST request we need to process the form data
+    form = CitaForm(request.POST or None)
+    context = {
+          "form": form 
+    }
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = CitaForm(request.POST)
-        # check whether it's valid:
+        form = CitaForm(request.POST or None)
         if form.is_valid():
             nombre_cliente = form.cleaned_data['nombre_cliente']
             telefono_cliente = form.cleaned_data['telefono_cliente']
@@ -22,13 +23,13 @@ def book(request):
             fecha= form.cleaned_data['fecha']
             cita = form.save(commit=False)
             cita.save()
-            return HttpResponseRedirect('/citas/')
-    else:
-        form = CitaForm(request.GET or None)
+            return HttpResponseRedirect('/citas')
+    else:    
+        form = CitaForm(request.POST or None)
         context = {
-            "form": form 
+          "form": form 
         }
-        return render(request, 'cita_templates/cita_form.html',context)
+    return render(request, 'cita_templates/cita_form.html',context)
 class ListaDeCitas(APIView):
     def get(self , request):
         citas  =  Cita.objects.all()
