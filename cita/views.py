@@ -12,6 +12,7 @@ def index(request):
 def book(request):
     form = CitaForm(request.POST or None)
     context = {
+        
           "form": form 
     }
     if request.method == 'POST':
