@@ -10,6 +10,7 @@ urlpatterns = [
      url(r'^citas/', include('cita.urls')),
      url(r'^account/', include('accounts.urls')),
      url(r'^productos/', include('productos.urls')),
+     url(r'^ventas/',include('ventas.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
