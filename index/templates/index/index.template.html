@@ -29,36 +29,34 @@
                         </button>
                         <a href="{% url 'index:zamacueca'  %}" class="navbar-brand">Zamacueca</a>
                     </div>
-                    
-                    <div class="collapse navbar-collapse" id="TopNavBar">
-                        
-                        <ul class="nav navbar-nav">   
-                                <li class="">
-                                    <a href="/citas/" class=""> 
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                        Haz una cita
-                                    </a>
-                                </li>
-                                <li class="{% block aboutactive %}{% endblock  %}">
-                                    <a href="{% url 'index:about' %}" class=""> 
-                                        <span class="glyphicon glyphicon-heart"></span>
-                                        Sobre Nosotros
-                                    </a>
-                                </li>
-                                <li class="{% block galleryactive %}{% endblock  %}">
-                                    <a href="{% url 'index:gallery' %}" class="">
-                                        <span class="glyphicon glyphicon-picture"></span>
-                                        Galería
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="/productos/" class=""> 
-                                        <span class="glyphicon glyphicon-th-list"></span>
-                                        Productos
-                                    </a>
-                                </li>
-                        </ul>
+                    <div class="collapse navbar-collapse">
                             {% if request.user.is_authenticated %}
+                                    <ul class="nav navbar-nav">   
+                                        <li class="">
+                                            <a href="/citas/" class=""> 
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                Administración de Citas
+                                            </a>
+                                        </li>
+                                        <li class="{% block galleryactive %}{% endblock  %}">
+                                            <a href="{% url 'index:gallery' %}" class="">
+                                                <span class="glyphicon glyphicon-picture"></span>
+                                                Galería
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/productos/" class=""> 
+                                                <span class="glyphicon glyphicon-th-list"></span>
+                                                Administración de Productos
+                                            </a>
+                                        </li>
+                                         <li class="">
+                                            <a href="/./ventas/" class=""> 
+                                                <span class="glyphicon glyphicon-list-alt"></span>
+                                                Administración de Ventas
+                                            </a>
+                                        </li>
+                                    </ul>
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><strong>{{ request.user.username }}</strong><span class="caret"></span></a>
@@ -74,12 +72,6 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="/./ventas/">
-                                                        <span class="glyphicon glyphicon-list-alt"></span>
-                                                        Ventas
-                                                    </a>
-                                                </li>
-                                                <li>
                                                     <a href="/./account/logout_user">
                                                         <span class="glyphicon glyphicon-off"></span>
                                                         Logout 
@@ -88,9 +80,35 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            {% endif %}
+                            {% else %}
+                                    <ul class="nav navbar-nav">   
+                                            <li class="">
+                                                <a href="/citas/" class=""> 
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                    Citas
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'index:about' %}" class=""> 
+                                                    <span class="glyphicon glyphicon-heart"></span>
+                                                    Sobre Nosotros
+                                                </a>
+                                            </li>
+                                            <li >
+                                                <a href="{% url 'index:gallery' %}" class="">
+                                                    <span class="glyphicon glyphicon-picture"></span>
+                                                    Galería
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/productos/" class=""> 
+                                                    <span class="glyphicon glyphicon-th-list"></span>
+                                                    Productos
+                                                </a>
+                                            </li>
+                                    </ul>
+                            {% endif %} 
                     </div>
-
                 </div>
             </nav>
             {% block body %}
