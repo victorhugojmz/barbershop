@@ -16,13 +16,13 @@
                                             <th>Dirección</th>
                                         </thead>
                                         <tbody>
-                                            {% for cita in object_list  %}
+                                            {% for date in object_list  %}
                                                 <tr>
-                                                    <td>{{ cita.cita_id }}</td>
-                                                    <td>{{ cita.fecha }}</td>
-                                                    <td>{{ cita.nombre_cliente }}</td>
-                                                    <td>{{ cita.telefono_cliente }}</td>
-                                                    <td>{{ cita.direccion }}</td>
+                                                    <td>{{ date.cita_id }}</td>
+                                                    <td>{{ date.fecha }}</td>
+                                                    <td>{{ date.nombre_cliente }}</td>
+                                                    <td>{{ date.telefono_cliente }}</td>
+                                                    <td>{{ date.direccion }}</td>
                                                 </tr>
                                             {% endfor %}
                                         </tbody>

@@ -28,7 +28,9 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="{% url 'index:zamacueca'  %}" class="navbar-brand">Zamacueca</a>
+                        <a href="{% url 'index:zamacueca'  %}" class="navbar-brand">
+                            <img style="width: 80px; height=:auto;" src="static/images/la-zamacueca-final.png" alt="Logo">
+                        </a>
                     </div>
                     <div class="collapse navbar-collapse">
                             {% if request.user.is_authenticated %}
