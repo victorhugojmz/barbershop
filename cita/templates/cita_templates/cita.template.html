@@ -16,14 +16,15 @@
                                             <th>Dirección</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                
+                                            {% for cita in object_list  %}
+                                                <tr>
+                                                    <td>{{ cita.cita_id }}</td>
+                                                    <td>{{ cita.fecha }}</td>
+                                                    <td>{{ cita.nombre_cliente }}</td>
+                                                    <td>{{ cita.telefono_cliente }}</td>
+                                                    <td>{{ cita.direccion }}</td>
+                                                </tr>
+                                            {% endfor %}
                                         </tbody>
               </table>
 

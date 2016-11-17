@@ -9,26 +9,6 @@ from .models import (
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.template import loader
-"""class IndexView(generic.ListView):
-    template_name = 'index/productos.template.html'
-    def get_queryset(self):
-        return Producto.objects.all()
-class DetailView(generic.DetailView):
-      model = Producto
-      template_name = 'index/details.template.html'
-class ProductCreate(CreateView):
-      model = Producto 
-      form_class  = CreateProductForm
-      success_url  =  reverse_lazy('index:index')      
-class ProductUpdate(UpdateView):
-      model = Producto 
-      form_class = UpdateProductForm
-      success_url  =  reverse_lazy('index:index')
-class ProductDelete(DeleteView): 
-      model = Producto 
-      success_url  =  reverse_lazy('index:index')
-# Create your views here
-"""
 def index(request):
     return render(request , 'index/index.template.html')
 def about(request): 

@@ -1,14 +1,25 @@
+#Request Handling resources
 from django.http import HttpResponseRedirect
-from django.shortcuts import render 
+from django.shortcuts import ( 
+                                render,
+                                redirect
+                             )
+from django.views import generic
+from django.views.generic import View 
+# Rest Framework Views for REST API 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CitaSerializer
+# Model forms 
 from forms import CitaForm
+# Models 
 from models import Cita
 # Create your views here.
-def index(request):
-    return render(request , 'cita_templates/cita.template.html')
+class index(generic.ListView):
+    template_name = 'cita_templates/cita.template.html'
+    def queryset(self):
+        return Cita.objects.all()
 def book(request):
     form = CitaForm(request.POST or None)
     context = {
