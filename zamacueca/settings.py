@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'zamacueca.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'zamacueca_barberia',
+        'NAME': 'zamacueca',
         'USER': 'zamacueca',
         'PASSWORD': '',
         'HOST': 'localhost',

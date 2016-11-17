@@ -4,10 +4,15 @@ from django.shortcuts import (
                                 render,
                                 redirect
                              )
+from django.core.urlresolvers import reverse_lazy
 from django.views import generic
 from django.views.generic import View 
 # Rest Framework Views for REST API 
 from rest_framework.views import APIView
+from django.views.generic.edit import (
+                                        DeleteView , 
+                                        UpdateView
+                                      )
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CitaSerializer
@@ -21,6 +26,10 @@ class index(generic.ListView):
     template_name = 'cita_templates/cita.template.html'
     def queryset(self):
         return Cita.objects.all()
+class UpdateCitaView(generic.UpdateView):
+    model = Cita
+    fields = ['fecha_cita','nombre_cliente','telefono_cliente','direccion']
+    success_url  =  reverse_lazy('cita:index')
 def book(request):
     form = CitaForm(request.POST or None)
     context = {
@@ -43,6 +52,7 @@ def book(request):
           "form": form 
         }
     return render(request, 'cita_templates/cita_form.html',context)
+    
 class ListaDeCitas(APIView):
     def get(self , request):
         citas  =  Cita.objects.all()

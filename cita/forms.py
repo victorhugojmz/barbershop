@@ -21,3 +21,5 @@ class CitaForm(forms.ModelForm):
             'direccion',
             'fecha',
         )
+class UpdateCitaForm(forms.ModelForm):
+     
