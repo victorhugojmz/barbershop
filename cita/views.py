@@ -17,6 +17,7 @@ from forms import CitaForm
 from models import Cita
 # Create your views here.
 class index(generic.ListView):
+    model = Cita
     template_name = 'cita_templates/cita.template.html'
     def queryset(self):
         return Cita.objects.all()

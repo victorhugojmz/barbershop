@@ -8,26 +8,25 @@
     </header>
     <div class="container">
               <table class="table table-striped table-hover">
-                                        <thead class="table table-heading">
-                                            <th>Id Cita</th>
-                                            <th>Fecha</th>
-                                            <th>Cliente</th>
-                                            <th>Teléfono</th>
-                                            <th>Dirección</th>
-                                        </thead>
-                                        <tbody>
-                                            {% for date in object_list  %}
-                                                <tr>
-                                                    <td>{{ date.cita_id }}</td>
-                                                    <td>{{ date.fecha }}</td>
-                                                    <td>{{ date.nombre_cliente }}</td>
-                                                    <td>{{ date.telefono_cliente }}</td>
-                                                    <td>{{ date.direccion }}</td>
-                                                </tr>
-                                            {% endfor %}
-                                        </tbody>
+                       <thead class="table table-heading">
+                               <th>Id Cita</th>
+                               <th>Fecha</th>
+                               <th>Cliente</th>
+                               <th>Teléfono</th>
+                               <th>Dirección</th>
+                       </thead>
+                       <tbody>
+                          {% for object in object_list  %}
+                                <tr>
+                                    <td>{{ object.cita_id }}</td>
+                                    <td>{{ object.fecha_cita }}</td>
+                                    <td>{{ object.nombre_cliente }}</td>
+                                    <td>{{ object.telefono_cliente }}</td>
+                                    <td>{{ object.direccion }}</td>
+                                </tr>
+                          {% endfor %}
+                       </tbody>
               </table>
-
     </div>
 {% endblock  %}
 
