@@ -17,7 +17,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CitaSerializer
 # Model forms 
-from forms import CitaForm
+from forms import CitaForm , UpdateCitaForm
 # Models 
 from models import Cita
 # Create your views here.
@@ -28,7 +28,7 @@ class index(generic.ListView):
         return Cita.objects.all()
 class UpdateCitaView(generic.UpdateView):
     model = Cita
-    fields = ['fecha_cita','nombre_cliente','telefono_cliente','direccion']
+    form_class = UpdateCitaForm
     success_url  =  reverse_lazy('cita:index')
 def book(request):
     form = CitaForm(request.POST or None)

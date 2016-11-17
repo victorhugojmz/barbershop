@@ -22,4 +22,29 @@ class CitaForm(forms.ModelForm):
             'fecha',
         )
 class UpdateCitaForm(forms.ModelForm):
+      class Meta:    
+        model = Cita
+        fields  = ('fecha_cita','nombre_cliente' , 'telefono_cliente', 'direccion')
+        widgets = { 
+                'fecha_cita': forms.DateField(
+                                   attrs={
+                                           'class':'form-control datepicker'
+                                    }),
+                'nombre_cliente': forms.TextInput(
+                                    attrs={
+                                            'class':'form-control',
+                                            'placeholder': 'Nombre del cliente'
+                                    }),
+                'telefono_cliente': forms.TextInput(
+                                    attrs={
+                                            'class':'form-control',
+                                            'placeholder': 'Telefono'
+                                    }),
+                'direccion' : forms.TextInput(
+                                attrs={
+                                            'class':'form-control',
+                                            'placeholder': 'Direccion' 
+                                    })
+        }
+
      
