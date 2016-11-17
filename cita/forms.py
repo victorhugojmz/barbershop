@@ -22,11 +22,11 @@ class CitaForm(forms.ModelForm):
             'fecha',
         )
 class UpdateCitaForm(forms.ModelForm):
-      class Meta:    
+    class Meta:    
         model = Cita
         fields  = ('fecha_cita','nombre_cliente' , 'telefono_cliente', 'direccion')
         widgets = { 
-                'fecha_cita': forms.DateField(
+                'fecha_cita': forms.TextInput(
                                    attrs={
                                            'class':'form-control datepicker'
                                     }),
@@ -46,5 +46,3 @@ class UpdateCitaForm(forms.ModelForm):
                                             'placeholder': 'Direccion' 
                                     })
         }
-
-     
