@@ -9,10 +9,6 @@ class Producto(models.Model):
     precio_unitario_producto = models.IntegerField(default= 0)
     stock_producto = models.IntegerField(default=0)
     descripcion_producto = models.TextField()
+    imagen_producto = models.FileField()
     def get_absolute_url(self):
         return reverse('index:detail', kwargs={'pk': self.pk })
-class Imagen(models.Model):
-    titulo_imagen = models.ForeignKey(Producto , on_delete=models.CASCADE) 
-    imagen = models.FileField()
-    descripcion_imagen  = models.CharField(max_length = 80)
-    
