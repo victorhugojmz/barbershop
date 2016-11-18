@@ -13,8 +13,9 @@
     <div class="container">
         {% if request.user.is_authenticated %}
             <div class="row">
-                <div class="col-md-3">
-                    <h1>Buscar</h1>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <h2>Búsqueda de Productos</h2>
+                    <h3>Elige un modo de busqueda de producto.</h3>
                     <form action="" method="GET">
                         <input type="text" placeholder="Buscar" name='q' class="form-control" value="{{ request.get.q }}">
                         <input type="submit" value="Search">
