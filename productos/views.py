@@ -20,11 +20,7 @@ from .forms import (
 class IndexView(generic.ListView):
     template_name = 'index/productos.template.html'
     def get_queryset(self):
-        query = request.GET.get("q")
-        if query:
-            queryset_list = queryset_list.filter(nombre_producto__icontains = query)
-        else: 
-            return Producto.objects.all()
+      return Producto.objects.all()
 class DetailView(generic.DetailView):
       model = Producto
       template_name = 'index/details.template.html'
