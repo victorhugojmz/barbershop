@@ -26,6 +26,9 @@ class index(generic.ListView):
     template_name = 'cita_templates/cita.template.html'
     def queryset(self):
         return Cita.objects.all()
+class DeleteCita(generic.DeleteView):
+    model = Cita
+    success_url  =  reverse_lazy('cita:index')
 class UpdateCitaView(generic.UpdateView):
     model = Cita
     form_class = UpdateCitaForm
