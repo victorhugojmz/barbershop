@@ -2,9 +2,7 @@
 {% block title %} <title>Haz una cita</title>{% endblock  %}
 {% block  body %}
     <header>
-            <h1>Agenda una cita con nosotros</h1>
-            <div class="page-break1"></div>
-            <h2>Y disfruta del mejor servicio en la ciudad</h2>
+            <h1>Administración de citas </h1>
     </header>
     <div class="container">
               <table class="table table-striped table-hover">
@@ -36,7 +34,7 @@
                                               
                                    </td>
                                    <td>
-                                       <form action="{% url 'cita:delete-cita' object.cita_id +%}">
+                                       <form action="{% url 'cita:delete-cita' object.cita_id %}">
                                            <button>
                                                <span class="glyphicon glyphicon-trash"></span>
                                            </button>
