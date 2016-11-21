@@ -8,8 +8,8 @@
                 <h2>Búsqueda de Productos</h2>
                 <h3>Elige un modo de busqueda de producto.</h3>
                     <form action="" method="GET">
-                        <input type="text" placeholder="Buscar" name='q' class="form-control" value="{{ request.get.q }}">
-                        <input type="submit" value="Search" class="btn btn-default">
+                        <input type="text" placeholder="Buscar" name='q' class="form-control" value="{{ request.GET.q }}">
+                        <input type="submit" value="Buscar" class="btn btn-default">
                     </form>
         </div>
         {% else %}
@@ -65,7 +65,7 @@
                                                     </form>
                                                 </td>
                                                 <td>
-                                                    <form action="{% url 'productos:product-delete' producto.id_producto %}" method="POST">{% csrf_token %}
+                                                    <form onclick="deleteProduct()" action="{% url 'productos:product-delete' producto.id_producto %}" method="POST">{% csrf_token %}
                                                         <button>
                                                             <span class="glyphicon glyphicon-trash"></span>
                                                         </button>
@@ -88,4 +88,9 @@
                         {% endif %}
                     </div>
             </div>            
+<script>  
+    function deleteProduct( ){
+        
+    }
+</script>
 {% endblock  %}

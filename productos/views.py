@@ -17,10 +17,16 @@ from .forms import (
                     UpdateProductForm,
                     CreateProductForm
                    )
-class IndexView(generic.ListView):
-    template_name = 'index/productos.template.html'
-    def get_queryset(self):
-      return Producto.objects.all()
+def  IndexView(request):
+      queryset_list = Producto.objects.all()
+      query = request.GET.get("q")
+      if query: 
+            queryset_list  = queryset_list.filter(nombre_producto__icontains = query)
+      context = {
+            "object_list" : queryset_list
+      }
+      return render(request,"index/productos.template.html",context)
+      #template_name = 'index/productos.template.html'
 class DetailView(generic.DetailView):
       model = Producto
       template_name = 'index/details.template.html'
