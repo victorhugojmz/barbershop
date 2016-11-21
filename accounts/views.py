@@ -39,8 +39,8 @@ def register_user(request):
         user.save()
         subject = 'Thank You'
         message = 'Welcome'
-        from_email = zamacueca.settings.EMAIL_HOST_USER 
-        to_list = [user.email, zamacueca.settings.EMAIL_HOST_USER ]
+        from_email = settings.EMAIL_HOST_USER 
+        to_list = [user.email, settings.EMAIL_HOST_USER ]
         send_mail(subject,message,from_email,to_list,fail_silently=True) 
         user = authenticate(username=username, password=password)
         if user is not None:

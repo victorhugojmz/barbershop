@@ -21,15 +21,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'e+x5*rwgz6*_uy6yn9t+@2kuhb(6y@z9+7a8+*w*(b%4_&cii8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = []
 EMAIL_USE_LTS = EMAIL_USE_LTS 
 EMAIL_HOST = EMAIL_HOST
 EMAIL_HOST_USER =  EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 EMAIL_PORT  =   EMAIL_PORT  
-
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 # Application definition
 
