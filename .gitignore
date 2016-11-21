@@ -91,3 +91,4 @@ ENV/
 *.jpg
 *.png
 *.sqlite3
+*email_info.py 

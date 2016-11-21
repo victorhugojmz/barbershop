@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
+from email_info import EMAIL_USE_LTS , EMAIL_HOST, EMAIL_HOST_USER ,  EMAIL_HOST_PASSWORD , EMAIL_PORT    
 import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,6 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'e+x5*rwgz6*_uy6yn9t+@2kuhb(6y@z9+7a8+*w*(b%4_&cii8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+EMAIL_USE_LTS = EMAIL_USE_LTS 
+EMAIL_HOST = EMAIL_HOST
+EMAIL_HOST_USER =  EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
+EMAIL_PORT  =   EMAIL_PORT  
+
 DEBUG = True
 
 ALLOWED_HOSTS = []

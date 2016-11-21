@@ -1,5 +1,7 @@
+from django.conf import settings
 from django.shortcuts import render , redirect
 from django.contrib.auth import (authenticate, login , get_user_model,logout)
+from django.core.mail import send_mail
 from .forms import UserLoginForm , UserRegistrationForm
 def login_user(request):
         if not request.user.is_authenticated():
@@ -35,6 +37,11 @@ def register_user(request):
         email = form.cleaned_data['email']
         user.set_password(password)
         user.save()
+        subject = 'Thank You'
+        message = 'Welcome'
+        from_email = zamacueca.settings.EMAIL_HOST_USER 
+        to_list = [user.email, zamacueca.settings.EMAIL_HOST_USER ]
+        send_mail(subject,message,from_email,to_list,fail_silently=True) 
         user = authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
