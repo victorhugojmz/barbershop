@@ -78,4 +78,4 @@ class CreateProductForm(forms.ModelForm):
         }
 class Entrada(form.ModelForm): 
     class Meta:
-        model = Producto
+        model = 
