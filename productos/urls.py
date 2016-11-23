@@ -5,6 +5,6 @@ urlpatterns  = [
     url(r'^$', views.IndexView, name='index'),
     url(r'producto/(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
     url(r'nuevo/$' , views.ProductCreate.as_view( ), name="product-add"), 
-    url(r'producto/update/(?P<pk>[0-9]+)/$' , views.ProductUpdate.as_view( ), name="product-update"), 
-    url(r'producto/(?P<pk>[0-9]+)/delete/$' , views.ProductDelete.as_view( ), name="product-delete"),
+    url(r'producto/actualizar/(?P<pk>[0-9]+)/$' , views.ProductUpdate.as_view( ), name="product-update"), 
+    url(r'producto/(?P<pk>[0-9]+)/eliminar/$' , views.ProductDelete.as_view( ), name="product-delete"),
 ]
