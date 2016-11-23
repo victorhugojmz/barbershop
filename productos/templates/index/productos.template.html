@@ -3,23 +3,29 @@
 {% block body %}
     <header>
         {% if request.user.is_authenticated %}
-            <h1>Administraciòn de productos</h1>
-        <div class="row">
-                <h2>Búsqueda de Productos</h2>
-                <h3>Elige un modo de busqueda de producto.</h3>
-                    <form action="" method="GET">
-                        <input type="text" placeholder="Buscar Producto" name='q' class="form-control" value="{{ request.GET.q }}">
-                        <input type="submit" value="Buscar" class="btn btn-default">
-                    </form>
-        </div>
+               
+                <h1>Administraciòn de productos</h1>
+                
+                <div class="row">
+                        <h2>Búsqueda de Productos</h2>
+                        <h3>Elige un modo de busqueda de producto.</h3>
+                            <form action="" method="GET">
+                                <input type="text" placeholder="Buscar Producto" name='q' class="form-control" value="{{ request.GET.q }}">
+                                <input type="submit" value="Buscar" class="btn btn-default">
+                            </form>
+                </div>
+       
         {% else %}
-             <h1>Productos</h1> 
-             <div class="page-break1"></div>
-             <h2>Aqui encontrarás productos para el uso personal de tu peinado, barba, o lo que sea que tengas.</h2> 
+        
+                <h1>Productos</h1> 
+                <div class="page-break1"></div>
+                <h2>Aqui encontrarás productos para el uso personal de tu peinado, barba, o lo que sea que tengas.</h2> 
+            
         {% endif %}
     </header>
     <div class="container">
         {% if request.user.is_authenticated %}
+           
             <br>
             <div class="row">
                     <div class="col-md-12 col-xs-12 col-sm-12">
@@ -30,6 +36,7 @@
                                 </button>
                             </form>
                                     <table class="table table-striped table-hover">
+                                        
                                         <thead class="table table-heading">
                                             <th>id</th>
                                             <th>Nombre</th>
@@ -44,49 +51,71 @@
                                         <tbody>
                                             {% for producto in object_list %}
                                                     <tr>
-                                                        <td>{{ producto.id_producto }}</td>
-                                                        <td>{{ producto.nombre_producto }}</td>
-                                                        <td>{{ producto.tipo_producto }}</td>
-                                                        <td>{{ producto.marca_producto}}</td>
-                                                        <td>{{ producto.precio_unitario_producto}}</td>
-                                                        <td>{{ producto.stock_producto }}</td>
-                                                        <td>
-                                                            <form action="{% url 'productos:detail' producto.id_producto %}">
-                                                                <button>
-                                                                    <span class="glyphicon glyphicon-eye-open"></span>
-                                                                </button>
-                                                            </form>
-                                                        </td>
-                                                        <td>
-                                                            <form action="{% url 'productos:product-update' producto.id_producto %}">{% csrf_token %}
-                                                                <button>
-                                                                <span class="glyphicon glyphicon-edit"></span>
-                                                                </button>
-                                                            </form>
-                                                        </td>
-                                                        <td>
-                                                            <form onclick="deleteProduct()" action="{% url 'productos:product-delete' producto.id_producto %}" method="POST">{% csrf_token %}
-                                                                <button>
-                                                                    <span class="glyphicon glyphicon-trash"></span>
-                                                                </button>
-                                                            </form>
-                                                        </td>
+                                                            <td>
+                                                                {{ producto.id_producto }}
+                                                            </td>
+                                                            <td>
+                                                                {{ producto.nombre_producto }}
+                                                            </td>
+                                                            <td>
+                                                                {{ producto.tipo_producto }}
+                                                            </td>
+                                                            <td>
+                                                                {{ producto.marca_producto}}
+                                                            </td>
+                                                            <td>
+                                                                {{ producto.precio_unitario_producto}}
+                                                            </td>
+                                                            <td>
+                                                                {{ producto.stock_producto }}</td>
+                                                            <td>
+                                                            
+                                                                <form action="{% url 'productos:detail' producto.id_producto %}">
+                                                                    <button>
+                                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                                    </button>
+                                                                </form>
+                                        
+                                                            </td>
+                                        
+                                                            <td>
+                                        
+                                                                <form action="{% url 'productos:product-update' producto.id_producto %}">{% csrf_token %}
+                                                                    <button>
+                                                                    <span class="glyphicon glyphicon-edit"></span>
+                                                                    </button>
+                                                                </form>
+                                                            
+                                                            </td>
+                                                            
+                                                            <td>
+                                                            
+                                                                <form onclick="deleteProduct()" action="{% url 'productos:product-delete' producto.id_producto %}" method="POST">{% csrf_token %}
+                                                                    <button>
+                                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                                    </button>
+                                                                </form>
+                                                            
+                                                            </td>
                                                     </tr>
                                 
                                             {% endfor %}
                                         </tbody>
                                     </table>
-                                     {% if not object_list %}
-                                                            <h4>No hay elementos para mostrar</h4>
-                                     {% endif %}
+                                {% if not object_list %}
+                                        <h4>No hay elementos para mostrar</h4>
+                                {% endif %}
                               </div>
                         {% else %}
                                 {% for producto in object_list %}
+                                  
                                     <div class="col-md-4 col-sm-4 col-xs-12">
+                                  
                                             <a href="{% url 'productos:detail' producto.id_producto %}"><img src="{{ producto.imagen_producto }}" alt="" class="img-responsive"></a>
                                             <h3>{{ producto.nombre_producto }}</h3>
                                             <h4>{{ producto.marca_producto }}</h4>
                                             <p>MXN ${{ producto.precio_unitario_producto }}.00</p>
+                                  
                                     </div>
                                 {% endfor %}
                         {% endif %}
