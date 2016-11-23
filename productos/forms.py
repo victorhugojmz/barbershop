@@ -76,6 +76,3 @@ class CreateProductForm(forms.ModelForm):
                                 'class':'btn btn-success'
                             })
         }
-class Entrada(form.ModelForm): 
-    class Meta:
-        model = 
