@@ -1,7 +1,12 @@
+import os 
+from io import BytesIO
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4, cm 
 from django.conf import settings
 from django.shortcuts import render , redirect
 from django.contrib.auth import (authenticate, login , get_user_model,logout)
 from django.core.mail import send_mail
+from django.http import HttpResponse
 from .forms import UserLoginForm , UserRegistrationForm
 def login_user(request):
         if not request.user.is_authenticated():
@@ -52,4 +57,9 @@ def register_user(request):
     }
     return render(request, 'account/registration_form.html', context)
 def user_reports(request): 
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment:filename=Reporte.pdf'
+    buffer = BytesIO()
+    c = canvas.Canvas(buffer,pagesize = A4)
+
     return render(request,"account/reports.html",{ })
