@@ -1,7 +1,7 @@
 {% extends 'index/index.template.html' %}
 {% block title %} <title>Zamacueca - Productos</title>{% endblock  %}
 {% block body %}
-    <header>
+    <header  class="parallax">
         {% if request.user.is_authenticated %}
                
                 <h1>Administración de productos</h1>
@@ -110,7 +110,7 @@
                                   
                                     <div class="col-md-4 col-sm-4 col-xs-12">
                                   
-                                            <a href="{% url 'productos:detail' producto.id_producto %}"><img src="{{ producto.imagen_producto }}" alt="" class="img-responsive"></a>
+                                            <a href="{% url 'productos:detail' producto.id_producto %}"><img src="{{ producto.imagen_producto.url }}" alt="" class="img-responsive"></a>
                                             <h3>{{ producto.nombre_producto }}</h3>
                                             <h4>{{ producto.marca_producto }}</h4>
                                             <p>MXN ${{ producto.precio_unitario_producto }}.00</p>

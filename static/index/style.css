@@ -2,7 +2,6 @@ header{
 	width: 100%;
     padding: 10%;
     height: 500px;
-	background-size: cover;
 	margin-top: -20px;
     text-align: center;
     display: flex;
@@ -12,6 +11,13 @@ header{
 }
 header p{
   margin: 0 auto;
+}
+.parallax {
+    background-image: url(/images/products.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .foo {
     width: 100%;
