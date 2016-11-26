@@ -58,8 +58,14 @@ def register_user(request):
     return render(request, 'account/registration_form.html', context)
 def user_reports(request): 
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment:filename=Reporte.pdf'
+    response['Content-Disposition'] = 'attachment;filename=Reporte.pdf'
     buffer = BytesIO()
     c = canvas.Canvas(buffer,pagesize = A4)
-
-    return render(request,"account/reports.html",{ })
+    c.setLineWidth(.3)
+    c.setFont('Helvetica',22)
+    c.drawString(30,770,'Reporte')
+    c.save()
+    pdf = buffer.getvalue()
+    buffer.close()
+    response.write(pdf)
+    return response
