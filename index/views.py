@@ -6,6 +6,7 @@ from .models import (
                         Barbero ,
                         Galeria
                     )
+from django.views.generic import ListView , CreateView,DeleteView
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.template import loader
@@ -18,10 +19,10 @@ def about(request):
         'barberos' : barberos
     }
     return HttpResponse(template.render(context ,request))
-def gallery(request): 
-    imagenes =  Galeria.objects.all()
-    template = loader.get_template('index/gallery.template.html')
-    context = {
-        'imagenes' : imagenes
-    }  
-    return HttpResponse(template.render(context,request))
+class Galeria(ListView):
+    model = Galeria
+    template_name = 'index/gallery.template.html'
+class NuevaImagen(CreateView):
+    class Meta: 
+        model = Galeria
+        fields = ['descripcion','titulo_imagen','imagen']
