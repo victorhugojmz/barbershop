@@ -2,6 +2,7 @@ import os
 from io import BytesIO
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4, cm 
+from reportlab.lib.utils import ImageReader
 from django.conf import settings
 from django.shortcuts import render , redirect
 from django.contrib.auth import (authenticate, login , get_user_model,logout)
@@ -61,9 +62,13 @@ def user_reports(request):
     response['Content-Disposition'] = 'attachment;filename=Reporte.pdf'
     buffer = BytesIO()
     c = canvas.Canvas(buffer,pagesize = A4)
+    company_logo = ImageReader('static/images/la-zamacueca-final.png')
     c.setLineWidth(.3)
-    c.setFont('Helvetica',22)
-    c.drawString(30,770,'Reporte')
+    c.drawImage(company_logo,100,100,mask=Auto)
+    c.setFont('Helvetica',25)
+    c.drawString(30,770,'Reporte de ventas')
+    c.drawImage
+    c.showPage()
     c.save()
     pdf = buffer.getvalue()
     buffer.close()
