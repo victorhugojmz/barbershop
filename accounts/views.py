@@ -9,6 +9,7 @@ from django.contrib.auth import (authenticate, login , get_user_model,logout)
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from .forms import UserLoginForm , UserRegistrationForm
+#Login User View 
 def login_user(request):
         if not request.user.is_authenticated():
             form = UserLoginForm(request.POST or None)
@@ -21,11 +22,13 @@ def login_user(request):
             return render(request,"account/login.html",{"form": form })
         else: 
             return render(request,"index/index.template.html",{}) 
+#View for user details in wp
 def user_account(request):
     if not request.user.is_authenticated():
        return render(request,"index/index.template.html",{})
     else:  
         return render(request,"account/user.details.html",{})
+#View for logging_out
 def logout_user(request):
     if not request.user.is_authenticated():
         return render(request,"index/index.template.html", {})
@@ -57,6 +60,7 @@ def register_user(request):
         "form": form,
     }
     return render(request, 'account/registration_form.html', context)
+#View that generates PDF reports
 def user_reports(request): 
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment;filename=Reporte.pdf'
