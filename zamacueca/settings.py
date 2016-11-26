@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-from email_info import EMAIL_USE_LTS , EMAIL_HOST, EMAIL_HOST_USER ,  EMAIL_HOST_PASSWORD , EMAIL_PORT    
+from email_info import EMAIL_USE_LTS , EMAIL_HOST, EMAIL_HOST_USER ,  EMAIL_HOST_PASSWORD , EMAIL_PORT
+from secret import SECRET_KEY    
 import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -18,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'e+x5*rwgz6*_uy6yn9t+@2kuhb(6y@z9+7a8+*w*(b%4_&cii8'
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
