@@ -3,8 +3,20 @@ from django.contrib.auth.models import User
 from django.contrib.auth import (authenticate, login , get_user_model,logout)
 User = get_user_model()
 class UserLoginForm(forms.Form):
-    username = forms.CharField(label ='Username',widget=forms.TextInput(attrs={'class':'form-control'}))
-    password = forms.CharField(widget = forms.PasswordInput(attrs={'placeholder':'Password' ,'class':'form-control'}))
+    username = forms.CharField(
+                        label ='Username',
+                        widget=forms.TextInput(
+                                        attrs={
+                                            'class':'form-control'
+                                            })
+                                )
+    password = forms.CharField(
+                        widget = forms.PasswordInput(
+                                        attrs={
+                                            'placeholder':'Password',
+                                            'class':'form-control'
+                                            })
+                                )
     def clean(self, *args, **kwargs): 
         username = self.cleaned_data.get("username")
         password = self.cleaned_data.get("password")
