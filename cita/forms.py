@@ -8,19 +8,22 @@ class CitaForm(forms.ModelForm):
                                             'placeholder':'Nombre'
                                         })
                                     )
-    telefono_cliente = forms.CharField(
-                    widget=forms.TextInput(
-                                        attrs={
+    telefono_cliente = forms.RegexField(
+                                        regex = r'^\+?1?\d{9,15}$',
+                                        widget = forms.TextInput(
+                                            attrs = {
                                             'class':'form-control',
                                             'placeholder':'Telefono'
                                             })
                                         )
-    direccion = forms.CharField(widget=forms.TextInput(attrs=
-                                {
+    direccion = forms.CharField(
+                    widget=forms.TextInput(
+                        attrs ={
                                     'class':'form-control',
                                     'placeholder':'Direccion'
                                 }))
-    fecha = forms.DateField(widget=forms.TextInput(
+    fecha = forms.DateField(
+                    widget=forms.TextInput(
                             attrs=
                                 {
                                     'placeholder' : 'Escoge una fecha',
