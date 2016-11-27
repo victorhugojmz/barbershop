@@ -6,4 +6,5 @@ class VentasModelAdmin(admin.ModelAdmin):
         model = Venta
         list_display = ('id_venta','fecha_venta','total_venta')
         list_filter = ('fecha_venta')
-admin.site.register(VentaProducto)
+admin.site.register(Venta,VentasModelAdmin)
+admin.site.register(VentaProducto,)
