@@ -8,7 +8,6 @@
               <table class="table table-striped table-hover">
                        <thead class="table table-heading">
                                <th>Id Cita</th>
-                               <th>Fecha de creación</th>
                                <th>Fecha de cita</th>
                                <th>Cliente</th>
                                <th>Teléfono</th>
@@ -20,7 +19,6 @@
                           {% for object in object_list  %}
                                 <tr>
                                     <td>{{ object.cita_id }}</td>
-                                    <td>Hello</td>
                                     <td>{{ object.fecha_cita }}</td>
                                     <td>{{ object.nombre_cliente }}</td>
                                     <td>{{ object.telefono_cliente }}</td>
@@ -44,6 +42,10 @@
                           {% endfor %}
                        </tbody>
               </table>
+              {% if not object %}
+                    <h5>No hay citas para mostrar</h5>
+              {% else %}
+              {% endif %}
     </div>
 {% endblock  %}
 

@@ -14,8 +14,9 @@ class Producto(models.Model):
     marca_producto =  models.CharField(
                                 max_length = 50
                                 )
-    precio_unitario_producto = models.IntegerField(
-                                default= 0
+    precio_unitario_producto = models.DecimalField(
+                                max_digits=6, 
+                                decimal_places=2
                                 )
     stock_producto = models.IntegerField(
                                 default=0
