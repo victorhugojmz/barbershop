@@ -93,3 +93,4 @@ ENV/
 *.sqlite3
 *email_info.py 
 *secret.py
+#migrations
