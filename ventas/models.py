@@ -13,4 +13,8 @@ class VentaProducto(models.Model):
     producto = models.ForeignKey(Producto)
     cantidad = models.IntegerField()
     subtotal = models.DecimalField(max_digits=6, decimal_places=2)
-    
+class VentaServicio(models.Model):
+    id_venta = models.ForeignKey(Venta, on_delete=models.CASCADE)
+    servicio = models.ForeignKey(Servicio)
+    cantidad = models.IntegerField()
+    subtotal = models.DecimalField(max_digits=6, decimal_places=2)    

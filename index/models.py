@@ -49,6 +49,6 @@ class Servicio(models.Model):
                         )
     imagen_corte = models.CharField(
                         max_length = 200)
-    precio_servicio =  models.IntegerField()
+    precio_servicio =  models.DecimalField(max_digits=4,decimal_places=2)
     def __unicode__ (self):
         return self.nombre_corte + '-' + self.descripcion_corte  + '-' + self.imagen_corte
