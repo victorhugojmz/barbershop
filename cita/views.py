@@ -48,7 +48,7 @@ def book(request):
             fecha= form.cleaned_data['fecha']
             cita = form.save(commit=False)
             cita.save()
-            return HttpResponseRedirect('/citas')
+            return HttpResponseRedirect('/')
     else:    
         form = CitaForm(request.POST or None)
         context = {

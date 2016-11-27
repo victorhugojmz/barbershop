@@ -9,12 +9,12 @@ class CitaForm(forms.ModelForm):
                                         })
                                     )
     telefono_cliente = forms.RegexField(
-                                        regex = r'^\+?1?\d{9,15}$',
                                         widget = forms.TextInput(
                                             attrs = {
                                             'class':'form-control',
                                             'placeholder':'Telefono'
-                                            })
+                                            }),
+                                        regex = r'^\+?1?\d{9,15}$',
                                         )
     direccion = forms.CharField(
                     widget=forms.TextInput(

@@ -7,3 +7,5 @@ class Cita(models.Model):
     nombre_cliente = models.CharField(max_length = 150)
     telefono_cliente =  models.CharField(max_length = 20)
     direccion = models.CharField(max_length = 120)
+    def save(self, *args, **kwargs):
+        
