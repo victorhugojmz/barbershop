@@ -7,6 +7,7 @@ from .models import (
                         Galeria
                     )
 from django.views import generic
+from django.views import View
 from django.views.generic.edit import( 
                             CreateView,
                             DeleteView

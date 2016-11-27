@@ -1,9 +1,25 @@
 from __future__ import unicode_literals
 from django.db import models
+class Galeria(models.Model):
+    id_imagen = models.AutoField(primary_key= True)
+    descripcion = models.CharField(
+                    max_length = 200,
+                    blank=True, 
+                    null=True
+                    )
+    titulo_imagen = models.CharField(
+                    max_length = 100,
+                    blank=True, 
+                    null=True
+                    ) 
+    imagen  = models.FileField(
+                    blank=False, 
+                    null=False
+                    )
+    def get_absolute_url(self):
+        return reverse('index:gallery-details', kwargs={'pk': self.pk })
 class Barbero(models.Model):
-    id_barbero = models.AutoField(
-                        primary_key=True
-                        )
+    id_barbero = models.AutoField(primary_key=True)
     nombre_barbero  = models.CharField(
                         max_length = 60
                         )
@@ -36,13 +52,3 @@ class Servicio(models.Model):
     precio_servicio =  models.IntegerField()
     def __unicode__ (self):
         return self.nombre_corte + '-' + self.descripcion_corte  + '-' + self.imagen_corte
-class Galeria(models.Model):
-    descripcion = models.CharField(
-                    max_length = 200,
-                    blank=True, 
-                    null=True
-                    )
-    titulo_imagen = models.CharField(max_length = 100) 
-    imagen  = models.FileField()
-    def get_absolute_url(self):
-        return reverse('index:gallery-details', kwargs={'pk': self.pk })
