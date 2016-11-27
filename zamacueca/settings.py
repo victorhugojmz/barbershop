@@ -131,5 +131,6 @@ LOGIN_URL = '/account/login_user/'
 LOGIN_REDIRECT_URL = '/productos/'
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = ( os.path.join('static'), )
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
