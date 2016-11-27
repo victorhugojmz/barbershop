@@ -23,7 +23,4 @@ class Producto(models.Model):
     descripcion_producto = models.TextField()
     imagen_producto = models.FileField()
     def get_absolute_url(self):
-        return reverse(
-                        'index:detail', 
-                        kwargs={'pk': self.pk }
-                        )
+        return reverse('index:detail', kwargs={'pk': self.pk })

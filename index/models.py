@@ -44,3 +44,5 @@ class Galeria(models.Model):
                     )
     titulo_imagen = models.CharField(max_length = 100) 
     imagen  = models.FileField()
+    def get_absolute_url(self):
+        return reverse('index:gallery-details', kwargs={'pk': self.pk })

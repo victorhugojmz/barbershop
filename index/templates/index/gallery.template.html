@@ -11,9 +11,11 @@
                 <div class="row">                       
                         {% for imagen in object_list %}
                                 <div class="col-md-4 col-sm-4 col-xs-12">
-                                       <figure class="">
-                                                <img src="{{ imagen.imagen.url }}" draggable="false" alt="" class="img-responsive">                                
-                                       </figure>
+                                       <a href="{% url 'index:gallery-details' imagen.id %}" class="thumbnail">
+                                        <figure>
+                                                <img src="{{ imagen.imagen.url }}" draggable="false" alt="{{ imagen.descripcion }}" class="img-responsive">                                
+                                        </figure>
+                                       </a>
                                 </div>
                         {% endfor %}
                 </div>
