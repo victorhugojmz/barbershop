@@ -4,7 +4,6 @@ from .models import Venta , VentaProducto
 class VentasModelAdmin(admin.ModelAdmin):
     class Meta:
         model = Venta
-        list_display = ['id_venta','fecha_venta','total_venta']
-        list_filter = ['fecha_venta']
-admin.site.register(Venta,VentasModelAdmin)
+        list_display = ('id_venta','fecha_venta','total_venta')
+        list_filter = ('fecha_venta')
 admin.site.register(VentaProducto)
