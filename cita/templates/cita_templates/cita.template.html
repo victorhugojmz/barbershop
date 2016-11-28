@@ -9,9 +9,10 @@
                        <thead class="table table-heading">
                                <th>Id Cita</th>
                                <th>Fecha de cita</th>
+                               <th>Hora</th>
+                               <th>Creacion Cita</th>
                                <th>Cliente</th>
                                <th>Teléfono</th>
-                               <th>Dirección</th>
                                <th>Modificar</th>
                                <th>Eliminar</th>
                        </thead>
@@ -20,9 +21,10 @@
                                 <tr>
                                     <td>{{ object.cita_id }}</td>
                                     <td>{{ object.fecha_cita }}</td>
+                                    <td>{{ object.hora_cita }}</td>
+                                    <td>{{ object.fecha_creacion_cita }}</td>
                                     <td>{{ object.nombre_cliente }}</td>
                                     <td>{{ object.telefono_cliente }}</td>
-                                    <td>{{ object.direccion }}</td>
                                     <td>
                                         <form action="{% url 'cita:update-cita'  object.cita_id %}">{% csrf_token %}
                                             <button>
@@ -42,7 +44,7 @@
                           {% endfor %}
                        </tbody>
               </table>
-              {% if not object %}
+              {% if not object_list %}
                     <h5>No hay citas para mostrar</h5>
               {% else %}
               {% endif %}
