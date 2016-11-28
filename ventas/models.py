@@ -7,14 +7,6 @@ from index.models import Servicio
 class Venta(models.Model):
     id_venta = models.AutoField(primary_key=True)
     fecha_venta = models.DateTimeField('Creacion',auto_now_add=True,blank=False)
-    total_venta = models.DecimalField(max_digits=6, decimal_places=2)
-class VentaProducto(models.Model):
-    id_venta = models.ForeignKey(Venta, on_delete=models.CASCADE)
+    total_venta = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
     producto = models.ForeignKey(Producto)
-    cantidad = models.IntegerField()
-    subtotal = models.DecimalField(max_digits=6, decimal_places=2)
-class VentaServicio(models.Model):
-    id_venta = models.ForeignKey(Venta, on_delete=models.CASCADE)
-    servicio = models.ForeignKey(Servicio)
-    cantidad = models.IntegerField()
-    subtotal = models.DecimalField(max_digits=6, decimal_places=2)    
+    cantidad = models.IntegerField(default=0)

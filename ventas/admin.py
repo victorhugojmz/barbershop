@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Venta , VentaProducto , VentaServicio
+from .models import Venta 
 # Register your models here.
 class VentasModelAdmin(admin.ModelAdmin):
     class Meta:
@@ -7,5 +7,3 @@ class VentasModelAdmin(admin.ModelAdmin):
         list_display = ('id_venta','fecha_venta','total_venta')
         list_filter = ('fecha_venta')
 admin.site.register(Venta,VentasModelAdmin)
-admin.site.register(VentaProducto)
-admin.site.register(VentaServicio)
