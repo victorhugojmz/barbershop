@@ -11,7 +11,7 @@
                 <div class="row">                       
                         {% for imagen in object_list %}
                                 <div class="col-md-4 col-sm-4 col-xs-12">
-                                       <a href="{% url 'index:gallery-details' imagen.id %}" class="thumbnail">
+                                       <a href="" class="thumbnail">
                                         <figure>
                                                 <img src="{{ imagen.imagen.url }}" draggable="false" alt="{{ imagen.descripcion }}" class="img-responsive">                                
                                         </figure>
