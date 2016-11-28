@@ -27,7 +27,7 @@
            
             <br>
             <div class="row">
-                    <div class="col-md-12 col-xs-12 col-sm-12">
+                    <div class="col-md-12 col-xs-10 col-sm-12">
                             <form action="{% url 'productos:product-add' %}">
                                 <button>                        
                                     <span class="glyphicon glyphicon-plus"></span>
@@ -43,8 +43,7 @@
                                             <th>Marca</th>
                                             <th>Precio</th>
                                             <th>Stock</th>
-                                            <th>Cliente</th>
-                                            <th>Editar</th>
+                                            <th>Ver</th>
                                             <th>Eliminar</th>      
                                         </thead>
                                         <tbody>
@@ -76,17 +75,6 @@
                                                                 </form>
                                         
                                                             </td>
-                                        
-                                                            <td>
-                                        
-                                                                <form action="{% url 'productos:product-update' producto.id_producto %}">{% csrf_token %}
-                                                                    <button>
-                                                                    <span class="glyphicon glyphicon-edit"></span>
-                                                                    </button>
-                                                                </form>
-                                                            
-                                                            </td>
-                                                            
                                                             <td>
                                                             
                                                                 <form onclick="deleteProduct()" action="{% url 'productos:product-delete' producto.id_producto %}" method="POST">{% csrf_token %}

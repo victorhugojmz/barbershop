@@ -45,10 +45,10 @@ def book(request):
             nombre_cliente = form.cleaned_data['nombre_cliente']
             telefono_cliente = form.cleaned_data['telefono_cliente']
             direccion = form.cleaned_data['direccion']
-            fecha= form.cleaned_data['fecha']
+            fecha_cita = form.cleaned_data['fecha_cita']
             cita = form.save(commit=False)
             cita.save()
-            return HttpResponseRedirect('/cita')
+            return HttpResponseRedirect('/')
     else:    
         form = CitaForm(request.POST or None)
         context = {

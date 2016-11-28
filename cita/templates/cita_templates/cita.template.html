@@ -7,14 +7,14 @@
     <div class="container">
               <table class="table table-striped table-hover">
                        <thead class="table table-heading">
-                               <th>Id Cita</th>
+                               <th>Id</th>
                                <th>Fecha de cita</th>
                                <th>Hora</th>
                                <th>Creacion Cita</th>
                                <th>Cliente</th>
                                <th>Teléfono</th>
                                <th>Modificar</th>
-                               <th>Eliminar</th>
+                               <th>Cancelar</th>
                        </thead>
                        <tbody>
                           {% for object in object_list  %}
@@ -36,7 +36,7 @@
                                    <td>
                                        <form action="{% url 'cita:delete-cita' object.cita_id %}">
                                            <button>
-                                               <span class="glyphicon glyphicon-trash"></span>
+                                               <span class="glyphicon glyphicon-remove"></span>
                                            </button>
                                        </form>
                                    </td>

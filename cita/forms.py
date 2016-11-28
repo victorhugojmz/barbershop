@@ -22,7 +22,7 @@ class CitaForm(forms.ModelForm):
                                     'class':'form-control',
                                     'placeholder':'Direccion'
                                 }))
-    fecha = forms.DateField(
+    fecha_cita = forms.DateField(
                     widget=forms.TextInput(
                             attrs=
                                 {
@@ -35,7 +35,8 @@ class CitaForm(forms.ModelForm):
             'nombre_cliente',
             'telefono_cliente',
             'direccion',
-            'fecha',
+            'fecha_cita',
+            'hora_cita'
         )
 class UpdateCitaForm(forms.ModelForm):
     class Meta:    
