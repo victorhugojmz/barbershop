@@ -1,6 +1,10 @@
 from django import forms
 from models  import Cita
 class CitaForm(forms.ModelForm):
+    horas = (
+        ("11:50:00","15:00"),
+        ("12:20:00","12:20"),
+    )
     nombre_cliente = forms.CharField(
                     widget=forms.TextInput(
                                         attrs= {
@@ -29,6 +33,7 @@ class CitaForm(forms.ModelForm):
                                     'placeholder' : 'Escoge una fecha',
                                     'class':'form-control datepicker'
                                 }))
+    hora_cita = forms.ChoiceField(choices=horas)
     class Meta: 
         model = Cita
         fields = (
