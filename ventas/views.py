@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from forms import VentaForm
 def index_citas(request):
     return render(request, 'ventas/index.ventas.html',{})
 def genera_venta(request):
@@ -9,7 +10,7 @@ def genera_venta(request):
         if form.is_valid():
             venta = form.save(commit=False)
             venta.save()
-            return render(request, 'music/detail.html', {'venta': venta })
+            return render(request, 'ventas/venta.details.template.html', {'venta': venta})
         context = {
             "form": form
         }
