@@ -27,13 +27,3 @@ def about(request):
 class Galeria(generic.ListView):
     model = Galeria
     template_name = 'index/gallery.template.html'
-class DetallesImagen(generic.DetailView):
-    model = Galeria
-    template_name = 'galeria/galeria.details.template.html'
-class NuevaImagen(CreateView):
-    model = Galeria
-    success_url  =  reverse_lazy('index:gallery')
-    fields = ['descripcion','titulo_imagen','imagen']
-class EliminaImagen(DeleteView):
-    model = Galeria
-    success_url = 'index/gallery.template.html'
