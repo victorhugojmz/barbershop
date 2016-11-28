@@ -2,12 +2,6 @@ from __future__ import unicode_literals
 from django.db import models
 import datetime 
 class Cita(models.Model):
-    hour_choices = (
-        ('11:15:00','11:15:00'),
-        ('11:40:00','11:40:00'),
-        ('12:15:00','12:15:00'),
-        ('12:30:00','12:30:00'),
-    )
     cita_id = models.AutoField(
                         primary_key= True
                         )
@@ -38,7 +32,4 @@ class Cita(models.Model):
     hora_cita = models.TimeField(
                         'Hora',
                         blank=False, 
-                        null=False,
-                        choices = hour_choices,
-                        default='11:15:00'
                         )
