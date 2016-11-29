@@ -2,8 +2,12 @@ from django import forms
 from models  import Cita
 class CitaForm(forms.ModelForm):
     horas = (
-        ("11:50:00","15:00"),
-        ("12:20:00","12:20"),
+        ("11:30:00","11:30 AM"),
+        ("12:00:00","12:00 PM"),
+        ("12:30:00","12:30 PM"),
+        ("13:45:00","12:45 PM"),
+        ("1:00:00","1:00:00 PM"),
+        ("1:15.00","1:15:00 PM"),
     )
     nombre_cliente = forms.CharField(
                     widget=forms.TextInput(
