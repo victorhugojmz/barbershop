@@ -78,4 +78,36 @@ header p{
     text-decoration: none !important;
     color: white; 
 }
-      
+.row_landing{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-flow: row wrap;
+}
+.row_landing_item {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-flex-shrink: 1;
+      -ms-flex-negative: 1;
+          flex-shrink: 1;
+  -webkit-flex-basis: 0;
+      -ms-flex-preferred-size: 0;
+          flex-basis: 0;
+  flex-basis: 33%;
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+}
+.row_landing_item img{
+    width:65%;
+    height: 200px;
+    max-width: 80%;
+    overflow: hidden; 
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+}
