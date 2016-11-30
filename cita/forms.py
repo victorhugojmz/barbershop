@@ -82,6 +82,5 @@ class UpdateCitaForm(forms.ModelForm):
                                 attrs={
                                             'class':'form-control',
                                             'placeholder': 'Direccion' 
-                                    }),
-                'hora_cita': forms.ChoiceField(choices=horas)
+                                    })
         }
