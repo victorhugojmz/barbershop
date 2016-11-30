@@ -1,4 +1,21 @@
-
+{% extends "index/index.template.html" %}
+{% block title %}
+    <title>Nueva cita</title>
+{% endblock %}
+{% block body %}
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-12">
+                                            <h1>Actualización de la cita</h1>
+                                            <form method="POST" action="{% url 'cita:book' %}" enctype="multipart/form-data"> {% csrf_token %}
+                                                {% include "account/form.template.html" %}
+                                                <button class="btn btn-default" type="submit" value="Registrarme">
+                                                    Book a date
+                                                </button>
+                                            </form>
+                                    </div>
+                                </div>
+                            </div>
                             <br>
                             <br>
                             <br>
@@ -23,8 +40,7 @@
                 changeYear: true,
                 yearRange: "2016:2017",
                 currentText: "Now",
-                defaultDate: 0,
-                
+                defaultDate: 0, 
                 });
             });
        </script>
