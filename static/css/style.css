@@ -83,7 +83,6 @@ header p{
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
 }
 .row_landing_item {
   -webkit-box-flex: 1;
@@ -99,6 +98,7 @@ header p{
   margin: 0;
   padding: 10px 0;
   text-align: center;
+  width: 25%;
 }
 /*.row_landing_item img{
     width:65%;
