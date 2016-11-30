@@ -5,12 +5,13 @@ class CitaForm(forms.ModelForm):
         ("11:30:00","11:30 AM"),
         ("12:00:00","12:00 PM"),
         ("12:30:00","12:30 PM"),
-        ("13:45:00","12:45 PM"),
-        ("1:00:00","1:00:00 PM"),
-        ("1:15.00","1:15:00 PM"),
+        ("13:00:00","13:00 PM"),
+        ("13:30:00","13:30:00 PM"),
+        ("14:00.00","14:00:00 PM"),
+
     )
     nombre_cliente = forms.CharField(
-                    widget=forms.TextInput(
+                     widget=forms.TextInput(
                                         attrs= {
                                             'class':'form-control',
                                             'placeholder':'Nombre'

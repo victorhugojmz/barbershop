@@ -51,7 +51,7 @@ class UserRegistrationForm(forms.ModelForm):
                                     'placeholder': 'Ejemplo: zamacueca2000',
                                     'class':'form-control'
                                     }))
-      email = forms.EmailField(
+      email = forms.EmailField( 
                             label = 'Email', 
                             widget=forms.TextInput(
                                 attrs={
