@@ -1,15 +1,9 @@
-{% extends "index/index.template.html" %}
-{% block title %}
-    <title>Nueva cita</title>
-{% endblock %}
-{% block body %}
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-12">
-                        <h1>Genera una nueva cita</h1>
-                        <p>Por favor, llena el siguiente formulario poder generar una cita.</p>
-                        <form method="POST" action="{% url 'cita:book' %}" enctype="multipart/form-data"> {% csrf_token %}
-                            {% include "account/form.template.html" %}
+
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                             <button class="btn btn-default" type="submit" value="Registrarme">
                                 Book a date
                             </button>
