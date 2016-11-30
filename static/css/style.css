@@ -96,12 +96,11 @@ header p{
   -webkit-flex-basis: 0;
       -ms-flex-preferred-size: 0;
           flex-basis: 0;
-  flex-basis: 33%;
   margin: 0;
   padding: 10px 0;
   text-align: center;
 }
-.row_landing_item img{
+/*.row_landing_item img{
     width:65%;
     height: 200px;
     max-width: 80%;
@@ -110,4 +109,4 @@ header p{
     flex-direction:column;
     justify-content: center;
     align-items:center;
-}
+}*/
