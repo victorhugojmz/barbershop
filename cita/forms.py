@@ -20,8 +20,6 @@ class CitaForm(forms.ModelForm):
         ("19:00:00","19:00 PM"),
         ("19:30:00","19:30 PM"),
         ("20:00.00","20:00 PM"),
-
-
     )
     nombre_cliente = forms.CharField(
                      widget=forms.TextInput(
