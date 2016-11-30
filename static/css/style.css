@@ -83,8 +83,10 @@ header p{
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  flex-wrap: wrap;
 }
 .row_landing_item {
+    display: inline-block;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
@@ -98,15 +100,5 @@ header p{
   margin: 0;
   padding: 10px 0;
   text-align: center;
-  width: 25%;
+  width: calc(100% * (1/4) - 10px - 1px);
 }
-/*.row_landing_item img{
-    width:65%;
-    height: 200px;
-    max-width: 80%;
-    overflow: hidden; 
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items:center;
-}*/
