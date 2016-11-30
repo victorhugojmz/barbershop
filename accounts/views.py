@@ -66,9 +66,9 @@ def user_reports(request):
     response['Content-Disposition'] = 'attachment;filename=Reporte.pdf'
     buffer = BytesIO()
     c = canvas.Canvas(buffer,pagesize = landscape(letter))
-    #company_logo = ImageReader('https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/13620115_781305875305339_3498004211207373370_n.jpg?oh=a354baeaead81f302d0efd2e87750956&oe=58D071A4')
+    company_logo = ImageReader('https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/13620115_781305875305339_3498004211207373370_n.jpg?oh=a354baeaead81f302d0efd2e87750956&oe=58D071A4')
     c.setLineWidth(.3)
-   # c.drawImage(company_logo,285,520,width=200,height=75,mask=None)
+    c.drawImage(company_logo,285,520,width=200,height=75,mask=None)
     c.setFont('Helvetica-Bold',20)
     c.drawString(30,475,'Reporte de ventas')
     c.setFont('Helvetica',18)

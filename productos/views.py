@@ -31,7 +31,9 @@ def  IndexView(request):
 class DetailView(generic.DetailView):
       model = Producto
       template_name = 'index/details.template.html'
-class ProductCreate(CreateView):
+class ProductCreate(LoginRequiredMixin,CreateView):
+      login_url = 'account/login_user/'
+      redirect_field_name = 'account/login_user/'
       model = Producto 
       form_class  = CreateProductForm
       success_url  =  reverse_lazy('productos:index')      
