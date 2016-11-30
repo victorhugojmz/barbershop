@@ -6,8 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-12">
-                        <h1>Genera una nueva cita</h1>
-                        <p>Por favor, llena el siguiente formulario poder generar una cita.</p>
+                        <h1>Actualización de la cita</h1>
                         <form method="POST" action="{% url 'cita:book' %}" enctype="multipart/form-data"> {% csrf_token %}
                             {% include "account/form.template.html" %}
                             <button class="btn btn-default" type="submit" value="Registrarme">
@@ -18,4 +17,20 @@
             </div>
         </div>
         <br>
+                <script>
+            $(function() {
+                $( ".datepicker" ).datepicker({
+                dayNames: [ " Domingo ", " Lunes ", " Martes ", " Miercoles ", " Jueves ", " Viernes ", " Sabado " ],
+                dayNamesMin: [ "Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab" ],
+                dateFormat: "yy-mm-dd", 
+                minDate: 0,
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "2016:2017",
+                currentText: "Now",
+                defaultDate: 0,
+                
+                });
+            });
+       </script>
 {% endblock  %}

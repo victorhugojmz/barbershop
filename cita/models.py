@@ -31,5 +31,10 @@ class Cita(models.Model):
                         )
     hora_cita = models.TimeField(
                         'Hora',
-                        blank=False, 
+                        blank=False
                         )
+    def save(self, *args,**kwargs):
+        super(Cita,self).save(*args, **kwargs)
+    class Meta:
+        unique_together = ('fecha_cita', 'hora_cita',)
+   
