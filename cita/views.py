@@ -16,12 +16,15 @@ from django.views.generic.edit import (
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CitaSerializer
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Model forms 
 from forms import CitaForm , UpdateCitaForm
 # Models 
 from models import Cita
 # Create your views here.
-class index(generic.ListView):
+class index(LoginRequiredMixin,generic.ListView):
+    login_url = 'account/login_user/'
+    redirect_field_name = 'account/login_user/'
     model = Cita
     template_name = 'cita_templates/cita.template.html'
     def queryset(self):
