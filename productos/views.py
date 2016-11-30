@@ -17,6 +17,7 @@ from .forms import (
                     UpdateProductForm,
                     CreateProductForm
                    )
+from django.contrib.auth.mixins import LoginRequiredMixin
 def  IndexView(request):
       queryset_list = Producto.objects.all()
       query = request.GET.get("q")
@@ -34,7 +35,9 @@ class ProductCreate(CreateView):
       model = Producto 
       form_class  = CreateProductForm
       success_url  =  reverse_lazy('productos:index')      
-class ProductUpdate(UpdateView):
+class ProductUpdate(LoginRequiredMixin,UpdateView):
+      login_url = 'account/login_user/'
+      redirect_field_name = 'account/login_user/'
       model = Producto 
       form_class = UpdateProductForm
       success_url  =  reverse_lazy('productos:index')
