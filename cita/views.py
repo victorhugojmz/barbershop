@@ -22,13 +22,14 @@ from forms import CitaForm , UpdateCitaForm
 # Models 
 from models import Cita
 # Create your views here.
-class index(LoginRequiredMixin,generic.ListView):
-    login_url = 'account/login_user/'
-    redirect_field_name = 'account/login_user/'
+
+class index(generic.ListView):
+
     model = Cita
     template_name = 'cita_templates/cita.template.html'
     def queryset(self):
         return Cita.objects.all()
+
 class DeleteCita(generic.DeleteView):
     model = Cita
     success_url  =  reverse_lazy('cita:index')
