@@ -10,3 +10,5 @@ class Venta(models.Model):
     total_venta = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
     producto = models.ForeignKey(Producto)
     cantidad = models.IntegerField(default=0)
+    def __str__(self):
+        return self.fecha_venta
