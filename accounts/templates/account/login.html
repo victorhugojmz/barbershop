@@ -23,9 +23,10 @@
                             <form action="" method="POST" enctype="multipart/form-data"> {% csrf_token %}
                                 <div class="form-group">
                                     {% include "account/form.template.html" %}
-                                    <input class="form-control" type="submit" class="btn btn-default" value="Login">
+                                    <input  type="submit" class="btn btn-default" value="Login">
                                 </div>
                             </form>
+                        <p style="text-align:center;">Entra <a href="./account/register_user/">aqui</a> para crear una cuenta</p>
                     </div>
                 </div>
             </div>
