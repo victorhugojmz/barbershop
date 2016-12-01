@@ -14,12 +14,13 @@
                 <h4>Descripción: </h4>
                 <p>{{ producto.descripcion_producto }}</p>
                 <div class="stock-info"><strong>{{ producto.stock_producto }}<strong> Ejemplares en stock.</div>                                        
-                <form action="{% url 'productos:product-update' producto.id_producto %}">{% csrf_token %}
-                    <button>
-                       Editar Producto
-                    </button>
-              </form>
-                                                            
+                {% if request.user.is_authenticated %}
+                    <form action="{% url 'productos:product-update' producto.id_producto %}">{% csrf_token %}
+                        <button>
+                        Editar Producto
+                        </button>
+                    </form>               
+                {% endif %}                          
             </div>
         </div>
     </div>
