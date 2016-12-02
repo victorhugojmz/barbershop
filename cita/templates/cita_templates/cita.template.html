@@ -7,21 +7,25 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="btn-group"> 
+                <div class="btn-group">  
                     <button class="btn btn-default">
                         <span class="glyphicon glyphicon-"></span>
                         Citas este mes
                     </button>
+                <form action="GET"> 
                     <button class="btn btn-default">
                         <span class="glyphicon glyphicon-"></span>
                         Citas de este año
                     </button>
+                </form>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-8">
-                <h2>Citas del día de hoy</h2>
+                {% if object_list %}
+                    <h2>Citas del día de hoy</h2>
+                {% endif %}
                 <table class="table table-striped table-hover">
                         <thead class="table table-heading">
                                 <th>Id</th>
@@ -51,7 +55,8 @@
                                                 
                                     </td>
                                     <td>
-                                        <form action="{% url 'cita:delete-cita' object.cita_id %}">
+                                        <form method="POST" action="{% url 'cita:delete-cita' object.cita_id %}">
+                                            {% csrf_token %}
                                             <button>
                                                 <span class="glyphicon glyphicon-remove"></span>
                                             </button>
