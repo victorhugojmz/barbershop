@@ -6,20 +6,25 @@
     </header>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="btn-group">  
-                    <button class="btn btn-default">
-                        <span class="glyphicon glyphicon-"></span>
-                        Citas este mes
-                    </button>
-                <form action="GET"> 
-                    <button class="btn btn-default">
-                        <span class="glyphicon glyphicon-"></span>
-                        Citas de este año
-                    </button>
-                </form>
+            <div class="dropdown">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Filtrar<span class="badge">3</span></button>
+                    <ul class="dropdown-menu">
+                        <li>
+                           <button class="btn-default">
+                                <span class="glyphicon glyphicon-"></span>
+                                Citas este mes
+                            </button>
+                        </li>
+                        <li>
+                           <form action="GET"> 
+                                <button class="btn-default">
+                                    <span class="glyphicon glyphicon-"></span>
+                                    Citas de este año
+                                </button>
+                           </form>
+                        </li>
+                    </ul>
                 </div>
-            </div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-8">

@@ -7,13 +7,6 @@ header{
 header p{
   margin: 0 auto;
 }
-.parallax {
-    background-image: url(/images/products.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 .foo {
     width: 100%;
     height: auto; 
