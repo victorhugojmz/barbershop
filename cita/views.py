@@ -25,7 +25,7 @@ from models import Cita
 
 
 def  index(request):
-    query_set_list  =  Cita.objects.filter()
+    query_set_list  =  Cita.objects.filter(fecha_cita__date=datetime.today())
     context = {
         "object_list": query_set_list
     }
