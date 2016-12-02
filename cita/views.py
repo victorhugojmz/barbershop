@@ -25,13 +25,14 @@ from models import Cita
 
 
 def  index(request):
-    query_set_list  =  Cita.objects.filter(
+    lista_de_citas_de_hoy  =  Cita.objects.filter(
                                         fecha_cita__year = datetime.now().year, 
                                         fecha_cita__month = datetime.now().month,
                                         fecha_cita__day = datetime.now().day 
                                         )
+    todas_citas = Cita.object.all()
     context = {
-        "object_list": query_set_list
+        "object_list": lista_de_citas_de_hoy
     }
     return render(request,'cita_templates/cita.template.html',context)
 class DeleteCita(generic.DeleteView):
