@@ -30,7 +30,6 @@ def  index(request):
                                         fecha_cita__month = datetime.now().month,
                                         fecha_cita__day = datetime.now().day 
                                         )
-    todas_citas = Cita.object.all()
     context = {
         "object_list": lista_de_citas_de_hoy
     }
