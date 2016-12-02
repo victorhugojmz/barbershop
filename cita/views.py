@@ -23,13 +23,12 @@ from forms import CitaForm , UpdateCitaForm
 from models import Cita
 # Create your views here.
 
-class index(generic.ListView):
-
-    model = Cita
-    template_name = 'cita_templates/cita.template.html'
-    def queryset(self):
-        return Cita.objects.all()
-
+def  index(request):
+    query_set_list  =  Cita.objects.all()
+    context = {
+        "object_list": query_set_list
+    }
+    return render(request,'cita_templates/cita.template.html',context)
 class DeleteCita(generic.DeleteView):
     model = Cita
     success_url  =  reverse_lazy('cita:index')
