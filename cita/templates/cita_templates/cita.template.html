@@ -6,9 +6,6 @@
     </header>
     <div class="container">
         <div class="row">
-            <div class="dropdown">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">  Filtrar    <span class="glyphicon glyphicon-triangle-bottom"></span></button>
-                    <div class="dropdown-menu">
                         <div>
                            <button class="btn-default">
                                 <span class="glyphicon glyphicon-"></span>
@@ -23,14 +20,10 @@
                                 </button>
                            </form>
                         </div>
-                    </div>
-                </div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-8">
-                {% if object_list %}
-                    <h2>Citas del día de hoy</h2>
-                {% endif %}
+                <h2>Citas del día de hoy</h2>
                 <table class="table table-striped table-hover">
                         <thead class="table table-heading">
                                 <th>Id</th>
