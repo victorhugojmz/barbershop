@@ -20,11 +20,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Model forms 
 from forms import CitaForm , UpdateCitaForm
 # Models 
+from datetime import datetime
 from models import Cita
-# Create your views here.
+
 
 def  index(request):
-    query_set_list  =  Cita.objects.all()
+    query_set_list  =  Cita.objects.filter()
     context = {
         "object_list": query_set_list
     }
