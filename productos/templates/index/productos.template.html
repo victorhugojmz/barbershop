@@ -23,42 +23,32 @@
                             </form>
                     </div>
             </div>
+            <br>
                 <form action="{% url 'productos:product-add' %}">
                                     <button class="new">                        
                                         <span class="glyphicon glyphicon-plus"></span>
                                         Nuevo Producto                                     
                                     </button>
                 </form>
+                    <br>
                         <div class="row">
-                                <div class="col-md-1 col-xs-1 col-sm-1">
-                                Id
-                                </div>
-                                <div class="col-md-4 col-xs-4 col-sm-4">
-                                Imagen
-                                </div>
-                                <div class="col-md-2 col-xs-2 col-sm-2">
-                                    Nombre
-                                </div>
-                                <div class="col-md-1 col-xs-1 col-sm-1">
-                                    Tipo
-                                </div>
-                                <div class="col-md-1 col-xs-1 col-sm-1">
-                                    Marca
-                                </div>
-                                <div class="col-md-2 col-xs-2 col-sm-2">
-                                    Precio
-                                </div>
-                                <div class="col-md-1 col-xs-1 col-sm-1">
-                                    Stock
-                                </div>
+                                <div class="col-md-1 col-xs-1 col-sm-1">Id</div>
+                                <div class="col-md-2 col-xs-2 col-sm-2">Imagen</div>
+                                <div class="col-md-2 col-xs-2 col-sm-2">Nombre</div>
+                                <div class="col-md-1 col-xs-1 col-sm-1">Tipo</div>
+                                <div class="col-md-2 col-xs-2 col-sm-2">Marca</div>
+                                <div class="col-md-2 col-xs-2 col-sm-2">Precio</div>
+                                <div class="col-md-1 col-xs-1 col-sm-1">Stock</div>
                         </div>
                     {% for producto in object_list %}
                         <div class="row">
                                 <div class="col-md-1 col-xs-1 col-sm-1">
                                     {{ producto.id_producto }}
                                 </div>
-                                <div class="col-md-4 col-xs-4 col-sm-4">
+                                <div class="col-md-2 col-xs-2 col-sm-2">
+                                   <a href="{% url 'productos:detail' producto.id_producto %}"> 
                                     <img class="img img-responsive" src="{{ producto.imagen_producto.url }}" alt="">
+                                   </a>
                                 </div>
                                 <div class="col-md-2 col-xs-2 col-sm-2">
                                     {{ producto.nombre_producto }}
@@ -66,7 +56,7 @@
                                 <div class="col-md-1 col-xs-1 col-sm-1">
                                 {{ producto.tipo_producto }}
                                 </div>
-                                <div class="col-md-1 col-xs-1 col-sm-1">
+                                <div class="col-md-2 col-xs-2 col-sm-2">
                                 {{ producto.marca_producto}}
                                 </div>
                                 <div class="col-md-2 col-xs-2 col-sm-2">
@@ -75,19 +65,7 @@
                                 <div class="col-md-1 col-xs-1 col-sm-1">
                                     {{ producto.stock_producto }}
                                 </div>
-                        </div>
-                                        
-                         <form action="{% url 'productos:detail' producto.id_producto %}">
-                                    <button>
-                                       <span class="glyphicon glyphicon-eye-open"></span>
-                                    </button>
-                        </form>
-                        <form action="{% url 'productos:product-delete' producto.id_producto %}" method="POST">{% csrf_token %}
-                                    <button>
-                                         <span class="glyphicon glyphicon-trash"></span>
-                                   </button>
-                        </form>                                            
-    </div> 
+                        </div>                                                                  
                     {% endfor %}
                         
                      {% if not object_list %}
@@ -95,17 +73,17 @@
                              <h5>No hay elementos para mostrar</h5>
                         </div>
                      {% endif %}
-           {% else %}
-                       {% for producto in object_list %}
+
+        {% else %}
+                {% for producto in object_list %}
                                   
-                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
                                             <a href="{% url 'productos:detail' producto.id_producto %}"><img src="{{ producto.imagen_producto.url }}" alt="" class="img-responsive"></a>
                                             <h3>{{ producto.nombre_producto }}</h3>
                                             <h4>{{ producto.marca_producto }}</h4>
                                             <p>MXN ${{ producto.precio_unitario_producto }}.00</p>                          
-                                    </div>
-                         {% endfor %}
-            {% endif %}
-                    </div>
-            </div>            
+                     </div>
+                {% endfor %}
+        {% endif %}
+     </div>            
 {% endblock  %}

@@ -19,7 +19,12 @@
                         <button>
                         Editar Producto
                         </button>
-                    </form>               
+                    </form>     
+                    <form action="{% url 'productos:product-delete' producto.id_producto %}" method="POST">{% csrf_token %}
+                                    <button>
+                                         <span class="glyphicon glyphicon-trash"></span>
+                                   </button>
+                    </form>            
                 {% endif %}                          
             </div>
         </div>
