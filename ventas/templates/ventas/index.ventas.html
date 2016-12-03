@@ -4,35 +4,35 @@
 {% endblock  %}
 {% block body %}
         <header>
-            <h1> Administración de Ventas</h1>
+            <h1>Registro de servicios</h1>
         </header>
         <div class="container">
-     
             <div class="row">
+                    <form  action="{% url 'ventas:sale-create' %}">
+                        <button class="btn btn-danger nuevo">                        
+                                <span class="glyphicon glyphicon-plus"></span>                                
+                        </button>
+                   </form>
                     <div class="col-md-12 col-xs-12 col-sm-12">
-                                <table class="table table-striped table-hover"> 
-                                        <thead class="table table-heading">
+                                        <div class="table table-heading">
                                                 <th>id</th>
                                                 <th>Fecha Venta</th>
                                                 <th>Total Venta</th>    
-                                        </thead>
-                                        <tbody>
+                                        </div>
                                                 {% for venta in object_list %}
-                                                        <tr>
-                                                                <td>
+                                                        <div>
+                                                                <div>
                                                                 {{ venta.id_venta }}
-                                                                </td>
-                                                                <td>
+                                                                </div>
+                                                                <div>
                                                                 {{ venta.fecha_venta }}
-                                                                </td>
-                                                                <td>
+                                                                </div>
+                                                                <div>
                                                                 $ {{ venta.total_venta }} MXN
-                                                                </td>
-                                                        </tr>
+                                                                </div>
+                                                        </div>
                                                 
                                                 {% endfor %}
-                                        </tbody>
-                                </table>
                     </div>
              </div>
 {% endblock %}

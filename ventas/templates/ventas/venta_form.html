@@ -5,17 +5,22 @@
 {% endblock  %}
 {% block body %}
     <div class="container-fluid">
+        <form  action="{% url 'ventas:index' %}">
+               <button class="btn btn-danger nuevo">                        
+                  <span class="glyphicon glyphicon-remove"></span>                                
+               </button>
+           </form>
         <div class="row">
             <div class="col-sm-12 col-md-7">
+                {% if not venta %}
+                    <h1 class="who">Registrar Venta</h1>
+                {% endif %}
                             <form  class="form form-horizontal"  method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
                                     {% include "index/form.template.html" %}
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <button class="btn btn-success">Submit</button>
-                                        <button class="btn btn-danger">
-                                            <a class="cancel" href="/">Cancelar transacción</a>
-                                        </button>   
                                     </div>
                                 </div>
                             </form> 

@@ -17,6 +17,4 @@ class  Venta(models.Model):
                             blank=True, 
                             null=True)
     servicio = models.ForeignKey(Servicio)
-
-    def __str__(self):
-        return self.fecha_venta
+    barbero = models.ForeignKey(Barbero) 

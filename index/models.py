@@ -38,7 +38,7 @@ class Barbero(models.Model):
                         )
     fotografia_barbero = models.FileField()
     def __unicode__(self):
-            return  self.nombre_barbero  + '\n' + self.cuenta_twitter_barbero + '\n' + self.cuenta_facebook_barbero + '\n' + self.descripcion_barbero     
+            return   u'%s' % (self.id_barbero) + '\n' + self.nombre_barbero  
 class Servicio(models.Model): 
     nombre_servicio  = models.CharField(
                         max_length = 30,
