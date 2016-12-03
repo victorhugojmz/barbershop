@@ -2,21 +2,26 @@
 {% block title %}<title>Zamacueca - Sobre Nosotros</title>{% endblock %}
 {% block aboutactive %}active{% endblock  %}
 {% block body %}
-  <div class="container-fluid">
-        <h1>Sobre Nosotros</h1>
+  <div class="container">
+        <h1 class="who">Sobre Nosotros</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget dignissim leo, a maximus sem. In laoreet quis erat sed mattis. Donec semper, metus nec egestas fringilla, libero arcu faucibus eros, a viverra odio urna ac sem. Ut commodo feugiat sodales. Suspendisse egestas ut odio mattis placerat. Curabitur dignissim interdum facilisis. Quisque et sagittis lectus, </p>
-        <h2>Nuestro equipo</h2>
+        <h2 class="who">Nuestro equipo</h2>
+        
         <div class="row">
-          {% for barbero in barberos  %}
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <h1>{{ barbero.nombre_barbero }}</h1>
-              <h2>{{ barbero.cuenta_twitter_barbero }} / {{ barbero.cuenta_facebook_barbero }}</h2>
-              <p>
-                {{ barbero.descripcion_barbero }}
-              </p> 
+        {% for barbero in barberos  %}
+            
+            <div class="col-sm-4 col-md-4 col-xs-6">
+              <div class="thumbnail who">
+                <img src="{{ barbero.fotografia_barbero.url }}" alt="...">
+                <div class="caption">
+                  <h3>{{ barbero.nombre_barbero }} <br> {{ barbero.cuenta_twitter_barbero }}  <br> {{ barbero.cuenta_facebook_barbero }}</h3>
+                  <p>{{ barbero.descripcion_barbero }}</p>
+                </div>
+              </div>
             </div>
-          {% endfor %}
-        </div>
+          
+        {% endfor %}
+        </div>           
     </div>
     <div class="container-fluid">
        <div class="row">
