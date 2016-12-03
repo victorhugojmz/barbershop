@@ -34,7 +34,7 @@ class Cita(models.Model):
                         blank=False
                         )
     def __str__(self):
-        return self.nombre_cliente
+        return self.nombre_cliente 
     def save(self, *args,**kwargs):
         super(Cita,self).save(*args, **kwargs)
     class Meta:
