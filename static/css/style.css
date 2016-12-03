@@ -3,9 +3,15 @@ body{
     background: black;
     color: white;
 }  
+select {
+    color: black;
+}
+form {
+    background: black;
+}
 label {
     background: black;
-    color: black;
+    color:white;
 } 
 header{
 	width: 100%;
@@ -294,4 +300,7 @@ header p{
 #map {
     width: 50vw;
     height: 60vh;
+}
+.new {
+    color: black;
 }

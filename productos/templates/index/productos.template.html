@@ -19,87 +19,93 @@
                         <h2>Búsqueda de Productos</h2>
                             <form action="" method="GET">
                                 <input type="text" placeholder="Busca el nombre de un producto" name='q' class="form-control" value="{{ request.GET.q }}">
-                                <input type="submit" value="Buscar" class="btn btn-default pull-center">
+                                <input type="submit" value="Buscar" class="btn btn-success pull-center">
                             </form>
                     </div>
             </div>
-            <form action="{% url 'productos:product-add' %}">
-                                <button>                        
-                                    <span class="glyphicon glyphicon-plus"></span>
-                                    Nuevo Producto                                     
-                                </button>
-            </form>
-            <div class="row">
-                    <div class="col-md-12 col-xs-10 col-sm-12">
-                                        <thead class="table table-heading">
-                                            <th>id</th>
-                                            <th>Nombre</th>
-                                            <th>Tipo</th>
-                                            <th>Marca</th>
-                                            <th>Precio</th>
-                                            <th>Stock</th>
-                                            <th>Ver</th>
-                                            <th>Eliminar</th>      
-                                        </thead>
-                                        <tbody>
-                                            {% for producto in object_list %}
-                                                    <tr>
-                                                            <td>
-                                                                {{ producto.id_producto }}
-                                                            </td>
-                                                            <td>
-                                                                {{ producto.nombre_producto }}
-                                                            </td>
-                                                            <td>
-                                                                {{ producto.tipo_producto }}
-                                                            </td>
-                                                            <td>
-                                                                {{ producto.marca_producto}}
-                                                            </td>
-                                                            <td>
-                                                                {{ producto.precio_unitario_producto}}
-                                                            </td>
-                                                            <td>
-                                                                {{ producto.stock_producto }}</td>
-                                                            <td>
-                                                            
-                                                                <form action="{% url 'productos:detail' producto.id_producto %}">
-                                                                    <button>
-                                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                                    </button>
-                                                                </form>
+                <form action="{% url 'productos:product-add' %}">
+                                    <button class="new">                        
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        Nuevo Producto                                     
+                                    </button>
+                </form>
+                        <div class="row">
+                                <div class="col-md-1 col-xs-1 col-sm-1">
+                                Id
+                                </div>
+                                <div class="col-md-4 col-xs-4 col-sm-4">
+                                Imagen
+                                </div>
+                                <div class="col-md-2 col-xs-2 col-sm-2">
+                                    Nombre
+                                </div>
+                                <div class="col-md-1 col-xs-1 col-sm-1">
+                                    Tipo
+                                </div>
+                                <div class="col-md-1 col-xs-1 col-sm-1">
+                                    Marca
+                                </div>
+                                <div class="col-md-2 col-xs-2 col-sm-2">
+                                    Precio
+                                </div>
+                                <div class="col-md-1 col-xs-1 col-sm-1">
+                                    Stock
+                                </div>
+                        </div>
+                    {% for producto in object_list %}
+                        <div class="row">
+                                <div class="col-md-1 col-xs-1 col-sm-1">
+                                    {{ producto.id_producto }}
+                                </div>
+                                <div class="col-md-4 col-xs-4 col-sm-4">
+                                Imagen
+                                </div>
+                                <div class="col-md-2 col-xs-2 col-sm-2">
+                                    {{ producto.nombre_producto }}
+                                </div>
+                                <div class="col-md-1 col-xs-1 col-sm-1">
+                                {{ producto.tipo_producto }}
+                                </div>
+                                <div class="col-md-1 col-xs-1 col-sm-1">
+                                {{ producto.marca_producto}}
+                                </div>
+                                <div class="col-md-2 col-xs-2 col-sm-2">
+                                    {{ producto.precio_unitario_producto}}
+                                </div>
+                                <div class="col-md-1 col-xs-1 col-sm-1">
+                                    {{ producto.stock_producto }}
+                                </div>
+                        </div>
                                         
-                                                            </td>
-                                                            <td>
-                                                            
-                                                                <form onclick="deleteProduct()" action="{% url 'productos:product-delete' producto.id_producto %}" method="POST">{% csrf_token %}
-                                                                    <button>
-                                                                        <span class="glyphicon glyphicon-trash"></span>
-                                                                    </button>
-                                                                </form>
-                                                            
-                                                            </td>
-                                                    </tr>
-                                
-                                            {% endfor %}
-                                        </tbody>
-                                {% if not object_list %}
-                                        <h5>No hay elementos para mostrar</h5>
-                                {% endif %}
-                              </div>
-                        {% else %}
-                                {% for producto in object_list %}
+                         <form action="{% url 'productos:detail' producto.id_producto %}">
+                                    <button>
+                                       <span class="glyphicon glyphicon-eye-open"></span>
+                                    </button>
+                        </form>
+                        <form action="{% url 'productos:product-delete' producto.id_producto %}" method="POST">{% csrf_token %}
+                                    <button>
+                                         <span class="glyphicon glyphicon-trash"></span>
+                                   </button>
+                        </form>                                            
+    </div> 
+                    {% endfor %}
+                        
+                     {% if not object_list %}
+                        <div class="row">
+                             <h5>No hay elementos para mostrar</h5>
+                        </div>
+                     {% endif %}
+           {% else %}
+                       {% for producto in object_list %}
                                   
                                     <div class="col-md-4 col-sm-4 col-xs-12">
-                                  
                                             <a href="{% url 'productos:detail' producto.id_producto %}"><img src="{{ producto.imagen_producto.url }}" alt="" class="img-responsive"></a>
                                             <h3>{{ producto.nombre_producto }}</h3>
                                             <h4>{{ producto.marca_producto }}</h4>
-                                            <p>MXN ${{ producto.precio_unitario_producto }}.00</p>
-                                  
+                                            <p>MXN ${{ producto.precio_unitario_producto }}.00</p>                          
                                     </div>
-                                {% endfor %}
-                        {% endif %}
+                         {% endfor %}
+            {% endif %}
                     </div>
             </div>            
 {% endblock  %}

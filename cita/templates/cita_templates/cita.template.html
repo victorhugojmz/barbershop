@@ -34,13 +34,13 @@
                                 <div class="col-md-2 col-sm-2 col-xs-2">{{ object.telefono_cliente }}</div>
                                 <div class="col-md-1 col-sm-1 col-xs-1">  
                                     <form action="{% url 'cita:update-cita'  object.cita_id %}">{% csrf_token %}
-                                                <button>
+                                                <button class="new">
                                                     <span class="glyphicon glyphicon-edit"></span>
                                                 </button>
                                             </form>
                                  <form method="POST" action="{% url 'cita:delete-cita' object.cita_id %}">
                                             {% csrf_token %}
-                                            <button>
+                                            <button class="new">
                                                 <span class="glyphicon glyphicon-remove"></span>
                                             </button>
                                         </form>        
