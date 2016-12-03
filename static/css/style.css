@@ -36,7 +36,7 @@ header p{
 .page-break1
 {
     width: 10%;
-    height: 6px;
+    height: 2px;
     background-color: darkgoldenrod;
     margin: auto;
     margin-top: 5%;
@@ -145,7 +145,8 @@ header p{
 }
 
 .pricing__feature-list {
-	text-align: left;
+    list-style-type: none;
+	text-align: center;   
 }
 
 .pricing__action {
@@ -158,16 +159,15 @@ header p{
 	outline: none;
 }
 
-/* karma */
 .pricing--karma .pricing__item {
 	margin: 1em;
-	color: #382628;
-	background: #fff;
+	color: white;
+	background: black;
 	cursor: default;
 	text-transform: uppercase;
 	letter-spacing: 4px;
-	border: 2px solid #382628;
-	border-radius: 5px;
+	border: .5px solid darkgoldenrod;
+	border-radius: 1px;
 }
 
 .pricing--karma .pricing__title {
@@ -175,7 +175,7 @@ header p{
 	font-weight: 700;
 	margin: 0.5em 0 0;
 	padding: 1em;
-	border-bottom: 2px solid #382628;
+	border-bottom: 2px solid darkgoldenrod;
 }
 
 .pricing--karma .icon {
@@ -188,12 +188,13 @@ header p{
 	padding: 0.5em 0 0 0;
 	margin: 1em;
 	font-weight: bold;
-	border: 2px solid #382628;
+	border: 1px solid darkgoldenrod;
 	position: relative;
 	z-index: 100;
 }
 
 .pricing--karma .pricing__item--featured .pricing__price::after {
+    list-style-type: none;
 	background: url(../img/stamp.png);
 	background-size: cover;
 	content: '';
@@ -215,14 +216,14 @@ header p{
 	display: block;
 	padding: 1em;
 	margin-top: 1.25em;
-	border-top: 2px solid #382628;
+	border-top: .5px solid darkgoldenrod;
 }
 
 .pricing--karma .pricing__sentence {
 	margin: 0 0 1em 0;
 	padding: 1em;
 	font-size: 0.85em;
-	border-bottom: 2px solid #382628;
+	border-bottom: .5px solid darkgoldenrod;
 }
 
 .pricing--karma .pricing__feature-list {
@@ -239,10 +240,10 @@ header p{
 	margin: auto 1em 1em;
 	padding: 1.25em 2em;
 	color: #fff;
-	background: #382628;
+	background: darkgoldenrod;
 	letter-spacing: 2px;
 	border-radius: 5px;
-	border: 2px solid #382628;
+	border: .5px solid darkgoldenrod;
 	font-size: 0.95em;
 	text-transform: uppercase;
 	-webkit-transition: background-color 0.3s, color 0.3s;
@@ -251,6 +252,6 @@ header p{
 
 .pricing--karma .pricing__action:hover,
 .pricing--karma .pricing__action:focus {
-	background-color: #ffdbd5;
-	color: #382628;
+	background-color: white;
+	color: darkgoldenrod;
 }
