@@ -16,12 +16,12 @@
                 <div class="stock-info"><strong>{{ producto.stock_producto }}<strong> Ejemplares en stock.</div>                                        
                 {% if request.user.is_authenticated %}
                     <form action="{% url 'productos:product-update' producto.id_producto %}">{% csrf_token %}
-                        <button>
+                        <button class="new">
                         Editar Producto
                         </button>
                     </form>     
                     <form action="{% url 'productos:product-delete' producto.id_producto %}" method="POST">{% csrf_token %}
-                                    <button>
+                                    <button class="new">
                                          <span class="glyphicon glyphicon-trash"></span>
                                    </button>
                     </form>            

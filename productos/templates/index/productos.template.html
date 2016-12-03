@@ -12,7 +12,7 @@
             
         {% endif %}
     </header>
-    <div class="container">
+    <div class="container-fluid">
         {% if request.user.is_authenticated %}
            <div class="row">
                     <div class="col-sm-12 col-md-12 col-xs-12">
@@ -32,26 +32,21 @@
                 </form>
                     <br>
                         <div class="row">
-                                <div class="col-md-1 col-xs-1 col-sm-1">Id</div>
-                                <div class="col-md-2 col-xs-2 col-sm-2">Imagen</div>
-                                <div class="col-md-2 col-xs-2 col-sm-2">Nombre</div>
+                                <div class="col-md-3 col-xs-3 col-sm-3">Producto</div>
                                 <div class="col-md-1 col-xs-1 col-sm-1">Tipo</div>
                                 <div class="col-md-2 col-xs-2 col-sm-2">Marca</div>
-                                <div class="col-md-2 col-xs-2 col-sm-2">Precio</div>
-                                <div class="col-md-1 col-xs-1 col-sm-1">Stock</div>
+                                <div class="col-md-3 col-xs-3 col-sm-3">Precio</div>
+                                <div class="col-md-2 col-xs-2 col-sm-2">Stock</div>
                         </div>
                     {% for producto in object_list %}
                         <div class="row">
-                                <div class="col-md-1 col-xs-1 col-sm-1">
-                                    {{ producto.id_producto }}
-                                </div>
-                                <div class="col-md-2 col-xs-2 col-sm-2">
+                                <div class="col-md-3 col-xs-3 col-sm-3">
                                    <a href="{% url 'productos:detail' producto.id_producto %}"> 
                                     <img class="img img-responsive" src="{{ producto.imagen_producto.url }}" alt="">
                                    </a>
-                                </div>
-                                <div class="col-md-2 col-xs-2 col-sm-2">
-                                    {{ producto.nombre_producto }}
+                                   ID: {{ producto.id_producto }}
+                                   <br>
+                                  {{ producto.nombre_producto }}
                                 </div>
                                 <div class="col-md-1 col-xs-1 col-sm-1">
                                 {{ producto.tipo_producto }}
@@ -59,10 +54,10 @@
                                 <div class="col-md-2 col-xs-2 col-sm-2">
                                 {{ producto.marca_producto}}
                                 </div>
-                                <div class="col-md-2 col-xs-2 col-sm-2">
+                                <div class="col-md-3 col-xs-3 col-sm-3">
                                     {{ producto.precio_unitario_producto}}
                                 </div>
-                                <div class="col-md-1 col-xs-1 col-sm-1">
+                                <div class="col-md-2 col-xs-2 col-sm-2">
                                     {{ producto.stock_producto }}
                                 </div>
                         </div>                                                                  
