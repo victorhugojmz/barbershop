@@ -10,7 +10,7 @@
                         <form method="POST" action="{% url 'cita:book' %}" enctype="multipart/form-data"> {% csrf_token %}
                             {% include "account/form.template.html" %}
                         <div class="form-group">
-                            <button class="message" type="submit" value="Registrarme">
+                            <button class="btn btn-default" type="submit" value="Registrarme">
                                 Book a date
                             </button>
                         </div>
@@ -35,7 +35,9 @@
             });
        </script>
        <script>
+        console.log("Hello")
            var tour = new Tour({
+               storage : false,
                steps: [
                    {
                         element: ".nombre",
@@ -55,7 +57,12 @@
                     {
                         element: ".fecha",
                         title: "¿Cuándo nos vemos?",
-                        content: "Los 365 días del año para ti."
+                        content: "Escoge el día de tus cita, los 365 días del año para ti."
+                    },
+                    {
+                        element: ".hora",
+                        title: "¿A qué hora nos vemos?",
+                        content: "Escoge la hora del día de tu cita"
                     }
                ]});
            tour.init();

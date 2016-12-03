@@ -47,9 +47,16 @@ class CitaForm(forms.ModelForm):
                             attrs=
                                 {
                                     'placeholder' : 'Escoge una fecha',
-                                    'class':'form-control fecha datepicker '
+                                    'class':'form-control datepicker fecha'
                                 }))
-    hora_cita = forms.ChoiceField(choices=horas)
+    hora_cita = forms.ChoiceField(choices=horas,
+                    widget= forms.Select(
+                        attrs= 
+                        {
+                            'class': 'hora'
+                        }
+                    )
+                        )
     class Meta: 
         model = Cita
         fields = (
