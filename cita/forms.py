@@ -24,14 +24,14 @@ class CitaForm(forms.ModelForm):
     nombre_cliente = forms.CharField(
                      widget=forms.TextInput(
                                         attrs= {
-                                            'class':'form-control',
+                                            'class':'form-control nombre',
                                             'placeholder':'Nombre'
                                         })
                                     )
     telefono_cliente = forms.RegexField(
                                         widget = forms.TextInput(
                                             attrs = {
-                                            'class':'form-control',
+                                            'class':'form-control telefono',
                                             'placeholder':'Telefono'
                                             }),
                                         regex = r'^\+?1?\d{9,15}$',
@@ -39,7 +39,7 @@ class CitaForm(forms.ModelForm):
     direccion = forms.CharField(
                     widget=forms.TextInput(
                         attrs ={
-                                    'class':'form-control',
+                                    'class':'form-control direccion',
                                     'placeholder':'Direccion'
                                 }))
     fecha_cita = forms.DateField(
@@ -47,7 +47,7 @@ class CitaForm(forms.ModelForm):
                             attrs=
                                 {
                                     'placeholder' : 'Escoge una fecha',
-                                    'class':'form-control datepicker'
+                                    'class':'form-control fecha datepicker '
                                 }))
     hora_cita = forms.ChoiceField(choices=horas)
     class Meta: 

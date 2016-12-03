@@ -10,7 +10,7 @@
                         <form method="POST" action="{% url 'cita:book' %}" enctype="multipart/form-data"> {% csrf_token %}
                             {% include "account/form.template.html" %}
                         <div class="form-group">
-                            <button class="btn btn-default" type="submit" value="Registrarme">
+                            <button class="message" type="submit" value="Registrarme">
                                 Book a date
                             </button>
                         </div>
@@ -33,5 +33,32 @@
                 defaultDate: 0, 
                 });
             });
+       </script>
+       <script>
+           var tour = new Tour({
+               steps: [
+                   {
+                        element: ".nombre",
+                        title: "Ingresa tu nombre",
+                        content: "Ingresa tu nombre para identificarte como nuevo cliente"
+                    }, 
+                    {
+                        element: ".telefono",
+                        title: "Ingresa tu telefono",
+                        content: "Así podremos confirmar tu cita y enviarte promociones."
+                    },
+                    {
+                        element: ".direccion",
+                        title: "¿De dónde vienes?",
+                        content: "Nos encantaría saber de donde nos visitas"
+                    },
+                    {
+                        element: ".fecha",
+                        title: "¿Cuándo nos vemos?",
+                        content: "Los 365 días del año para ti."
+                    }
+               ]});
+           tour.init();
+           tour.start();
        </script>
 {% endblock  %}
