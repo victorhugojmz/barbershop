@@ -94,7 +94,11 @@ header p{
   margin: 0;
   padding: 10px 0;
   text-align: center;
-  width: calc(100% * (1/4) - 10px - 1px);
+}
+.img_grid {
+    width: 200px;
+    height: 400px;
+    overflow: hidden;
 }
 .main-header {
     background-image: url('barbershop.jpg');
