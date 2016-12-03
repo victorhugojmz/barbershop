@@ -24,7 +24,7 @@ from datetime import datetime
 from models import Cita
 
 
-def  index(request):
+def index(request):
     lista_de_citas_de_hoy  =  Cita.objects.filter(
                                         fecha_cita__year = datetime.now().year, 
                                         fecha_cita__month = datetime.now().month,
@@ -37,6 +37,12 @@ def  index(request):
 class DeleteCita(generic.DeleteView):
     model = Cita
     success_url  =  reverse_lazy('cita:index')
+def all_citas(request):
+    allcitas = Cita.objects.all()
+    context = {
+        "object_list": allcitas
+    }
+    return render (request,'cita_templates/cita.template.html',context)
 class UpdateCitaView(generic.UpdateView):
     model = Cita
     form_class = UpdateCitaForm
