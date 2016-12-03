@@ -3,6 +3,10 @@ body{
     background: black;
     color: white;
 }  
+label {
+    background: black;
+    color: black;
+} 
 header{
 	width: 100%;
     padding: 5%;

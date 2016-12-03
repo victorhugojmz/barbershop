@@ -6,11 +6,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-12">
-                        <h1>Actualización de la cita</h1>
+                        <h1>Actualización de la cita Número: {{ object.cita_id }}</h1>
                         <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
                             {% include "account/form.template.html" %}
                             <button class="btn btn-default" type="submit" value="Registrarme">
-                                Book a date
+                                Guardar Cambios
                             </button>
                         </form>
                  </div>
