@@ -5,15 +5,13 @@
 {% block body %}
     <div class="container">
         <div class="row">
-             <div class="col-md-6  col-sm-6  col-xs-12">
-                        <h1 style="text-align: center;">Visítanos creando una cita</h1>
+             <div class="col-md-6 col-md-offset-3 col-sm-6  col-xs-12">
+                        <h1 style="text-align: center;">Visítanos agendando una cita</h1>
                         <form method="POST" action="{% url 'cita:book' %}" enctype="multipart/form-data"> {% csrf_token %}
                             {% include "account/form.template.html" %}
-                        <div class="form-group">
-                            <button class="btn btn-default" type="submit" value="Registrarme">
-                                Book a date
+                            <button class="btn btn-default book" type="submit" value="Registrarme">
+                                Agendar Cita
                             </button>
-                        </div>
                          </form>
              </div>
         </div>

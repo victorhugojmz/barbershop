@@ -7,7 +7,9 @@
 {% block body %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-md-7">
+            <div class="col-sm-12 col-md-7 who">
+                     <h1>Administración del Producto</h1>
+                            <br><br>
                             <form  class="form form-horizontal"  method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
                                     {% include "index/form.template.html" %}
@@ -20,6 +22,11 @@
                                     </div>
                                 </div>
                             </form> 
+                            <form  action="{% url 'productos:index' %}">
+               <button class="btn btn-danger nuevo">                        
+                  <span class="glyphicon glyphicon-remove"></span>                                
+               </button>
+           </form>
             </div>
         </div>
     </div>

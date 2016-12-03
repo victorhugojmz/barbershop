@@ -4,7 +4,7 @@
 {% endblock %}
 {% block body %}
         <div class="container">
-            <div class="jumbotron">
+
                 <h2 style="text-align: center;"><strong>Detalles del usuario</strong></h2>
                 <h4><strong>Usuario: </strong> {{ request.user.username }}</h4>
                 <h4><strong>Nombre:  </strong>{{ request.user.first_name }}</h4>
@@ -20,6 +20,5 @@
                         Encargado
                     {% endif %}
                </h4>
-            </div>
         </div>
 {% endblock %}
