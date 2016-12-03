@@ -269,3 +269,16 @@ header p{
     height:  20vh;
     margin: 30px;
 }
+.map {
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#map {
+    width: 50vw;
+    height: 60vh;
+}
