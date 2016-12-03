@@ -13,6 +13,9 @@ label {
     background: black;
     color:white;
 } 
+input{
+    color: black;
+}
 header{
 	width: 100%;
     padding: 5%;
@@ -386,4 +389,12 @@ header p{
 .cancel {
     color:white; 
     text-decoration: none;
+}
+.print {
+    bottom: 30px;
+    right: 10vw;
+}
+.print:hover{
+    right: 10.5vw;
+    bottom: 32px;
 }

@@ -15,7 +15,7 @@ def genera_venta(request):
         if form.is_valid():
             venta = form.save(commit=False)
             venta.save()
-            return render(request, 'ventas/index.ventas.html', {})
+            return render(request,'ventas/index.ventas.html')
         context = {
             "form": form
         }

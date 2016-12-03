@@ -6,34 +6,53 @@
         <header>
             <h1>Registro de servicios</h1>
         </header>
-        <div class="container">
-            <div class="row">
-                    <form  action="{% url 'ventas:sale-create' %}">
+
+         <form  action="{% url 'ventas:sale-create' %}">
                         <button class="btn btn-danger nuevo">                        
                                 <span class="glyphicon glyphicon-plus"></span>                                
                         </button>
-                   </form>
-                    <div class="col-md-12 col-xs-12 col-sm-12">
-                                        <div class="table table-heading">
-                                                <th>id</th>
-                                                <th>Fecha Venta</th>
-                                                <th>Total Venta</th>    
-                                        </div>
+         </form>
+         <div class="container-fluid">
+                <div class="row">
+                        <div class="col-md-3 col-md-offset-9 col-sm-3 col-sm-offset-3 col-xs-6 col-xs-offset-6">
+                                <button class="btn btn-default">                        
+                                <a style="text-decoration:none; color:white;"href="/./account/user_reports">
+                                        <span class="glyphicon glyphicon-print"></span>
+                                        Reporte del mes                           
+                                </a>
+                                </button>    
+                        </div>    
+                </div>
+        </div>
+         </div>
+         <br>
+         <br>
+        <div class="container">
+            <div class="row">
+                                                <div class="col-md-3 col-xs-3 col-sm-3">id</div>
+                                                <div class="col-md-3 col-xs-3 col-sm-3">Fecha</div>
+                                                <div class="col-md-3 col-xs-3 col-sm-3">Barbero</div>
+                                                <div class="col-md-3 col-xs-3 col-sm-3">Total</div>
+            </div>
                                                 {% for venta in object_list %}
-                                                        <div>
-                                                                <div>
-                                                                {{ venta.id_venta }}
+
+                                                        <div class="row">
+                                                                <div  class="col-md-3 col-xs-3 col-sm-3">
+                                                                {{ venta.id_servicio }}
                                                                 </div>
-                                                                <div>
+                                                                <div  class="col-md-3 col-xs-3 col-sm-3">
                                                                 {{ venta.fecha_venta }}
                                                                 </div>
-                                                                <div>
+                                                                <div  class="col-md-3 col-xs-3 col-sm-3">
+                                                                 {{ venta.barbero }}
+                                                                </div>
+                                                                <div  class="col-md-3 col-xs-3 col-sm-3">
                                                                 $ {{ venta.total_venta }} MXN
                                                                 </div>
                                                         </div>
                                                 
                                                 {% endfor %}
-                    </div>
+         
              </div>
 {% endblock %}
 
