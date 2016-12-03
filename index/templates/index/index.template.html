@@ -31,7 +31,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a href="{% url 'index:zamacueca'  %}" class="navbar-brand">
-                            <img style="width: 80px; height=:auto;" src="/static/images/la-zamacueca-final.png" alt="Logo">
+                            <img style="width: 80px; height:auto;" src="/static/images/la-zamacueca-final.png" alt="Logo">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -117,13 +117,31 @@
                 </div>
             </nav>
             {% block body %}
-               <header>
-                   <h1>Bienvenido</h1>
-                   <div class="page-break1"></div> 
-                   <p>Somos una barberia que blah blah blah</p>
+               <header class="main-header">
+                   <img src="/static/images/la-zamacueca-final.png" alt="">
+                   <h1>La mejor barbería de la ciudad</h1>
                </header>
-               <div class="container-fluid">
+               <div class="page-break1"></div>
+               <div class="row_landing">
+                   <div class="row_landing_item who">
+                        <h2>¿Quiénes somos?</h2>
+                        <h4>
+                            Rescatamos el arte de las antiguas barberías y la experiencia que en ellas se vivía. conjuntamos tradiciones, servicios de altos estándares de calidad e higiene,
+                             y los mejores productos de grooming y shaving.
+                        <h4>
+                   </div>
                </div>
+               <div class="row_landing">
+                   <div class="row_landing_item">
+                       <h3>Afeitado</h3>
+                   </div>
+                   <div class="row_landing_item">
+                       <h3>Corte de Pelo</h3>
+                   </div>
+                   <div class="row_landing_item">
+                       <h3>Paquetes</h3>
+                   </div>
+               </div> 
             {% endblock %}
     <footer  class="foo">
         <div class="container-fluid">

@@ -1,3 +1,8 @@
+body{
+    height: 100%;
+    background: black;
+    color: white;
+}  
 header{
 	width: 100%;
     padding: 10%;
@@ -30,11 +35,11 @@ header p{
 }
 .page-break1
 {
-    width: 50%;
+    width: 10%;
     height: 6px;
-    background-color: black;
-    margin: 0 auto;
-    margin-top: 2%;
+    background-color: darkgoldenrod;
+    margin: auto;
+    margin-top: 5%;
     margin-bottom: 2%;
 }
 .product-break {
@@ -89,4 +94,27 @@ header p{
   padding: 10px 0;
   text-align: center;
   width: calc(100% * (1/4) - 10px - 1px);
+}
+.main-header {
+    background-image: url('barbershop.jpg');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.main-header img {
+    max-width: 60vw;
+    height: auto;
+}
+.who {
+    margin: 10px;
+    text-align: center;
+}
+.who h4 {
+    padding-left: 60px;
+    padding-right: 60px;
 }
