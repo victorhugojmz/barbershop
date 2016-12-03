@@ -9,6 +9,7 @@ from django.contrib.auth import (authenticate, login , get_user_model,logout)
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from .forms import UserLoginForm , UserRegistrationForm
+from cita.models import Cita
 #Login User View 
 def login_user(request):
         if not request.user.is_authenticated():
@@ -62,6 +63,7 @@ def register_user(request):
     return render(request, 'account/registration_form.html', context)
 #View that generates PDF reports
 def user_reports(request): 
+    query = Cita.objects.filter(fecha_cita__year='2016')
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment;filename=Reporte.pdf'
     buffer = BytesIO()
@@ -74,6 +76,8 @@ def user_reports(request):
     c.setFont('Helvetica',18)
     c.drawString(610,475,"Fecha: 26/11/2016")
     c.line(30,460,760,460)
+    for q in query:
+        c.drawString(100,300, str(q))
     c.showPage()
     c.save()
     pdf = buffer.getvalue()
