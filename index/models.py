@@ -50,3 +50,5 @@ class Servicio(models.Model):
     imagen_corte = models.CharField(
                         max_length = 200)
     precio_servicio =  models.DecimalField(max_digits=6,decimal_places=2)
+    def __str__(self):
+            return  self.nombre_servicio
