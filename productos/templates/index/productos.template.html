@@ -13,12 +13,12 @@
         {% endif %}
     </header>
     <div class="container-fluid">
-         <form  action="{% url 'productos:product-add' %}">
-                                    <button class="btn btn-success nuevo">                        
-                                        <span class="glyphicon glyphicon-plus"></span>                                
-                                    </button>
-                </form>
-        {% if request.user.is_authenticated %}
+    {% if request.user.is_authenticated %}
+           <form  action="{% url 'productos:product-add' %}">
+               <button class="btn btn-danger nuevo">                        
+                  <span class="glyphicon glyphicon-plus"></span>                                
+               </button>
+           </form>
            <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-xs-12">
                         <div class="who">
@@ -31,38 +31,26 @@
                     </div>
             </div>
             <br>
-                    <br>
-                        <div class="row">
-                                <div class="col-md-3 col-xs-3 col-sm-3">Producto</div>
-                                <div class="col-md-1 col-xs-1 col-sm-1">Tipo</div>
-                                <div class="col-md-2 col-xs-2 col-sm-2">Marca</div>
-                                <div class="col-md-3 col-xs-3 col-sm-3">Precio</div>
-                                <div class="col-md-2 col-xs-2 col-sm-2">Stock</div>
-                        </div>
+            
+                    <div class="row">
                     {% for producto in object_list %}
-                        <div class="row">
-                                <div class="col-md-3 col-xs-3 col-sm-3">
+                                <div class="col-md-4 col-xs-6 col-sm-4">
                                    <a href="{% url 'productos:detail' producto.id_producto %}"> 
                                     <img class="img img-responsive" src="{{ producto.imagen_producto.url }}" alt="">
                                    </a>
-                                   ID: {{ producto.id_producto }}
+                                   <strong>ID Producto:</strong> {{ producto.id_producto }}
                                    <br>
-                                  {{ producto.nombre_producto }}
+                                   <strong>Nombre: </strong> {{ producto.nombre_producto }} <br>
+                                    <strong>Tipo: </strong>{{ producto.tipo_producto }}<br>
+                                   <strong>Marca: </strong>{{ producto.marca_producto}}<br>
+                                   <strong>Precio: </strong><span>$</span>{{ producto.precio_unitario_producto}} MXN<br>
+                                   <div class="stock-info">
+                                    {{ producto.stock_producto }} Productos en Stock<br>
+                                   </div>
                                 </div>
-                                <div class="col-md-1 col-xs-1 col-sm-1">
-                                {{ producto.tipo_producto }}
-                                </div>
-                                <div class="col-md-2 col-xs-2 col-sm-2">
-                                {{ producto.marca_producto}}
-                                </div>
-                                <div class="col-md-3 col-xs-3 col-sm-3">
-                                    {{ producto.precio_unitario_producto}}
-                                </div>
-                                <div class="col-md-2 col-xs-2 col-sm-2">
-                                    {{ producto.stock_producto }}
-                                </div>
-                        </div>                                                                  
+                                                                                        
                     {% endfor %}
+                    </div>  
                         
                      {% if not object_list %}
                         <div class="row">
@@ -76,7 +64,15 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                                             <a href="{% url 'productos:detail' producto.id_producto %}"><img src="{{ producto.imagen_producto.url }}" alt="" class="img-responsive"></a>
                                             <h3>{{ producto.nombre_producto }}</h3>
-                                            <h4>{{ producto.marca_producto }}</h4>
+                                            <h4>
+                                             {% if  producto.marca_producto == 'MAL' %}
+                                                    Malo
+                                             {% elif  producto.marca_producto == 'SUA' %}
+                                                    Suavecito
+                                             {% else $}
+                                                    Wrong
+                                             {% endif %}
+                                            </h4>
                                             <p>MXN ${{ producto.precio_unitario_producto }}.00</p>                          
                      </div>
                 {% endfor %}

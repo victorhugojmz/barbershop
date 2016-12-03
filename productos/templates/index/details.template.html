@@ -9,8 +9,16 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <strong><h1>{{ producto.nombre_producto }}</h1></strong>
                 <div class="product-break"></div>
-                <h2>{{ producto.marca_producto }}</h2>
-                <h3> MXN $ {{ producto.precio_unitario_producto }}.00</h3>
+                <h2>
+                     {% if  producto.marca_producto == 'MAL' %}
+                            Malo
+                     {% elif  producto.marca_producto == 'SUA' %}
+                            Suavecito
+                     {% else $}
+                            Wrong
+                     {% endif %}
+                </h2>
+                <h3> MXN $ {{ producto.precio_unitario_producto }}</h3>
                 <h4>Descripción: </h4>
                 <p>{{ producto.descripcion_producto }}</p>
                 <div class="stock-info"><strong>{{ producto.stock_producto }}<strong> Ejemplares en stock.</div>                                        
