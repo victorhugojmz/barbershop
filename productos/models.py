@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
+from index.models import Barbero
 # Create your models here.
 class Producto(models.Model):
     id_producto = models.AutoField(
@@ -25,3 +26,9 @@ class Producto(models.Model):
     imagen_producto = models.FileField()
     def get_absolute_url(self):
         return reverse('index:detail', kwargs={'pk': self.pk })
+    
+class Salida(models.Model):
+    producto = models.ForeignKey(Producto)
+    barbero = models.ForeignKey(Barbero)
+    cantidad = models.IntegerField(default=0, blank=False, null=False)
+    concepto = models.CharField(max_length=10, blank=False, null=False)
