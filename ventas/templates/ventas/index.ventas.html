@@ -29,24 +29,28 @@
          <br>
         <div class="container">
             <div class="row">
-                                                <div class="col-md-3 col-xs-3 col-sm-3">id</div>
+                                                <div class="col-md-2 col-xs-2 col-sm-2">id</div>
                                                 <div class="col-md-3 col-xs-3 col-sm-3">Fecha</div>
+                                                <div class="col-md-2 col-sm-2 col-xs-2">Servicio</div>
                                                 <div class="col-md-3 col-xs-3 col-sm-3">Barbero</div>
-                                                <div class="col-md-3 col-xs-3 col-sm-3">Total</div>
+                                                <div class="col-md-2 col-xs-2 col-sm-2">Total</div>
             </div>
                                                 {% for venta in object_list %}
 
                                                         <div class="row">
-                                                                <div  class="col-md-3 col-xs-3 col-sm-3">
+                                                                <div  class="col-md-2 col-xs-2 col-sm-2">
                                                                 {{ venta.id_servicio }}
                                                                 </div>
-                                                                <div  class="col-md-3 col-xs-3 col-sm-3">
+                                                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                {{ venta.servicio }}
+                                                                </div>
+                                                                <div  class="col-md-2 col-xs-2 col-sm-2">
                                                                 {{ venta.fecha_venta }}
                                                                 </div>
                                                                 <div  class="col-md-3 col-xs-3 col-sm-3">
                                                                  {{ venta.barbero }}
                                                                 </div>
-                                                                <div  class="col-md-3 col-xs-3 col-sm-3">
+                                                                <div  class="col-md-2 col-xs-2 col-sm-2">
                                                                 $ {{ venta.total_venta }} MXN
                                                                 </div>
                                                         </div>
