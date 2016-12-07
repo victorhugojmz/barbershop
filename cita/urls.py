@@ -2,7 +2,6 @@ from django.conf.urls import include , url
 from rest_framework.urlpatterns import format_suffix_patterns
 from django.contrib.auth.decorators import login_required
 from . import views
-
 app_name= 'cita'
 urlpatterns = [
     #/urls para cita app
