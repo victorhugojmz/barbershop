@@ -7,15 +7,26 @@
     <div class="container">
         <div class="row">
                         <div>
-                           <button  class="btn-default">
-                                <span class="glyphicon glyphicon-"></span>
-                                <a style="text-decoration:none; color:white;" href="citas/all">Todas las citas</a>
-                            </button>
-                         </form>
+                          <button  class="btn btn-default">
+                                <span class="glyphicon glyphicon-list"></span>
+                                <a style="text-decoration:none; color:white;" href="/citas/">Citas de Hoy</a>
+                          </button>
+                          <button  class="btn btn-default">
+                                <span class="glyphicon glyphicon-list"></span>
+                                <a style="text-decoration:none; color:white;" href="./citas/tomorrow">Citas Mañana</a>
+                          </button>
+                           <button  class="btn btn-default">
+                                <span class="glyphicon glyphicon-list"></span>
+                                <a style="text-decoration:none; color:white;" href="/citas/month">Citas de este mes</a>
+                          </button>
+                          <button  class="btn btn-default">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                <a style="text-decoration:none; color:white;" href="./citas/all">Todas las citas</a>
+                           </button>
                         </div>
         </div>
         <div class="row">
-                <h2>Citas del día de hoy</h2>
+                <h2 style="text-align: center;">Lista de citas</h2>
                                 <div class="col-md-1 col-sm-1 col-xs-1">
                                     <strong>Id</strong>
                                 </div>
@@ -63,8 +74,9 @@
         {% endfor %}
         <div class="row">
               {% if not object_list %}
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <h5>No hay citas para mostrar</h5>
-              {% else %}
+                </div>
               {% endif %}
         </div>
     </div>

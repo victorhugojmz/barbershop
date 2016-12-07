@@ -7,6 +7,8 @@ urlpatterns = [
     #/urls para cita app
     url(r'^$', login_required(views.index) , name='index'), #index for each individual apply
     url(r'all/$',login_required(views.all_citas), name='all-citas'),
+    url(r'tomorrow/$',login_required(views.tomorrow),name='tomorrow'),
+    url(r'month/$',login_required(views.month),name='month'),
     url(r'nueva/$', views.book , name='book'),
     url(r'editar/(?P<pk>[0-9]+)/$', login_required(views.UpdateCitaView.as_view()), name='update-cita'),
     url(r'eliminar/(?P<pk>[0-9]+)/$', login_required(views.DeleteCita.as_view()), name='delete-cita'),
