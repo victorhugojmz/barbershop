@@ -22,6 +22,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import F
 def  IndexView(request):
       form  = SalidaForm(request.POST or None)
+      queryset_list = Producto.objects.all()
+      context = {
+                    "object_list": queryset_list,
+                    "form": form
+      }
       if request.method == 'POST':
         form = SalidaForm(request.POST or None)
         if form.is_valid():
@@ -32,10 +37,6 @@ def  IndexView(request):
               producto_object.stock_producto = F('stock_producto') - cantidad
               print(producto_object.stock_producto)
               producto_object.save()
-              queryset_list = Producto.objects.all()
-              context = {
-                    "object_list": queryset_list
-              }
               return render(request,"index/productos.template.html",context)
       elif request.method == 'GET':
             queryset_list = Producto.objects.all()
@@ -43,16 +44,12 @@ def  IndexView(request):
             if query: 
                   queryset_list  = queryset_list.filter(nombre_producto__icontains = query)
             context = {
-                  "object_list" : queryset_list,
-                  "form":form
+                    "object_list": queryset_list,
+                    "form": form
             }
             return render(request,"index/productos.template.html",context)
       else:
-           context = {
-                  "object_list" : queryset_list,
-                  "form":form
-            }
-      return render(request,"index/productos.template.html",context)
+            return render(request,"index/productos.template.html",context)
 
       #template_name = 'index/productos.template.html'
 def   salidaView(request):
