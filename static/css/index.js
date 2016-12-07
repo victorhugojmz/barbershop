@@ -1,9 +1,13 @@
+var form = document.getElementById("salidaform");
+         showForm function ( )
+         form.style.display = 'none';
 var map;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 19.3513955, lng: -99.1504914},
     zoom: 16
-  });
+    }
+  );
   var icon = {
         url : 'static/images/calavera-final.ico',
         scaledSize: new google.maps.Size(90, 90),

@@ -61,6 +61,9 @@
                                    <div class="stock-info">
                                     {{ producto.stock_producto }} Productos en Stock<br>
                                    </div>
+                                   <button class="btn btn-info" onclick="DisplayForm()">
+                                       Salida
+                                   </button>
                                 </div>
                                                                                         
                     {% endfor %}
@@ -93,7 +96,16 @@
         {% endif %}
      </div>
      <script>
-         var form = document.getElementById("salidaform");
-         form.style.display = 'none';
+            show = false; 
+            function DisplayForm( ){
+                        var form = document.getElementById("salidaform");
+                        show = !show
+                        if(this.show){
+                            form.style.display = 'block';
+                        }
+                        else {
+                            form.style.display = 'none';
+                        }  
+            }   
      </script>            
 {% endblock  %}
