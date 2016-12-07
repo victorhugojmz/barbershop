@@ -95,6 +95,10 @@ header p{
 }
 .row_landing_item {
     display: inline-block;
+     -webkit-flex-direction: row;
+   flex-direction: row;
+   -webkit-flex-wrap: wrap;
+   flex-wrap: wrap;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
