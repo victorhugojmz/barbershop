@@ -12,6 +12,7 @@
             
         {% endif %}
     </header>
+    <div id="hola">putos</div>
 <div id="salidaform">
      <div class="container">
             <div class="row">
@@ -96,6 +97,8 @@
         {% endif %}
      </div>
      <script>
+          var greeting = document.getElementById("hola").innerHTML;
+          console.log(greeting)
             show = false; 
             function DisplayForm( ){
                         var form = document.getElementById("salidaform");
