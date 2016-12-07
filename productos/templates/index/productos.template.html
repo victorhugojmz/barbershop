@@ -12,6 +12,20 @@
             
         {% endif %}
     </header>
+<div id="salidaform">
+     <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-12">
+                        <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                            {% include "account/form.template.html" %}
+                            <button class="btn btn-default" type="submit" value="Guardar">
+                                Guardar
+                            </button>
+                        </form>
+                 </div>
+            </div>
+        </div>
+</div>
     <div class="container-fluid">
     {% if request.user.is_authenticated %}
            <form  action="{% url 'productos:product-add' %}">
@@ -77,5 +91,9 @@
                      </div>
                 {% endfor %}
         {% endif %}
-     </div>            
+     </div>
+     <script>
+         var form = document.getElementById("salidaform");
+         form.style.display = none;
+     </script>            
 {% endblock  %}

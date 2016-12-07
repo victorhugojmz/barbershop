@@ -19,7 +19,7 @@ class Producto(models.Model):
                                 max_digits=6, 
                                 decimal_places=2
                                 )
-    stock_producto = models.IntegerField(
+    stock_producto = models.PositiveIntegerField(
                                 default=0
                                 )
     descripcion_producto = models.TextField()

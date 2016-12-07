@@ -79,7 +79,7 @@ class CreateProductForm(forms.ModelForm):
                             attrs={
                                 'class':'btn btn-success'
                             })
-        }
+        } 
 class SalidaForm(forms.ModelForm):
     class Meta:
         model = Salida
