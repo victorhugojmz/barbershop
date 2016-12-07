@@ -30,5 +30,9 @@ class Producto(models.Model):
 class Salida(models.Model):
     producto = models.ForeignKey(Producto)
     barbero = models.ForeignKey(Barbero)
-    cantidad = models.IntegerField(default=0, blank=False, null=False)
+    cantidad = models.IntegerField(
+                default=0, 
+                blank=False, 
+                null=False
+                )
     concepto = models.CharField(max_length=10, blank=False, null=False)

@@ -28,6 +28,8 @@ def  IndexView(request):
       }
       return render(request,"index/productos.template.html",context)
       #template_name = 'index/productos.template.html'
+def  salidaView(request):
+      return render(request,"index/salida.form.html",{})
 class DetailView(generic.DetailView):
       model = Producto
       template_name = 'index/details.template.html'
