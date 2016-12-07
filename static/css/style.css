@@ -409,3 +409,38 @@ header p{
     right: 10.5vw;
     bottom: 32px;
 }
+a.selected {
+  z-index:100;
+}
+
+.messagepop {
+  background-color:black;
+  border:1px solid #999999;
+  cursor:default;
+  display:none;
+  top: 50%;
+  left: 50%; 
+  -webkit-transform: translate(-50%, -50%);
+   -moz-transform: translate(-50%, -50%); 
+   -ms-transform: translate(-50%, -50%); 
+   -o-transform: translate(-50%, -50%); 
+   transform: translate(-50%, -50%); 
+  margin-top: 15px;
+  position:fixed;
+  text-align:left;
+  width:70vw;
+  height: 60vh;
+  z-index:50;
+  padding: 25px 25px 20px;
+}
+label {
+  display: block;
+  margin-bottom: 3px;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+.messagepop p, .messagepop.div {
+  border-bottom: 1px solid #EFEFEF;
+  margin: 8px 0;
+  padding-bottom: 8px;
+}

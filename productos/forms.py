@@ -15,7 +15,7 @@ tipos = {
 class UpdateProductForm(forms.ModelForm):
      class Meta:
         model = Producto
-        fields  = ('nombre_producto' , 'tipo_producto' , 'precio_unitario_producto', 'stock_producto', 'descripcion_producto')
+        fields  = ('nombre_producto' , 'tipo_producto' , 'precio_unitario_producto', 'stock_producto', 'descripcion_producto','imagen_producto')
         widgets = { 
             'nombre_producto': forms.TextInput(
                             attrs={
@@ -36,7 +36,12 @@ class UpdateProductForm(forms.ModelForm):
                             attrs={
                                 'class':'form-control',
                                 'placeholder': 'Descripcion del producto'
-                                })
+                                }),
+            'imagen_producto': forms.FileInput(
+                            attrs= {
+                                'class': 'form-control'
+                            }
+            )
         }
 class CreateProductForm(forms.ModelForm):
      class Meta:

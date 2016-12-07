@@ -12,16 +12,13 @@
             
         {% endif %}
     </header>
-    <div id="hola">putos</div>
-<div id="salidaform">
+<div class="messagepop pop">
      <div class="container">
             <div class="row">
-                <div class="col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-12">
+                <div class="col-md-6 col-sm-6 col-xs-12">
                         <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
                             {% include "account/form.template.html" %}
-                            <button class="btn btn-default" type="submit" value="Guardar">
-                                Guardar
-                            </button>
+                            <input type="submit" class="btn btn-default" value="Guardar"></input>
                         </form>
                  </div>
             </div>
@@ -62,8 +59,8 @@
                                    <div class="stock-info">
                                     {{ producto.stock_producto }} Productos en Stock<br>
                                    </div>
-                                   <button class="btn btn-info" onclick="DisplayForm()">
-                                       Salida
+                                   <button class="btn btn-info">
+                                       <a id="contact">Salida</a>
                                    </button>
                                 </div>
                                                                                         
@@ -97,18 +94,30 @@
         {% endif %}
      </div>
      <script>
-          var greeting = document.getElementById("hola").innerHTML;
-          console.log(greeting)
-            show = false; 
-            function DisplayForm( ){
-                        var form = document.getElementById("salidaform");
-                        show = !show
-                        if(this.show){
-                            form.style.display = 'block';
-                        }
-                        else {
-                            form.style.display = 'none';
-                        }  
-            }   
-     </script>            
+         function deselect(e) {
+  $('.pop').slideFadeToggle(function() {
+    e.removeClass('selected');
+  });    
+    }
+    $(function() {
+    $('#contact').on('click', function() {
+        if($(this).hasClass('selected')) {
+        deselect($(this));               
+        } else {
+        $(this).addClass('selected');
+        $('.pop').slideFadeToggle();
+        }
+        return false;
+    });
+
+    $('.close').on('click', function() {
+        deselect($('#contact'));
+        return false;
+    });
+    });
+
+    $.fn.slideFadeToggle = function(easing, callback) {
+    return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+    };
+     </script>
 {% endblock  %}
