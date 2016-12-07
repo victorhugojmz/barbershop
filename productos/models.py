@@ -28,6 +28,7 @@ class Producto(models.Model):
         return reverse('index:detail', kwargs={'pk': self.pk })
 class Salida(models.Model):
     barbero = models.ForeignKey(Barbero)
+    id_producto = models.IntegerField()
     cantidad = models.IntegerField(
                 default=0, 
                 blank=False, 

@@ -83,4 +83,4 @@ class CreateProductForm(forms.ModelForm):
 class SalidaForm(forms.ModelForm):
     class Meta:
         model = Salida
-        fields = ('barbero','cantidad','concepto')
+        fields = ('barbero','id_producto','cantidad','concepto')
