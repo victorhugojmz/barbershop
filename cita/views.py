@@ -49,8 +49,7 @@ class UpdateCitaView(generic.UpdateView):
     success_url  =  reverse_lazy('cita:index')
 def book(request):
     form = CitaForm(request.POST or None)
-    context = {
-        
+    context = { 
           "form": form 
     }
     if request.method == 'POST':

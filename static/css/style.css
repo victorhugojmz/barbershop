@@ -85,11 +85,12 @@ header p{
     color: white; 
 }
 .row_landing{
+    position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   margin-top:20;
 }
 .row_landing_item {
@@ -101,12 +102,18 @@ header p{
   -webkit-flex-shrink: 1;
       -ms-flex-negative: 1;
           flex-shrink: 1;
-  -webkit-flex-basis: 0;
+  -webkit-flex-basis: 25%;
       -ms-flex-preferred-size: 0;
-          flex-basis: 0;
+          flex-basis: 25%;
   margin: 0;
   padding: 10px 0;
   text-align: center;
+
+}
+.flex-img {
+         -webkit-flex-basis: 25%;
+      -ms-flex-preferred-size: 4;
+          flex-basis: 25%;
 }
 .img_grid {
     width: 200px;

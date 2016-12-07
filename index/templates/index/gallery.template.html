@@ -7,9 +7,9 @@
                         <div class="page-break1"></div> 
                         <h2>Algunos de nuestros clientes satisfechos con nuestros servicios ; cortes , afeitado, tratamiento y blah blah.</h2>
                 </header>
-                <div class="row_landing">                       
+                <div class="row_landing flex_img">                       
                         {% for imagen in object_list %}
-                                <div class="row_landing_item">
+                                <div class="row_landing_item flex-img">
                                         <figure>
                                                 <img src="{{ imagen.imagen.url }}" draggable="false" alt="{{ imagen.descripcion }}" class="img-responsive">                                
                                         </figure>
