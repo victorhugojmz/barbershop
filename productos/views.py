@@ -31,6 +31,9 @@ def  IndexView(request):
       #template_name = 'index/productos.template.html'
 def   salidaView(request):
       form  = SalidaForm(request.POST or None)
+      context = {
+            "form": form 
+      } 
       template_name = 'index/salida.form.html''
 class DetailView(generic.DetailView):
       model = Producto

@@ -82,4 +82,5 @@ class CreateProductForm(forms.ModelForm):
         }
 class SalidaForm(forms.ModelForm):
     class Meta:
-        model = 
+        model = Salida
+        fields = ('producto','barbero','cantidad','concepto')
