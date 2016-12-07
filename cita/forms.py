@@ -55,8 +55,7 @@ class CitaForm(forms.ModelForm):
                         {
                             'class': 'hora'
                         }
-                    )
-                        )
+                    ))
     class Meta: 
         model = Cita
         fields = (

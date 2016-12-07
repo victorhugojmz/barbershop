@@ -27,7 +27,6 @@ class Producto(models.Model):
     def get_absolute_url(self):
         return reverse('index:detail', kwargs={'pk': self.pk })
 class Salida(models.Model):
-    producto = models.ForeignKey(Producto)
     barbero = models.ForeignKey(Barbero)
     cantidad = models.IntegerField(
                 default=0, 
