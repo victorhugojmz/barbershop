@@ -23,7 +23,6 @@
     <body>
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
-                    
                     <div class="navbar-header">
                         <button class="navbar-toggle" data-toggle="collapse" data-target="#TopNavBar">
                             <span class="icon-bar"></span>
@@ -34,7 +33,7 @@
                             <img style="width: 80px; height:auto;" src="/static/images/la-zamacueca-final.png" alt="Logo">
                         </a>
                     </div>
-                    <div class="collapse navbar-collapse">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             {% if request.user.is_authenticated %}
                                     <ul class="nav navbar-nav">   
                                         <li class="">
