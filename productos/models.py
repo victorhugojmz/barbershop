@@ -26,7 +26,6 @@ class Producto(models.Model):
     imagen_producto = models.FileField()
     def get_absolute_url(self):
         return reverse('index:detail', kwargs={'pk': self.pk })
-    
 class Salida(models.Model):
     producto = models.ForeignKey(Producto)
     barbero = models.ForeignKey(Barbero)

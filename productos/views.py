@@ -15,7 +15,8 @@ from django.template import loader
 from .models import Producto
 from .forms import (  
                     UpdateProductForm,
-                    CreateProductForm
+                    CreateProductForm,
+                    SalidaForm
                    )
 from django.contrib.auth.mixins import LoginRequiredMixin
 def  IndexView(request):
@@ -28,8 +29,9 @@ def  IndexView(request):
       }
       return render(request,"index/productos.template.html",context)
       #template_name = 'index/productos.template.html'
-def  salidaView(request):
-      return render(request,"index/salida.form.html",{})
+def   salidaView(request):
+      form  = SalidaForm(request.POST or None)
+      template_name = 'index/salida.form.html''
 class DetailView(generic.DetailView):
       model = Producto
       template_name = 'index/details.template.html'

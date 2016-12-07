@@ -1,5 +1,5 @@
 from django import forms
-from models import Producto
+from models import Producto , Salida
 marcas = (
             ("SUA","Suavecito"),
             ("MAL","Malo"),
@@ -80,3 +80,6 @@ class CreateProductForm(forms.ModelForm):
                                 'class':'btn btn-success'
                             })
         }
+class SalidaForm(forms.ModelForm):
+    class Meta:
+        model = 
