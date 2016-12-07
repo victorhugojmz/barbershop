@@ -39,12 +39,12 @@ header p{
     text-align: center;
  }
 ::selection{
-  background-color:#000000;
-  color:#FFFFFF;
+  background-color:#FFFFFF;
+  color:#000000;
 }
 ::-moz-selection{
-  background-color:#000000 ;
-  color: #FFFFFF;
+  background-color:#FFFFFF;
+  color:#000000;
 }
 .page-break1
 {
