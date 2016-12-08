@@ -118,6 +118,7 @@ header p{
          -webkit-flex-basis: 25%;
       -ms-flex-preferred-size: 4;
           flex-basis: 25%;
+          margin-top:25px;
 }
 .img_grid {
     width: 200px;
