@@ -89,3 +89,20 @@ class SalidaForm(forms.ModelForm):
     class Meta:
         model = Salida
         fields = ('barbero','id_producto','cantidad','concepto')
+        widgets = { 
+            'id_producto': forms.NumberInput(
+                            attrs= 
+                            {
+                                'class': 'form-control'
+                            }),
+            'cantidad' : forms.NumberInput(
+                            attrs={
+                                'class':'form-control',
+                                'placeholder': 'Cantidad de Productos' 
+                                }),
+            'concepto' :  forms.TextInput(
+                            attrs={
+                                'class':'form-control',
+                                'placeholder': 'Concepto de la salida'
+                                })
+        } 

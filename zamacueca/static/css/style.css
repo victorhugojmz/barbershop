@@ -25,10 +25,6 @@ header{
 header p{
   margin: 0 auto;
 }
-a {
-    color:white;
-    text-decoration: none;
-} 
 .foo {
     width: 100%;
     height: auto; 
@@ -422,7 +418,7 @@ a.selected {
   background-color:black;
   border: none ;
   width: 50vw;
-  height: auto;
+  height: 50vh;
   cursor:pointer;
   display:none;
   top: 50%;
@@ -458,11 +454,4 @@ label {
     box-sizing : border-box;
     display: flex;
     flex-direction: column;
-}
-.form-wrapper {
-     width: 100vw;
-}
-.contact { 
-    color: white;
-    text-decoration: none;
 }
