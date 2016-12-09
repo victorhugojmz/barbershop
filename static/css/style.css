@@ -420,10 +420,10 @@ a.selected {
 
 .messagepop {
   background-color:black;
-  border: none ;
-  width: 50vw;
+  border: 3px solid white;
+  width: 60vw;
   height: auto;
-  cursor:pointer;
+  cursor: default;
   display:none;
   top: 50%;
   left: 50%; 
@@ -433,7 +433,7 @@ a.selected {
   -o-transform: translate(-50%, -50%); 
   transform: translate(-50%, -50%); 
   position:fixed;
-  text-align:center;
+  text-align:left;
   z-index:50;
   padding: 25px;
   padding-bottom: 30px;
@@ -445,22 +445,25 @@ label {
   text-indent: -15px;
 }
 .messagepop p, .messagepop.div {
-  border: none;
   padding:25px;
 }
 .messagepop h3 {
     text-align: center;
 }
+.messagepop input {
+    margin-bottom: 15px;
+    background: black;
+    color:white;
+}
 .messagepop button {
     position:absolute;
     float: left;
     bottom:0;
+    margin-top: 30%;
     box-sizing : border-box;
     display: flex;
     flex-direction: column;
-}
-.form-wrapper {
-     width: 100vw;
+    align-items: center;
 }
 .contact { 
     color: white;
