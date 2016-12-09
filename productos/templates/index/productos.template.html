@@ -13,17 +13,17 @@
         {% endif %}
     </header>
      <div class="messagepop pop">
-                                        <div class="container">
-                                                <div class="row">
-                                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
-                                                                {% include "account/form.template.html" %}
-                                                                <input type="submit" class="btn btn-default" value="Guardar"></input>
-                                                            </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </div>
+          <div class="container">
+                <div class="row">
+                       <div class="col-md-6 col-sm-6 col-xs-12">
+                            <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                                   {% include "account/form.template.html" %}
+                                   <input type="submit" class="btn btn-default" value="Guardar"></input>
+                            </form>
+                        </div>
+                </div>
+           </div>
+    </div>
     <div class="container">
     {% if request.user.is_authenticated %}
            <form  action="{% url 'productos:product-add' %}">
