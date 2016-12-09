@@ -9,11 +9,9 @@
                 </header>
                 <div class="row_landing flex_img">                       
                         {% for imagen in object_list %}
-                                <div class="row_landing_item flex-img">
-                                        <figure>
-                                                <img src="{{ imagen.imagen.url }}" draggable="false" alt="{{ imagen.descripcion }}" class="img-responsive">                                
-                                        </figure>
-                                </div>
+                                <figure class="row_landing_item flex-img">
+                                  <img src="{{ imagen.imagen.url }}" draggable="false" alt="{{ imagen.descripcion }}" class="img-responsive">                                
+                                </figure>
                         {% endfor %}
                 </div>
 {% endblock %}
