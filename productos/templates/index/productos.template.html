@@ -15,9 +15,9 @@
      <div class="messagepop pop">
                     <h3>Registrar Salida</h3> 
                        <div class="form-wrapper">
+                           <strong>Id:</strong> <p class="this_id"></p>
                             <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
                                    {% include "account/form.template.html" %}
-                                   <br>
                                    <br>
                                    <br>
                                    <button type="submit" class="btn btn-default">Guardar</button>
@@ -50,7 +50,7 @@
                                    <a href="{% url 'productos:detail' producto.id_producto %}"> 
                                     <img class="img img-responsive" src="{{ producto.imagen_producto.url }}" alt="">
                                    </a>
-                                   <strong>ID Producto:</strong> {{ producto.id_producto }}
+                                   <strong>ID Producto:</strong> <p class="id_producto">{{ producto.id_producto }}</p>
                                    <br>
                                    <strong>Nombre: </strong> {{ producto.nombre_producto }} <br>
                                     <strong>Tipo: </strong>{{ producto.tipo_producto }}<br>
@@ -60,7 +60,7 @@
                                     {{ producto.stock_producto }} Productos en Stock<br>
                                    </div>
                                    <button class="btn btn-info">
-                                       <a class="contact" id="contact">Salida</a>
+                                       <a class="contact" id="{{ producto.id_producto }}">Salida</a>
                                    </button>
                                 </div>
                                                            
@@ -105,14 +105,16 @@
         if($(e.target).hasClass('selected')) {
         deselect($(e.target));               
         } else {
-        $(this).addClass('selected');
-        $('.pop').slideFadeToggle();
+            var id_pro = $('.id_producto').html();
+            $('.this_id').html(id_pro);
+            $(this).addClass('selected');
+            $('.pop').slideFadeToggle();
         }
         return false;
     });
 
     $('.close').on('click', function() {
-        deselect($('#contact'));
+        deselect($('.contact'));
         return false;
     });
     });
