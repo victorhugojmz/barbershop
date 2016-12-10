@@ -76,9 +76,14 @@ def book(request):
             telefono_cliente = form.cleaned_data['telefono_cliente']
             direccion = form.cleaned_data['direccion']
             fecha_cita = form.cleaned_data['fecha_cita']
+            cliente = {
+                "cliente":  nombre_cliente,
+                "fecha_cita": fecha_cita,
+                "telefono":  telefono_cliente
+            }
             cita = form.save(commit=False)
             cita.save()
-            return HttpResponseRedirect('/')
+            return render(request,'cita_templates/thx.html',cliente)
     else:    
         form = CitaForm(request.POST or None)
         context = {

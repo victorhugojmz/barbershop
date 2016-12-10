@@ -449,12 +449,16 @@ label {
 }
 .messagepop h3 {
     text-align: center;
-}
+}    
 .messagepop input,select {
     margin-bottom: 15px;
     background: black;
     color:white;
 }
+.messagepop input:focus ,select:focus {
+    border: 1px solid darkgoldenrod; 
+}
+
 .messagepop button {
     position:relative;
     float: left;
