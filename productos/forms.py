@@ -93,7 +93,8 @@ class SalidaForm(forms.ModelForm):
             'id_producto': forms.NumberInput(
                             attrs= 
                             {
-                                'class': 'form-control'
+                                'class': 'form-control',
+                                'placeholder': 'Confirma Id del producto'
                             }),
             'cantidad' : forms.NumberInput(
                             attrs={
