@@ -1,8 +1,11 @@
 {% extends 'index/index.template.html' %}
 {% block title %} <title>Gracias por tu cita</title>{% endblock  %}
 {% block body %}
-    <h1>Muchas gracias por tu preferencia </h1>
-    <h2>Felicidades {{ cliente}} tu cita para {{ fecha_cita }} en nuestra sucursal Coyoacán
-     fue agendada exitosamente</h2>
-     {{ id }}
+    <div class="container">
+         <h1 style="text-align: center;">Muchas gracias por tu preferencia </h1>
+         <h2 style="text-align:center;">Felicidades <strong>{{ cliente}}</strong>
+            tu cita para <strong> {{ fecha_cita }} </strong> en nuestra sucursal Coyoacán
+            fue agendada exitosamente.</h2>
+        <a href="/" class="btn btn-danger">Seguir visitando el sitio</a>
+    </div>
 {% endblock %}
