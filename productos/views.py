@@ -20,6 +20,7 @@ from .forms import (
                    )
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import F
+from django.http import HttpResponseRedirect
 def  IndexView(request):
       form  = SalidaForm(request.POST or None)
       queryset_list = Producto.objects.all()
@@ -65,8 +66,11 @@ def   salidaView(request):
               cantidad = form.cleaned_data['cantidad']
               producto_object = Producto.objects.get(pk=id_producto)
               producto_object.stock_producto = F('stock_producto') - cantidad
-              print(producto_object.stock_producto)
               producto_object.save()
+              salida = form.save(commit=False)
+              salida.save()
+              form = SalidaForm()
+              return HttpResponseRedirect('/productos/')
       else:    
         form = SalidaForm(request.POST or None)
         context = {
