@@ -1,5 +1,5 @@
 from django import forms
-from models import Producto , Salida
+from models import Producto , Salida, Entrada
 marcas = (
             ("SUA","Suavecito"),
             ("MAL","Malo"),
@@ -107,3 +107,7 @@ class SalidaForm(forms.ModelForm):
                                 'placeholder': 'Concepto de la salida'
                                 })
         } 
+class EntradaForm(forms.ModelForm):
+    class Meta:
+        model = Entrada
+        fields = '__all__'

@@ -16,7 +16,8 @@ from .models import Producto
 from .forms import (  
                     UpdateProductForm,
                     CreateProductForm,
-                    SalidaForm
+                    SalidaForm,
+                    EntradaForm
                    )
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import F
@@ -54,10 +55,13 @@ def  IndexView(request):
       #template_name = 'index/productos.template.html'
 def   salidaView(request):
       form  = SalidaForm(request.POST or None)
+      eform = EntradaForm(request.POST or None)
       context = {
-            "form": form 
+            "form": form, 
+            "eform": eform
       }
       if request.method == 'POST':
+        eform =  EntradaForm(request.POST or None)
         form = SalidaForm(request.POST or None)
         if form.is_valid():
               barbero = form.cleaned_data['barbero']
@@ -72,8 +76,10 @@ def   salidaView(request):
               return HttpResponseRedirect('/productos/')
       else:    
         form = SalidaForm(request.POST or None)
+        eform = EntradaForm(request.POST or None)
         context = {
-          "form": form 
+          "form": form,
+          "eform": eform
         }
       return render(request,'index/salida.form.html',context)
 class DetailView(generic.DetailView):

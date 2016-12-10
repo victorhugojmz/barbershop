@@ -34,4 +34,32 @@ class Salida(models.Model):
                 blank=False, 
                 null=False
                 )
-    concepto = models.CharField(max_length=10, blank=False, null=False)
+    concepto = models.CharField(
+                max_length=10, 
+                blank=False, 
+                null=False
+                )
+    fecha_operacion  = models.DateTimeField( 
+                        auto_now=False,
+                        auto_now_add= True,
+                        blank=True, 
+                        null=True 
+                        )
+class Entrada(models.Model):
+    id_producto = models.IntegerField(
+                        default = 0,
+                        blank=False,
+                        null=False
+                        )  
+    cantidad = models.IntegerField(
+                        default = 0,
+                        blank=False,
+                        null=False
+                        )
+    fecha_operacion = models.DateTimeField(
+                        auto_now=False,
+                        auto_now_add= True,
+                        blank=True, 
+                        null=True 
+                        )
+    
