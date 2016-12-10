@@ -21,7 +21,9 @@ class Galeria(models.Model):
 class Barbero(models.Model):
     id_barbero = models.AutoField(primary_key=True)
     nombre_barbero  = models.CharField(
-                        max_length = 60
+                        max_length = 60,
+                        blank = False,
+                        null = False
                         )
     cuenta_twitter_barbero = models.CharField(
                         max_length = 30,
@@ -34,7 +36,9 @@ class Barbero(models.Model):
                         null=True
                         )
     descripcion_barbero =  models.TextField(
-                        max_length = 350
+                        max_length = 350,
+                        blank=False, 
+                        null=False
                         )
     fotografia_barbero = models.FileField()
     def __unicode__(self):
@@ -42,6 +46,8 @@ class Barbero(models.Model):
 class Servicio(models.Model): 
     nombre_servicio  = models.CharField(
                         max_length = 30,
+                        blank=False, 
+                        null=False,
                         default="Corte de pelo"
                         )
     tipo_servicio   = models.CharField(
@@ -49,6 +55,9 @@ class Servicio(models.Model):
                         )
     imagen_corte = models.CharField(
                         max_length = 200)
-    precio_servicio =  models.DecimalField(max_digits=6,decimal_places=2)
+    precio_servicio =  models.DecimalField(
+                                    max_digits=6,
+                                    decimal_places=2
+                                    )
     def __str__(self):
             return  self.nombre_servicio

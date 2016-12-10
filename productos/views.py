@@ -36,7 +36,6 @@ def  IndexView(request):
               cantidad = form.cleaned_data['cantidad']
               producto_object = Producto.objects.get(pk=id_producto)
               producto_object.stock_producto = F('stock_producto') - cantidad
-              print(producto_object.stock_producto)
               producto_object.save()
               return render(request,"index/productos.template.html",context)
       elif request.method == 'GET':
@@ -77,7 +76,6 @@ def   salidaView(request):
           "form": form 
         }
       return render(request,'index/salida.form.html',context)
-
 class DetailView(generic.DetailView):
       model = Producto
       template_name = 'index/details.template.html'

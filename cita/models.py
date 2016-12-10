@@ -6,7 +6,9 @@ class Cita(models.Model):
                         primary_key= True
                         )
     fecha_cita = models.DateField(
-                        'Fecha'
+                        'Fecha',
+                        blank=False, 
+                        null=False,
                         )
     fecha_creacion_cita = models.DateTimeField(
                         auto_now=False,
@@ -31,7 +33,8 @@ class Cita(models.Model):
                         )
     hora_cita = models.TimeField(
                         'Hora',
-                        blank=False
+                        blank=False,
+                        null = False,
                         )
     def __str__(self):
         return self.nombre_cliente 
