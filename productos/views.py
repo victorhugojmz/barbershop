@@ -48,7 +48,8 @@ def  IndexView(request):
                   queryset_list  = queryset_list.filter(nombre_producto__icontains = query)
             context = {
                     "object_list": queryset_list,
-                    "form": form
+                    "form": form,
+                    "fe": FormularioDeEntrada
             }
             return render(request,"index/productos.template.html",context)
       else:
@@ -57,8 +58,8 @@ def  IndexView(request):
       #template_name = 'index/productos.template.html'
 def entradaView(request):
       if request.method == 'GET':
-            formulario = EntradaForm()
-      return render(request,'index/productos.template.html',{'salida': formulario })
+            formulario = EntradaForm(request.GET)
+      return render(request,'index/productos.template.html',{'entrada': formulario })
 class DetailView(generic.DetailView):
       model = Producto
       template_name = 'index/details.template.html'
