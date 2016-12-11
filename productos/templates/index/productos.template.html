@@ -3,6 +3,13 @@
 {% block body %}
     <header>
         {% if request.user.is_authenticated %}
+                 <div>
+                    <h3>Registrar Entrada</h3> 
+                            <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                                   {{ salida.as_p }}
+                                   <button type="submit"  name="add" class="btn btn-default">Guardar Cambios</button>
+                            </form>
+                 </div>
                
                 <h1>Administración de productos</h1>
         {% else %}
@@ -15,8 +22,8 @@
      <div class="messagepop pop">
                     <h3>Registrar Salida</h3> 
                             <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
-                                   {% include "account/form.template.html" %}
-                                   <button type="submit" class="btn btn-default">Guardar Cambios</button>
+                                   {{ form.as_p }}
+                                   <button type="submit" name="substract" class="btn btn-default">Guardar Cambios</button>
                             </form>
     </div>
     <div class="container">
@@ -87,13 +94,6 @@
                      </div>
                 {% endfor %}
         {% endif %}
-           <div>
-                    <h3>Registrar Entrada</h3> 
-                            <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
-                                   {{ eform }}
-                                   <button type="submit"  name="add" class="btn btn-default">Guardar Cambios</button>
-                            </form>
-            </div>
      </div>
      <script>
          function deselect(e) {

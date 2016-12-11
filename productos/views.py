@@ -56,14 +56,9 @@ def  IndexView(request):
 
       #template_name = 'index/productos.template.html'
 def entradaView(request):
-      FormularioDeEntrada = EntradaForm(request.POST or None)
-      context = {
-            "eform": FormularioDeEntrada
-      }
-      if request.method  == 'POST':
-            eform = FormularioDeEntrada(request.POST or None)
-            
-      return render(request,'index/productos.template.html',context)
+      if request.method == 'GET':
+            formulario = EntradaForm()
+      return render(request,'index/productos.template.html',{'salida': formulario })
 class DetailView(generic.DetailView):
       model = Producto
       template_name = 'index/details.template.html'

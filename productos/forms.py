@@ -110,4 +110,4 @@ class SalidaForm(forms.ModelForm):
 class EntradaForm(forms.ModelForm):
     class Meta:
         model = Entrada
-        fields = '__all__'
+        fields = ('id_producto','cantidad')
