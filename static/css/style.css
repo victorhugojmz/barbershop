@@ -13,8 +13,12 @@ label {
     background: black;
     color:white;
 } 
-input{
-    color: black;
+input, select{
+    background: black;
+    color:white; 
+}
+input:focus , select:focus {
+    border: 1px solid darkgoldenrod;
 }
 header{
 	width: 100%;

@@ -87,6 +87,13 @@
                      </div>
                 {% endfor %}
         {% endif %}
+           <div>
+                    <h3>Registrar Entrada</h3> 
+                            <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                                   {{ eform }}
+                                   <button type="submit"  name="add" class="btn btn-default">Guardar Cambios</button>
+                            </form>
+            </div>
      </div>
      <script>
          function deselect(e) {

@@ -24,10 +24,12 @@ from django.db.models import F
 from django.http import HttpResponseRedirect
 def  IndexView(request):
       form  = SalidaForm(request.POST or None)
+      FormularioDeEntrada = EntradaForm(request.POST or None)
       queryset_list = Producto.objects.all()
       context = {
                     "object_list": queryset_list,
-                    "form": form
+                    "form": form,
+                    "fe": FormularioDeEntrada
       }
       if request.method == 'POST':
         form = SalidaForm(request.POST or None)
@@ -53,35 +55,15 @@ def  IndexView(request):
             return render(request,"index/productos.template.html",context)
 
       #template_name = 'index/productos.template.html'
-def   salidaView(request):
-      form  = SalidaForm(request.POST or None)
-      eform = EntradaForm(request.POST or None)
+def entradaView(request):
+      FormularioDeEntrada = EntradaForm(request.POST or None)
       context = {
-            "form": form, 
-            "eform": eform
+            "eform": FormularioDeEntrada
       }
-      if request.method == 'POST':
-        eform =  EntradaForm(request.POST or None)
-        form = SalidaForm(request.POST or None)
-        if form.is_valid():
-              barbero = form.cleaned_data['barbero']
-              id_producto = form.cleaned_data['id_producto']
-              cantidad = form.cleaned_data['cantidad']
-              producto_object = Producto.objects.get(pk=id_producto)
-              producto_object.stock_producto = F('stock_producto') - cantidad
-              producto_object.save()
-              salida = form.save(commit=False)
-              salida.save()
-              form = SalidaForm()
-              return HttpResponseRedirect('/productos/')
-      else:    
-        form = SalidaForm(request.POST or None)
-        eform = EntradaForm(request.POST or None)
-        context = {
-          "form": form,
-          "eform": eform
-        }
-      return render(request,'index/salida.form.html',context)
+      if request.method  == 'POST':
+            eform = FormularioDeEntrada(request.POST or None)
+            
+      return render(request,'index/productos.template.html',context)
 class DetailView(generic.DetailView):
       model = Producto
       template_name = 'index/details.template.html'
