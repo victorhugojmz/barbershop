@@ -45,6 +45,17 @@ class Salida(models.Model):
                         blank=True, 
                         null=True 
                         )
+class Proveedor(models.Model):
+    nombre = models.CharField(
+                        max_length = 70,
+                        blank= False,
+                         null=True)
+    telefono = models.CharField(
+        max_length= 15
+        )
+    email = models.CharField(
+        max_length =20
+        )
 class Entrada(models.Model):
     id_producto = models.IntegerField(
                         default = 0,
@@ -61,5 +72,6 @@ class Entrada(models.Model):
                         auto_now_add= True,
                         blank=True, 
                         null=True 
-                        )
-    
+                        )   
+                                                         
+    proveedor = models.ForeignKey(Proveedor)
