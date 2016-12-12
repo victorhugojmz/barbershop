@@ -102,8 +102,9 @@ def user_reports(request):
         c.line(linea,altura_inicial-10,linea_final,altura_inicial-10)
         altura_inicial -=30
         suma += int(q.total_venta) 
-        comisiones += int(comision) 
-    c.drawString(30,altura_inicial-20,"Ganancias Netas " + "$" + str(suma-comisiones)+ "MXN")
+        comisiones += int(comision)
+    c.setFont('Helvetica-Bold',20) 
+    c.drawString(30,altura_inicial-20," Total Servicios " + " $  " + str(suma-comisiones)+ "MXN")
     c.showPage()
     c.save()
     pdf = buffer.getvalue()
