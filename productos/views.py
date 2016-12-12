@@ -58,7 +58,7 @@ def  IndexView(request):
                         producto_object.save()
                         entrada = form2.save(commit=False)
                         entrada.save()
-                        return HttpResponseRedirect('productos/salidas/historial/')
+                        return HttpResponseRedirect('productos/entradas/historial/')
       elif request.method == 'GET':
             queryset_list = Producto.objects.all()
             query = request.GET.get("q")

@@ -24,6 +24,8 @@ class Producto(models.Model):
     imagen_producto = models.FileField()
     def get_absolute_url(self):
         return reverse('index:detail', kwargs={'pk': self.pk })
+    def __str__(self):
+        return self.nombre_producto
 class Salida(models.Model):
     barbero = models.ForeignKey(Barbero)
     id_producto = models.IntegerField()
@@ -67,6 +69,7 @@ class Entrada(models.Model):
                         blank=False,
                         null=False
                         )
+    producto = models.ForeignKey(Producto)
     fecha_operacion = models.DateTimeField(
                         auto_now=False,
                         auto_now_add= True,
