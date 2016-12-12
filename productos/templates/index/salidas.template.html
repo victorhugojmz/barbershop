@@ -2,9 +2,9 @@
 {% block title %} <title>Salidas</title>{% endblock  %}
 {% block body %}
     <div class="container">
+        <h1>Registro de salidas</h1>
         <div class="row">
-        {% for salidas in salida %}
-                <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="col-md-1 col-sm-1 col-xs-1">
                         <p><strong>Id</strong></p>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-3">
@@ -13,18 +13,16 @@
                     <div class="col-md-3 col-sm-3 col-xs-3">
                         <p><strong>Producto</strong></p>
                     </div>
-                    <div class="col-md-3 col-sm-3 col-xs-3">
+                    <div class="col-md-2 col-sm-2 col-xs-2">
                         <p><strong>Cantidad</strong></p>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-3">
                         <p><strong>Concepto</strong></p>
                     </div>
-        {% endfor %}
          </div>
-        <h1>Hello</h1>
          <div class="row">
-        {% for salidas in salida %}
-                <div class="col-md-3 col-sm-3 col-xs-3">
+        {% for salida in salidas %}
+                <div class="col-md-1 col-sm-1 col-xs-1">
                         <p>{{ salida.id }}</p>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-3">
@@ -33,7 +31,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-3">
                         <p>{{ salida.id_producto }}</p>
                     </div>
-                    <div class="col-md-3 col-sm-3 col-xs-3">
+                    <div class="col-md-2 col-sm-2 col-xs-2">
                         <p>{{ salida.cantidad }}</p>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-3">

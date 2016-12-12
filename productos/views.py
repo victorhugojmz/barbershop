@@ -59,7 +59,7 @@ def  IndexView(request):
             return render(request,"index/productos.template.html",context)
 def SalidasView(request):
       salidas_queryset = Salida.objects.all()
-      return render(request,"index/salidas.template.html",{"salidas": salidas_queryset})
+      return render(request,"index/salidas.template.html", { "salidas" : salidas_queryset})
       #template_name = 'index/productos.template.html' 
 class DetailView(generic.DetailView):
       model = Producto

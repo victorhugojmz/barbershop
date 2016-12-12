@@ -90,7 +90,6 @@ def book(request):
           "form": form 
         }
     return render(request, 'cita_templates/cita_form.html',context)
-    
 class ListaDeCitas(APIView):
     def get(self , request):
         citas  =  Cita.objects.all()
