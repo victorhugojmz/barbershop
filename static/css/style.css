@@ -503,7 +503,7 @@ label {
     text-align: center;
 }    
 .salir input,select {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     background: black;
     color:white;
 }

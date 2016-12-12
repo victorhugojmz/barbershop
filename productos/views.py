@@ -42,10 +42,13 @@ def  IndexView(request):
                         cantidad = form.cleaned_data['cantidad']
                         producto_object = Producto.objects.get(pk=id_producto)
                         producto_object.stock_producto = F('stock_producto') - cantidad
-                        producto_object.save()
-                        salida = form.save(commit=False)
-                        salida.save()
-                        return HttpResponseRedirect('productos/salidas/historial/')
+                        if cantidad > producto_object.stock_producto:
+                              return HttpResponse('<h1> bbgbg gd h  hd </h1>')
+                        else:
+                              producto_object.save()
+                              salida = form.save(commit=False)
+                              salida.save()
+                              return HttpResponseRedirect('productos/salidas/historial/')
             elif 'entrada' in request.POST:
                   form2 = EntradaForm(request.POST or None)
                   if form2.is_valid():
