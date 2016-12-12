@@ -41,6 +41,8 @@ def  IndexView(request):
               producto_object = Producto.objects.get(pk=id_producto)
               producto_object.stock_producto = F('stock_producto') - cantidad
               producto_object.save()
+              salida = form.save(commit=False)
+              salida.save()
               return render(request,"index/productos.template.html",context)
       elif request.method == 'GET':
             queryset_list = Producto.objects.all()
@@ -57,10 +59,7 @@ def  IndexView(request):
             return render(request,"index/productos.template.html",context)
 def SalidasView(request):
       salidas_queryset = Salida.objects.all()
-      context = {
-            "salidas": salidas_queryset
-      }
-      return render(request,"index/salidas.template.html",context)
+      return render(request,"index/salidas.template.html",{"salidas": salidas_queryset})
       #template_name = 'index/productos.template.html' 
 class DetailView(generic.DetailView):
       model = Producto

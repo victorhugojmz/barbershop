@@ -1,5 +1,45 @@
 {% extends 'index/index.template.html' %}
-{% block title %} <title>Zamacueca - Productos</title>{% endblock  %}
+{% block title %} <title>Salidas</title>{% endblock  %}
 {% block body %}
-Hello
+    <div class="container">
+        <div class="row">
+        {% for salidas in salida %}
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                        <p><strong>Id</strong></p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <p><strong>Barbero</strong></p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <p><strong>Producto</strong></p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <p><strong>Cantidad</strong></p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <p><strong>Concepto</strong></p>
+                    </div>
+        {% endfor %}
+         </div>
+        <h1>Hello</h1>
+         <div class="row">
+        {% for salidas in salida %}
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                        <p>{{ salida.id }}</p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <p>{{ salida.barbero }}</p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <p>{{ salida.id_producto }}</p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <p>{{ salida.cantidad }}</p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <p>{{ salida.concepto }}</p>
+                    </div>
+        {% endfor %}
+         </div>
+    </div>
 {% endblock%}
