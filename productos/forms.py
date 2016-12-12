@@ -110,4 +110,4 @@ class SalidaForm(forms.ModelForm):
 class EntradaForm(forms.ModelForm):
     class Meta:
         model = Entrada
-        fields = ('id_producto','cantidad')
+        fields = ('id_producto','cantidad','proveedor')

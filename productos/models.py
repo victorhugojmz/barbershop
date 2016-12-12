@@ -56,6 +56,8 @@ class Proveedor(models.Model):
     email = models.CharField(
         max_length =20
         )
+    def __str__(self):
+            return  self.nombre
 class Entrada(models.Model):
     id_producto = models.IntegerField(
                         default = 0,
@@ -72,6 +74,5 @@ class Entrada(models.Model):
                         auto_now_add= True,
                         blank=True, 
                         null=True 
-                        )   
-                                                         
+                        )                                  
     proveedor = models.ForeignKey(Proveedor)

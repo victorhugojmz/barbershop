@@ -34,16 +34,28 @@ def  IndexView(request):
       if request.method == 'POST':
         form = SalidaForm(request.POST or None)
         FormularioDeEntrada = EntradaForm(request.POST or None)
-        if form.is_valid():
-              barbero = form.cleaned_data['barbero']
-              id_producto = form.cleaned_data['id_producto']
-              cantidad = form.cleaned_data['cantidad']
-              producto_object = Producto.objects.get(pk=id_producto)
-              producto_object.stock_producto = F('stock_producto') - cantidad
-              producto_object.save()
-              salida = form.save(commit=False)
-              salida.save()
-              return render(request,"index/salidas.template.html")
+        if 'salida' in request.POST:
+               if form.is_valid():
+                  barbero = form.cleaned_data['barbero']
+                  id_producto = form.cleaned_data['id_producto']
+                  cantidad = form.cleaned_data['cantidad']
+                  producto_object = Producto.objects.get(pk=id_producto)
+                  producto_object.stock_producto = F('stock_producto') - cantidad
+                  producto_object.save()
+                  salida = form.save(commit=False)
+                  salida.save()
+                  return render(request,"index/salidas.template.html")
+        elif 'entrada' in request.POST:
+              if FormularioDeEntrada.is_valid():
+                    id_producto = form.cleaned_data['id_producto']
+                    cantidad = form.cleaned_data['cantidad']
+                    proveedor = form.cleaned_data['proveedor']
+                    producto_object = Producto.objects.get(pk=id_producto)
+                    producto_object.stock_producto = F('stock_producto') + cantidad
+                    producto_object.save()
+                    entrada = form.save(commit=False)
+                    entrada.save()
+                    return render(request,"index/salidas.template.html")
       elif request.method == 'GET':
             queryset_list = Producto.objects.all()
             query = request.GET.get("q")
