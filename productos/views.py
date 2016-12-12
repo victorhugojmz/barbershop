@@ -33,7 +33,7 @@ def  IndexView(request):
       }
       if request.method == 'POST':
         form = SalidaForm(request.POST or None)
-        eform = EntradaForm(request.POST or None)
+        FormularioDeEntrada = EntradaForm(request.POST or None)
         if form.is_valid():
               barbero = form.cleaned_data['barbero']
               id_producto = form.cleaned_data['id_producto']
@@ -56,11 +56,7 @@ def  IndexView(request):
       else:
             return render(request,"index/productos.template.html",context)
 
-      #template_name = 'index/productos.template.html'
-def entradaView(request):
-      if request.method == 'GET':
-            formulario = EntradaForm(request.GET)
-      return render(request,'index/productos.template.html',{'entrada': formulario })
+      #template_name = 'index/productos.template.html' 
 class DetailView(generic.DetailView):
       model = Producto
       template_name = 'index/details.template.html'
