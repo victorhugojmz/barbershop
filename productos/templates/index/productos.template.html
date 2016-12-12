@@ -5,10 +5,10 @@
         {% if request.user.is_authenticated %}
                  <div>
                     <h3>Registrar Entrada</h3> 
-                            <form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
-                                   {{ fe.as_p }}
-                                   <button type="submit"  name="{{ fe.prefix }}" class="btn btn-default">Guardar Cambios</button>
-                            </form>
+                        <form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
+                          {{ fe.as_p }}
+                          <button type="submit"  name="{{ fe.prefix }}" class="btn btn-default">Guardar Cambios</button>
+                        </form>
                  </div>
                
                 <h1>Administración de productos</h1>
@@ -63,6 +63,9 @@
                                    </div>
                                    <button class="btn btn-info">
                                        <a class="contact">Salida</a>
+                                   </button>
+                                   <button class="btn btn-info">
+                                       <a class="contact">Entrada</a>
                                    </button>
                                 </div>
                                                            
