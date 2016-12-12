@@ -111,3 +111,20 @@ class EntradaForm(forms.ModelForm):
     class Meta:
         model = Entrada
         fields = ('id_producto','cantidad','proveedor')
+        widgets = { 
+            'id_producto': forms.NumberInput(
+                            attrs= 
+                            {
+                                'class': 'form-control',
+                                'placeholder': 'Confirma Id del producto'
+                            }),
+            'cantidad' : forms.NumberInput(
+                            attrs={
+                                'class':'form-control',
+                                'placeholder': 'Cantidad de Productos' 
+                                }),
+            'proveedor' :  forms.Select(
+                            attrs={
+                                'class':'form-control'
+                                })
+        } 

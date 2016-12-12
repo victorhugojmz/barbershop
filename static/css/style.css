@@ -476,3 +476,46 @@ label {
     color: white;
     text-decoration: none;
 }
+.salir {
+  background-color:black;
+  border: 1px solid darkgoldenrod;
+  width: 60vw;
+  height: auto;
+  cursor: default;
+  display:none;
+  top: 50%;
+  left: 50%; 
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%); 
+  -ms-transform: translate(-50%, -50%); 
+  -o-transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%); 
+  position:fixed;
+  text-align:left;
+  z-index:50;
+  padding: 25px;
+  padding-bottom: 30px;
+}
+.salir p, .salir.div {
+  padding:25px;
+}
+.salir h3 {
+    text-align: center;
+}    
+.salir input,select {
+    margin-bottom: 15px;
+    background: black;
+    color:white;
+}
+.salir input:focus ,select:focus {
+    border: 1px solid darkgoldenrod; 
+}
+.salir button {
+    position:relative;
+    float: left;
+    bottom:10px;
+    box-sizing : border-box;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}

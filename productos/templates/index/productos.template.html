@@ -3,14 +3,6 @@
 {% block body %}
     <header>
         {% if request.user.is_authenticated %}
-                 <div>
-                    <h3>Registrar Entrada</h3> 
-                        <form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
-                          {{ fe.as_p }}
-                          <button type="submit"  name="entrada" class="btn btn-default">Guardar Cambios</button>
-                        </form>
-                 </div>
-               
                 <h1>Administración de productos</h1>
         {% else %}
                 <h1>Productos</h1> 
@@ -26,6 +18,13 @@
                                    <button type="submit" name="salida" class="btn btn-default">Guardar Cambios</button>
                             </form>
     </div>
+     <div class="salir popup">
+                    <h3>Registrar Entrada</h3> 
+                        <form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
+                          {{ fe.as_p }}
+                          <button type="submit"  name="entrada" class="btn btn-default">Guardar Cambios</button>
+                        </form>
+                 </div>
     <div class="container">
     {% if request.user.is_authenticated %}
            <form  action="{% url 'productos:product-add' %}">
@@ -65,7 +64,7 @@
                                        <a class="contact">Salida</a>
                                    </button>
                                    <button class="btn btn-info">
-                                       <a class="contact">Entrada</a>
+                                       <a class="entrada">Entrada</a>
                                    </button>
                                 </div>
                                                            
@@ -98,6 +97,32 @@
                 {% endfor %}
         {% endif %}
      </div>
+     <script>
+          function deseleccionar(e) {
+            $('.popup').slideFade(function() {
+                e.removeClass('selected');
+            });    
+            }
+        $(function() {
+        $('.entrada').on('click', function(e) {
+            e.preventDefault();
+            if($(e.target).hasClass('selected')) {
+            deseleccionar($(e.target));               
+            } else {
+                $(this).addClass('selected');
+                $('.popup').slideFade();
+            }
+            return false;
+        }); 
+        $('.close').on('click', function() {
+            deseleccionar($('.entrada'));
+            return false;
+        });
+        }); 
+        $.fn.slideFade = function(easing, callback) {
+        return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+        };
+     </script>
      <script>
          function deselect(e) {
             $('.pop').slideFadeToggle(function() {

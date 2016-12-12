@@ -19,9 +19,7 @@ class Producto(models.Model):
                                 max_digits=6, 
                                 decimal_places=2
                                 )
-    stock_producto = models.PositiveIntegerField(
-                                default=0
-                                )
+    stock_producto = models.PositiveIntegerField()
     descripcion_producto = models.TextField()
     imagen_producto = models.FileField()
     def get_absolute_url(self):

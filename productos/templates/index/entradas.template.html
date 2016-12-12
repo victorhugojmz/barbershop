@@ -1,0 +1,36 @@
+{% extends 'index/index.template.html' %}
+{% block title %} <title>Zamacueca - Productos</title>{% endblock  %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <strong>Id</strong>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <strong>Cantidad</strong>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <strong>Proveedor</strong>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <strong>Fecha de Operacion</strong>
+            </div>
+        </div>
+        <div class="row">
+           {% for entrada in entradas %}
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    {{ entrada.id }}
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    {{ entrada.cantidad }}
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    {{ entrada.fecha_operacion }}
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    {{ entrada.proveedor }}
+                </div>
+           {% endfor %} 
+        </div>
+    </div>
+{% endblock %}
