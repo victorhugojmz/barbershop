@@ -33,6 +33,7 @@ def  IndexView(request):
       }
       if request.method == 'POST':
         form = SalidaForm(request.POST or None)
+        eform = EntradaForm(request.POST or None)
         if form.is_valid():
               barbero = form.cleaned_data['barbero']
               id_producto = form.cleaned_data['id_producto']
