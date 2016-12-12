@@ -12,7 +12,7 @@ from django.views.generic.edit import (
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.template import loader
-from .models import Producto
+from .models import Producto , Salida
 from .forms import (  
                     UpdateProductForm,
                     CreateProductForm,
@@ -55,7 +55,12 @@ def  IndexView(request):
             return render(request,"index/productos.template.html",context)
       else:
             return render(request,"index/productos.template.html",context)
-
+def SalidasView(request):
+      salidas_queryset = Salida.objects.all()
+      context = {
+            "salidas": salidas_queryset
+      }
+      return render(request,"index/salidas.template.html",context)
       #template_name = 'index/productos.template.html' 
 class DetailView(generic.DetailView):
       model = Producto
