@@ -57,9 +57,18 @@
                                     <strong>Tipo: </strong>{{ producto.tipo_producto }}<br>
                                    <strong>Marca: </strong>{{ producto.marca_producto}}<br>
                                    <strong>Precio: </strong><span>$</span>{{ producto.precio_unitario_producto}} MXN<br>
-                                   <div class="stock-info">
-                                    {{ producto.stock_producto }} Productos en Stock<br>
-                                   </div>
+                                       {% if   producto.stock_producto  < 5 %}
+                                            <div class="alert alert-danger">
+                                                Tienes un Stock de {{ producto.stock_producto }} productos 
+                                                <p>
+                                                    Te recordamos que cuentas con pocos productos, te recomendamos contactar al proveedor del producto para pedir mas.
+                                                </p>
+                                            </div>
+                                       {% else %}
+                                             <div class="stock-info">
+                                                 {{ producto.stock_producto }} Productos en Stock<br>
+                                            </div>
+                                       {% endif %}
                                    <button class="btn btn-info">
                                        <a class="contact">Salida</a>
                                    </button>
