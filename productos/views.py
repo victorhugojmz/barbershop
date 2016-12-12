@@ -22,6 +22,7 @@ from .forms import (
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import F
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 def  IndexView(request):
       form  = SalidaForm(request.POST or None)
       form2 = EntradaForm(request.POST or None)
@@ -42,13 +43,10 @@ def  IndexView(request):
                         cantidad = form.cleaned_data['cantidad']
                         producto_object = Producto.objects.get(pk=id_producto)
                         producto_object.stock_producto = F('stock_producto') - cantidad
-                        if cantidad > producto_object.stock_producto:
-                              return HttpResponse('<h1> bbgbg gd h  hd </h1>')
-                        else:
-                              producto_object.save()
-                              salida = form.save(commit=False)
-                              salida.save()
-                              return HttpResponseRedirect('productos/salidas/historial/')
+                        producto_object.save()
+                        salida = form.save(commit=False)
+                        salida.save()
+                        return HttpResponseRedirect('productos/salidas/historial/')
             elif 'entrada' in request.POST:
                   form2 = EntradaForm(request.POST or None)
                   if form2.is_valid():
