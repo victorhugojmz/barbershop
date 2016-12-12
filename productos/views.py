@@ -43,7 +43,7 @@ def  IndexView(request):
               producto_object.save()
               salida = form.save(commit=False)
               salida.save()
-              return render(request,"index/productos.template.html",context)
+              return render(request,"index/salidas.template.html")
       elif request.method == 'GET':
             queryset_list = Producto.objects.all()
             query = request.GET.get("q")
