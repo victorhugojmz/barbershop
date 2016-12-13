@@ -69,7 +69,6 @@ class Entrada(models.Model):
                         blank=False,
                         null=False
                         )
-    producto = models.ForeignKey(Producto)
     fecha_operacion = models.DateTimeField(
                         auto_now=False,
                         auto_now_add= True,
